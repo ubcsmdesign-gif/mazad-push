@@ -499,6 +499,175 @@
             </div>
         </section>
 
+        <!-- ===== "ÜLKELER ARASINDA KÖPRÜ" VİZYON KONSEPTİ SECTION ===== -->
+        <section class="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-24 py-16 relative z-10 reveal" id="trade-bridge-section">
+            
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 mb-4 px-5 py-2 rounded-full border border-amber-400/40 bg-gradient-to-r from-orange-500/20 to-amber-500/10 text-amber-300 text-xs font-mono uppercase tracking-widest shadow-[0_0_20px_rgba(249,115,22,0.3)]">
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping"></span>
+                    Stratejik Vizyon &mdash; Ali Bey'in Köprü Konsepti
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-black mb-6 text-white leading-tight">
+                    Sınırları Aşan <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-amber-300 to-orange-500">Dijital Ticaret Köprüsü</span>
+                </h2>
+                <p class="text-white/70 max-w-3xl mx-auto text-sm sm:text-base leading-relaxed">
+                    Mazad yalnızca farklı ülkelerde faaliyet gösteren bir şirket değildir; <strong class="text-white">Türkiye, Irak, Körfez ve Kuzey Afrika</strong> arasındaki ticareti, lojistiği, finansal ödeme hatlarını, üreticileri ve tüketicileri <strong class="text-brand-orange">tek bir ortak çatı altında birleştiren canlı bir köprüdür.</strong>
+                </p>
+            </div>
+
+            <!-- Visual Holographic Bridge Interactive Stage -->
+            <div class="relative w-full rounded-[40px] bg-gradient-to-b from-[#070c22]/95 via-[#030617] to-[#080d24] border-2 border-brand-orange/50 p-6 sm:p-12 shadow-[0_0_120px_rgba(249,115,22,0.25)] overflow-hidden backdrop-blur-2xl">
+                <!-- Ambient Glow Background Orbs -->
+                <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-brand-orange/20 rounded-full blur-[120px] pointer-events-none animate-pulse"></div>
+
+                <!-- Central Glowing Mazad Umbrella Roof Emblem -->
+                <div class="relative z-20 flex flex-col items-center text-center mb-10">
+                    <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-tr from-brand-orange to-amber-400 p-1 flex items-center justify-center mb-4 shadow-[0_0_80px_rgba(249,115,22,0.9)] animate-bounce">
+                        <span class="absolute inset-[-14px] rounded-3xl border border-brand-orange/40 animate-ping"></span>
+                        <div class="w-full h-full bg-[#020617] rounded-[24px] flex items-center justify-center p-3">
+                            <svg class="w-14 h-14 fill-white drop-shadow-[0_0_15px_rgba(255,255,255,0.8)]" viewBox="0 0 100 100">
+                                <path d="M50 12 C28 12 12 28 12 50 C12 72 28 88 50 88 L78 88 C83 88 88 83 88 78 L88 50 C88 28 72 12 50 12 Z M50 32 C62 32 68 40 68 50 L68 68 L50 68 C38 68 32 58 32 50 C32 40 38 32 50 32 Z" fill="#ffffff" />
+                            </svg>
+                        </div>
+                    </div>
+                    <span class="px-4 py-1.5 rounded-full bg-brand-orange/20 border border-brand-orange/50 text-white font-mono font-extrabold text-xs tracking-[0.2em] uppercase">
+                        MAZAD UNIFIED ROOF & KÖPRÜ ÇEKİRDEĞİ
+                    </span>
+                </div>
+
+                <!-- SVG Interactive Laser Arc Bridge Graphic -->
+                <div class="relative w-full aspect-[21/9] min-h-[360px] max-h-[480px] flex items-center justify-center mb-10 overflow-hidden rounded-3xl bg-[#020617]/80 border border-white/10">
+                    <svg id="interactive-bridge-svg" class="w-full h-full object-contain filter drop-shadow-[0_0_25px_rgba(249,115,22,0.4)]" viewBox="0 0 120 500" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="bridgeArcGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#f97316" stop-opacity="0.2" />
+                                <stop offset="50%" stop-color="#fbbf24" stop-opacity="1" />
+                                <stop offset="100%" stop-color="#f97316" stop-opacity="0.2" />
+                            </linearGradient>
+                            <filter id="bridgeGlow">
+                                <feGaussianBlur stdDeviation="8" result="blur" />
+                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                            </filter>
+                        </defs>
+
+                        <!-- Main Structural Bridge Deck Line -->
+                        <path d="M 50,380 Q 600,120 1150,380" fill="none" stroke="url(#bridgeArcGrad)" stroke-width="5" filter="url(#bridgeGlow)" />
+                        <path d="M 50,380 Q 600,120 1150,380" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="10 15" class="ping-connection" />
+
+                        <!-- Arch Suspension Cables radiating down to country pillars -->
+                        <path d="M 600,140 L 150,380 M 600,140 L 375,380 M 600,140 L 600,380 M 600,140 L 825,380 M 600,140 L 1050,380" stroke="#f97316" stroke-dasharray="4" opacity="0.4" stroke-width="1.5" />
+
+                        <!-- Country Bridge Pillars -->
+                        <!-- Pillar 1: Türkiye HQ -->
+                        <g class="cursor-pointer group/node" onclick="openCountryPreview('turkey')" transform="translate(150, 380)">
+                            <circle r="20" fill="#f97316" opacity="0.3" class="animate-ping" />
+                            <circle r="12" fill="#f97316" filter="url(#bridgeGlow)" />
+                            <circle r="6" fill="#ffffff" />
+                            <rect x="-60" y="25" width="120" height="40" rx="10" fill="#090d1e" stroke="#f97316" stroke-width="1.5" />
+                            <text y="42" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="800">🇹🇷 Türkiye (HQ)</text>
+                            <text y="58" text-anchor="middle" fill="#f97316" font-size="9" font-weight="600">Üretim & Ar-Ge</text>
+                        </g>
+
+                        <!-- Pillar 2: Irak Hub -->
+                        <g class="cursor-pointer group/node" onclick="openCountryPreview('iraq')" transform="translate(375, 380)">
+                            <circle r="18" fill="#f97316" opacity="0.3" class="animate-ping" />
+                            <circle r="10" fill="#f97316" filter="url(#bridgeGlow)" />
+                            <circle r="5" fill="#ffffff" />
+                            <rect x="-60" y="25" width="120" height="40" rx="10" fill="#090d1e" stroke="#f97316" stroke-width="1.5" />
+                            <text y="42" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="800">🇮🇶 Irak Hub</text>
+                            <text y="58" text-anchor="middle" fill="#fbbf24" font-size="9" font-weight="600">Lojistik & Müzayede</text>
+                        </g>
+
+                        <!-- Pillar 3: Central Mazad Roof Apex -->
+                        <g transform="translate(600, 140)">
+                            <circle r="26" fill="#f97316" opacity="0.4" class="animate-ping" />
+                            <circle r="16" fill="#fbbf24" filter="url(#bridgeGlow)" />
+                            <circle r="8" fill="#ffffff" />
+                            <text y="-25" text-anchor="middle" fill="#fbbf24" font-size="13" font-weight="900">🌐 MAZAD KÖPRÜ ÇATISI</text>
+                        </g>
+
+                        <!-- Pillar 4: Suudi Arabistan (KSA) -->
+                        <g class="cursor-pointer group/node" onclick="openCountryPreview('saudi')" transform="translate(600, 380)">
+                            <circle r="18" fill="#f97316" opacity="0.3" class="animate-ping" />
+                            <circle r="10" fill="#f97316" filter="url(#bridgeGlow)" />
+                            <circle r="5" fill="#ffffff" />
+                            <rect x="-60" y="25" width="120" height="40" rx="10" fill="#090d1e" stroke="#f97316" stroke-width="1.5" />
+                            <text y="42" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="800">🇸🇦 Suudi Arabistan</text>
+                            <text y="58" text-anchor="middle" fill="#fbbf24" font-size="9" font-weight="600">GCC Dağıtım</text>
+                        </g>
+
+                        <!-- Pillar 5: BAE & Körfez -->
+                        <g class="cursor-pointer group/node" onclick="openCountryPreview('uae')" transform="translate(825, 380)">
+                            <circle r="18" fill="#f97316" opacity="0.3" class="animate-ping" />
+                            <circle r="10" fill="#f97316" filter="url(#bridgeGlow)" />
+                            <circle r="5" fill="#ffffff" />
+                            <rect x="-60" y="25" width="120" height="40" rx="10" fill="#090d1e" stroke="#f97316" stroke-width="1.5" />
+                            <text y="42" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="800">🇦🇪 BAE & Körfez</text>
+                            <text y="58" text-anchor="middle" fill="#34d399" font-size="9" font-weight="600">Finans & Aktarma</text>
+                        </g>
+
+                        <!-- Pillar 6: Mısır & Kuzey Afrika -->
+                        <g class="cursor-pointer group/node" onclick="openCountryPreview('egypt')" transform="translate(1050, 380)">
+                            <circle r="18" fill="#f97316" opacity="0.3" class="animate-ping" />
+                            <circle r="10" fill="#f97316" filter="url(#bridgeGlow)" />
+                            <circle r="5" fill="#ffffff" />
+                            <rect x="-60" y="25" width="120" height="40" rx="10" fill="#090d1e" stroke="#f97316" stroke-width="1.5" />
+                            <text y="42" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="800">🇪🇬 Mısır & K. Afrika</text>
+                            <text y="58" text-anchor="middle" fill="#fbbf24" font-size="9" font-weight="600">Ticaret Koridoru</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <!-- 4 Pillars of the Bridge Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+                    <!-- Pillar 1 -->
+                    <div class="p-6 rounded-3xl bg-white/[0.03] border border-white/10 hover:border-brand-orange/50 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 text-brand-orange flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            🚚
+                        </div>
+                        <h4 class="text-lg font-bold text-white mb-2 group-hover:text-brand-orange transition-colors">1. Akıllı Lojistik Koridoru</h4>
+                        <p class="text-white/60 text-xs leading-relaxed">
+                            Türkiye fabrikalarından çıkan ürünler, gümrük engelleri aşılarak Irak ve Körfez ülkelerindeki alıcılara ekspres kargo rotalarıyla ulaştırılır.
+                        </p>
+                    </div>
+
+                    <!-- Pillar 2 -->
+                    <div class="p-6 rounded-3xl bg-white/[0.03] border border-white/10 hover:border-brand-orange/50 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 text-amber-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            💳
+                        </div>
+                        <h4 class="text-lg font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">2. Entegre Fintech & Escrow</h4>
+                        <p class="text-white/60 text-xs leading-relaxed">
+                            ZainCash, Mada, K-Net ve Escrow kasası ile farklı para birimleri ve ülkeler arasındaki ödemeler %100 banka düzeyinde koruma altındadır.
+                        </p>
+                    </div>
+
+                    <!-- Pillar 3 -->
+                    <div class="p-6 rounded-3xl bg-white/[0.03] border border-white/10 hover:border-brand-orange/50 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 text-emerald-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            🏭
+                        </div>
+                        <h4 class="text-lg font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">3. Üretici & Tüccar Köprüsü</h4>
+                        <p class="text-white/60 text-xs leading-relaxed">
+                            Yerel satıcılar ve küresel üreticiler aracı olmadan doğrudan Mazad açık artırma sisteminde buluşur ve ticaretlerini büyütür.
+                        </p>
+                    </div>
+
+                    <!-- Pillar 4 -->
+                    <div class="p-6 rounded-3xl bg-white/[0.03] border border-white/10 hover:border-brand-orange/50 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 text-brand-orange flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            🤝
+                        </div>
+                        <h4 class="text-lg font-bold text-white mb-2 group-hover:text-brand-orange transition-colors">4. Ortak Küresel Topluluk</h4>
+                        <p class="text-white/60 text-xs leading-relaxed">
+                            Farklı dillerdeki (Türkçe, Arapça, İngilizce) alıcılar aynı canlı açık artırma katında adil ve şeffaf şartlarda buluşur.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ===== INTERACTIVE ORANGE GLOBAL MAP SECTION ===== -->
         <section class="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-24 py-16 relative z-10 reveal" id="interactive-map-section">
             <div class="text-center mb-12">
