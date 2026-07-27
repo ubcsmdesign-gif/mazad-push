@@ -3707,6 +3707,14 @@
             document.body.style.overflow = '';
             setTimeout(() => {
                 portal.style.display = 'none';
+                // Show Yaman AI widget after portal closes
+                const yamanWidget = document.getElementById('yaman-ai-widget-wrapper');
+                if (yamanWidget) {
+                    yamanWidget.style.opacity = '0';
+                    yamanWidget.style.display = 'flex';
+                    yamanWidget.style.transition = 'opacity 0.6s ease';
+                    setTimeout(() => { yamanWidget.style.opacity = '1'; }, 50);
+                }
             }, 750);
         }
 
@@ -3727,7 +3735,8 @@
     </script>
 
     <!-- ===== YAMAN AI FLOATING COPILOT WIDGET & CHAT DRAWER ===== -->
-    <div id="yaman-ai-widget-wrapper" class="fixed bottom-6 right-6 z-[9999]">
+    <!-- Hidden initially; shown after welcome portal closes -->
+    <div id="yaman-ai-widget-wrapper" class="fixed bottom-6 right-6 z-[9999]" style="display:none;">
 
         <!-- Floating Trigger Button with Rotating Hologram Aura -->
         <button id="yaman-ai-trigger-btn" onclick="toggleYamanAIChat()" class="relative group flex items-center gap-3 px-5 py-3.5 rounded-full bg-[#050a1c]/90 border-2 border-brand-orange/60 shadow-[0_0_35px_rgba(249,115,22,0.55)] hover:scale-105 active:scale-95 transition-all duration-300 backdrop-blur-xl">
