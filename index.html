@@ -861,13 +861,23 @@
                 <!-- The Solid Glowing Orange Card (Görseldeki Tam Kart Tasarımı) -->
                 <div class="relative w-64 h-[440px] sm:w-72 sm:h-[480px] bg-gradient-to-b from-[#ff8c00] via-[#f97316] to-[#d97706] rounded-[42px] p-6 shadow-[0_0_100px_rgba(249,115,22,0.8)] border border-amber-300/40 flex flex-col items-center justify-center transition-all duration-700 group-hover:scale-105 group-hover:shadow-[0_0_150px_rgba(249,115,22,1)] z-10">
                     
-                    <!-- White Mazad Logo Emblem (Görseldeki Tam Beyaz Logo) -->
-                    <div class="flex flex-col items-center justify-center gap-3">
-                        <div class="w-28 h-28 sm:w-32 sm:h-32 bg-white rounded-3xl p-3 shadow-2xl flex items-center justify-center mb-2">
-                            <img src="images/logo.jpg" class="w-full h-full object-cover rounded-2xl" alt="Mazad Logo">
-                        </div>
-                        <span class="text-white font-black tracking-[0.2em] text-3xl uppercase drop-shadow-lg">MAZAD</span>
+                    <!-- Clean White Mazad Logo Emblem (Çerçevesiz, Doğrudan Beyaz Vektör Emblem) -->
+                    <div class="flex flex-col items-center justify-center gap-4">
+                        <svg class="w-28 h-28 sm:w-32 sm:h-32 fill-white drop-shadow-[0_10px_20px_rgba(0,0,0,0.25)] group-hover:scale-110 transition-transform duration-500" viewBox="0 0 100 100">
+                            <!-- Pure White Mazad Emblem Symbol -->
+                            <path d="M50 12 C28 12 12 28 12 50 C12 72 28 88 50 88 L78 88 C83 88 88 83 88 78 L88 50 C88 28 72 12 50 12 Z M50 32 C62 32 68 40 68 50 L68 68 L50 68 C38 68 32 58 32 50 C32 40 38 32 50 32 Z" fill="#ffffff" />
+                        </svg>
+                        <span class="text-white font-black tracking-[0.25em] text-3xl uppercase drop-shadow-md">MAZAD</span>
                     </div>
+                </div>
+
+                <!-- Click Prompt Indicator Cue (Kullanıcıların Basması Gerektiğini Gösteren İşaret) -->
+                <div class="mt-8 inline-flex items-center gap-3 px-6 py-3 rounded-full bg-black/40 border border-amber-400/40 text-white text-xs font-mono tracking-widest uppercase backdrop-blur-xl shadow-[0_0_30px_rgba(249,115,22,0.4)] animate-bounce">
+                    <span class="w-2.5 h-2.5 rounded-full bg-brand-orange animate-ping"></span>
+                    <span>Başlamak İçin Tıklayın</span>
+                    <svg class="w-4 h-4 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5"/>
+                    </svg>
                 </div>
             </div>
         </div>
