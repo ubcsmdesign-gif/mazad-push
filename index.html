@@ -3672,8 +3672,27 @@
             setTimeout(playDemo, 150);
         });
 
-        /* ── Portal Exit ── */
+        /* ── Portal Exit with Bulletproof Video Kill ── */
+        function stopAndKillVideo() {
+            isPlaying = false;
+            if (realVideo) {
+                try {
+                    realVideo.pause();
+                    realVideo.muted = true;
+                    realVideo.currentTime = 0;
+                    // Reset src attribute to force browser media decoder to terminate playback immediately
+                    const currentSrc = realVideo.src;
+                    realVideo.removeAttribute('src');
+                    realVideo.load();
+                    realVideo.src = currentSrc;
+                } catch (err) {
+                    console.log('Video kill error:', err);
+                }
+            }
+        }
+
         function closePortal() {
+            stopAndKillVideo();
             portal.style.opacity = '0';
             portal.style.transform = 'scale(1.05)';
             document.body.style.overflow = '';
