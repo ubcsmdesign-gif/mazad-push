@@ -845,6 +845,109 @@
 
 <body class="bg-[#020617] min-h-screen text-white relative">
 
+    <!-- Interactive Welcome Choice Overlay -->
+    <div id="welcome-portal" class="fixed inset-0 w-full h-full bg-[#020617]/95 backdrop-blur-2xl flex items-center justify-center z-[9999] p-4 transition-all duration-700">
+        <!-- Ambient Glowing Background Spheres -->
+        <div class="absolute w-[600px] h-[600px] bg-brand-orange/15 rounded-full blur-[140px] pointer-events-none animate-pulse"></div>
+        <div class="absolute w-[400px] h-[400px] bg-amber-500/10 rounded-full blur-[120px] pointer-events-none animate-pulse" style="animation-delay: 2s;"></div>
+
+        <!-- Choice Screen Container -->
+        <div id="choice-card" class="relative z-10 w-full max-w-2xl bg-[#090d1e]/80 border border-white/10 rounded-3xl p-8 md:p-12 shadow-[0_0_80px_rgba(249,115,22,0.15)] text-center transition-all duration-500 transform scale-100">
+            <!-- Brand Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-orange/10 border border-brand-orange/20 text-brand-orange text-xs font-mono tracking-widest uppercase mb-6">
+                <span class="w-2 h-2 rounded-full bg-brand-orange animate-ping"></span>
+                Mazad Global Experience
+            </div>
+
+            <h1 class="text-3xl md:text-5xl font-black tracking-tight text-white mb-4 uppercase">
+                Hoş Geldiniz
+            </h1>
+            <p class="text-gray-400 text-sm md:text-base max-w-md mx-auto mb-10 leading-relaxed">
+                Mazad Global ekosistemini keşfetmeye başlamadan önce tercihinizi yapın.
+            </p>
+
+            <!-- Dual Choice Buttons Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Option 1: Watch Demo -->
+                <button id="btn-watch-demo" class="group relative overflow-hidden bg-gradient-to-br from-brand-orange to-amber-600 p-[1.5px] rounded-2xl text-left transition-all duration-300 hover:scale-[1.02] shadow-[0_10px_30px_rgba(249,115,22,0.25)]">
+                    <div class="relative bg-[#0b1026] group-hover:bg-[#0b1026]/80 p-6 rounded-[14px] h-full flex flex-col justify-between transition-colors">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-orange/20 flex items-center justify-center text-brand-orange group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                            <span class="text-[10px] font-mono uppercase bg-brand-orange/20 text-brand-orange px-2.5 py-1 rounded-full font-bold">Önerilen</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-brand-orange transition-colors mb-1">Demoyu İzle</h3>
+                            <p class="text-xs text-gray-400">Ekosistem ve ürünlerin interaktif tanıtımını izleyin.</p>
+                        </div>
+                    </div>
+                </button>
+
+                <!-- Option 2: Continue to Site -->
+                <button id="btn-continue-site" class="group relative bg-white/5 border border-white/10 rounded-2xl text-left p-6 transition-all duration-300 hover:bg-white/10 hover:border-brand-orange/40 hover:scale-[1.02]">
+                    <div class="flex flex-col justify-between h-full">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-brand-orange transition-colors mb-1">Sitede Gezin</h3>
+                            <p class="text-xs text-gray-400">Doğrudan ana sayfaya geçerek tüm detayları inceleyin.</p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Video Demo Player Container (Hidden by default) -->
+        <div id="demo-player-modal" class="hidden relative z-20 w-full max-w-4xl bg-[#090d1e] border border-white/15 rounded-3xl p-6 md:p-8 shadow-[0_0_100px_rgba(249,115,22,0.3)] transition-all duration-500">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
+                <div class="flex items-center gap-3">
+                    <div class="w-3 h-3 rounded-full bg-brand-orange animate-ping"></div>
+                    <h2 class="text-xl font-bold text-white">Mazad Global Tanıtım Demosu</h2>
+                </div>
+                <button id="btn-close-demo" class="text-gray-400 hover:text-white transition-colors bg-white/5 hover:bg-white/10 p-2 rounded-xl">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Demo Player Video Showcase Wrapper -->
+            <div class="relative w-full aspect-video bg-slate-950 rounded-2xl overflow-hidden border border-white/10 group mb-6 shadow-inner">
+                <!-- Interactive Demo Showcase Frame / Placeholder Animation -->
+                <div class="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-[#090d1e] via-[#0f172a] to-brand-orange/20 p-6 text-center">
+                    <div class="w-20 h-20 rounded-full bg-brand-orange/20 border border-brand-orange/50 flex items-center justify-center text-brand-orange mb-4 shadow-[0_0_30px_rgba(249,115,22,0.4)] animate-pulse">
+                        <svg class="w-10 h-10 fill-current ml-1" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Mazad Ecosystem Presentation</h3>
+                    <p class="text-sm text-gray-400 max-w-md mb-6">Fintech çözümleri, dijital ürünler ve küresel açık artırma ekosistemimizin interaktif özeti.</p>
+                    <div class="flex items-center gap-4">
+                        <span class="text-xs font-mono bg-white/10 text-white/80 px-3 py-1.5 rounded-lg border border-white/10">HD 4K Preview</span>
+                        <span class="text-xs font-mono bg-brand-orange/20 text-brand-orange px-3 py-1.5 rounded-lg border border-brand-orange/30">02:15 Min</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Action Footer -->
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-xs text-gray-400 text-center sm:text-left">Dilediğiniz an videoyu kapatıp siteyi incelemeye devam edebilirsiniz.</p>
+                <button id="btn-demo-to-site" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-brand-orange to-amber-500 text-white font-bold text-sm tracking-wider uppercase shadow-[0_0_20px_rgba(249,115,22,0.4)] hover:scale-105 transition-all">
+                    Sitede Gezintiye Başla →
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Ambient living organism background -->
     <div class="organism-bg"></div>
 
@@ -3231,6 +3334,53 @@
         })();
     </script>
 
+    <!-- Welcome Portal Choice Controller Script -->
+    <script>
+    (function () {
+        const portal = document.getElementById('welcome-portal');
+        const choiceCard = document.getElementById('choice-card');
+        const demoModal = document.getElementById('demo-player-modal');
+        const btnWatchDemo = document.getElementById('btn-watch-demo');
+        const btnContinueSite = document.getElementById('btn-continue-site');
+        const btnCloseDemo = document.getElementById('btn-close-demo');
+        const btnDemoToSite = document.getElementById('btn-demo-to-site');
+
+        if (!portal) return;
+
+        // Prevent body scroll while welcome portal is active
+        document.body.style.overflow = 'hidden';
+
+        function closePortal() {
+            portal.style.opacity = '0';
+            portal.style.transform = 'scale(1.05)';
+            document.body.style.overflow = '';
+            setTimeout(() => {
+                portal.style.display = 'none';
+            }, 700);
+        }
+
+        // Option 1: Watch Demo
+        btnWatchDemo?.addEventListener('click', () => {
+            choiceCard.classList.add('hidden');
+            demoModal.classList.remove('hidden');
+            demoModal.classList.add('animate-fade-in');
+        });
+
+        // Option 2: Direct to Site
+        btnContinueSite?.addEventListener('click', () => {
+            closePortal();
+        });
+
+        // Close demo modal and go to site
+        btnCloseDemo?.addEventListener('click', () => {
+            closePortal();
+        });
+
+        btnDemoToSite?.addEventListener('click', () => {
+            closePortal();
+        });
+    })();
+    </script>
 
 </body>
 
