@@ -962,42 +962,37 @@
                     </div>
                 </div>
 
-                <!-- RIGHT CARD: Direct Site Entry Section (Matching Left Card Height & Glowing Emblem Hover Effect) -->
-                <div id="portal-right-half" class="w-full md:w-1/2 group relative overflow-hidden bg-[#020617] border-2 border-brand-orange/60 rounded-[42px] min-h-[620px] sm:min-h-[700px] h-[75vh] max-h-[760px] flex flex-col justify-between cursor-pointer transition-all duration-500 hover:scale-[1.02] hover:border-brand-orange hover:shadow-[0_0_90px_rgba(249,115,22,0.65)]">
+                <!-- RIGHT CARD: Direct Site Entry Section (Solid Glowing Orange Phone Card Design - Exact Match of Entrance Emblem) -->
+                <div id="portal-right-half" class="w-full md:w-1/2 group relative overflow-hidden bg-gradient-to-b from-[#ff8c00] via-[#f97316] to-[#d97706] border border-amber-300/40 rounded-[42px] min-h-[620px] sm:min-h-[700px] h-[75vh] max-h-[760px] flex flex-col justify-between cursor-pointer transition-all duration-500 hover:scale-[1.03] shadow-[0_0_90px_rgba(249,115,22,0.85)] hover:shadow-[0_0_140px_rgba(249,115,22,1)] p-6 sm:p-9">
                     
-                    <!-- Dynamic Glowing Aura Background (Fare Üzerine Gelince Sönükten Parlaklığa Yanan Işık) -->
-                    <div class="absolute inset-[-30px] bg-brand-orange blur-[70px] opacity-25 rounded-[50px] transition-all duration-700 group-hover:opacity-90 group-hover:blur-[90px] pointer-events-none"></div>
+                    <!-- Dynamic Outer Pulsating Glow Aura -->
+                    <div class="absolute inset-[-30px] bg-brand-orange blur-[80px] opacity-70 rounded-[50px] animate-pulse pointer-events-none"></div>
 
-                    <div class="relative bg-[#090d1e]/95 rounded-[34px] p-6 sm:p-9 h-full flex flex-col justify-between z-10 border border-white/10">
-                        <!-- Cyber Grid Pattern Overlay -->
-                        <div class="absolute inset-0 bg-[radial-gradient(#f97316_1px,transparent_1px)] [background-size:24px_24px] opacity-15 group-hover:opacity-40 transition-opacity rounded-[34px] pointer-events-none"></div>
+                    <!-- Inner Subtle Grid Pattern Overlay -->
+                    <div class="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] opacity-15 pointer-events-none rounded-[40px]"></div>
 
-                        <!-- Center Prompt with Glowing Mazad Logo Emblem (Sönükten Parlaklığa Yanan Logo) -->
-                        <div class="relative z-10 flex flex-col items-center text-center my-auto py-10">
-                            <!-- Mazad Brand Logo Emblem with Breathing Pulse Glow -->
-                            <div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-3xl bg-gradient-to-tr from-brand-orange to-amber-500 p-1 flex items-center justify-center mb-8 group-hover:scale-110 shadow-[0_0_60px_rgba(249,115,22,0.7)] group-hover:shadow-[0_0_100px_rgba(249,115,22,1)] transition-all duration-500">
-                                <span class="absolute inset-[-12px] rounded-3xl border border-brand-orange/40 opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity"></span>
-                                <div class="w-full h-full bg-[#020617] rounded-[26px] flex items-center justify-center p-4">
-                                    <svg class="w-16 h-16 fill-white group-hover:rotate-6 transition-transform drop-shadow-[0_0_20px_rgba(255,255,255,0.6)]" viewBox="0 0 100 100">
-                                        <path d="M50 12 C28 12 12 28 12 50 C12 72 28 88 50 88 L78 88 C83 88 88 83 88 78 L88 50 C88 28 72 12 50 12 Z M50 32 C62 32 68 40 68 50 L68 68 L50 68 C38 68 32 58 32 50 C32 40 38 32 50 32 Z" fill="#ffffff" />
-                                    </svg>
-                                </div>
-                            </div>
-
-                            <h3 class="text-3xl sm:text-4xl font-black text-white uppercase group-hover:text-brand-orange transition-colors tracking-tight drop-shadow-md">
-                                Sitede Gezin
-                            </h3>
+                    <!-- Center Prompt: Pure White Mazad Emblem Logo & Title -->
+                    <div class="relative z-10 flex flex-col items-center text-center my-auto py-10">
+                        <!-- Mazad Brand Logo Emblem -->
+                        <div class="relative mb-6 group-hover:scale-110 transition-transform duration-500">
+                            <svg class="w-28 h-28 sm:w-32 sm:h-32 fill-white drop-shadow-[0_10px_25px_rgba(0,0,0,0.3)]" viewBox="0 0 100 100">
+                                <path d="M50 12 C28 12 12 28 12 50 C12 72 28 88 50 88 L78 88 C83 88 88 83 88 78 L88 50 C88 28 72 12 50 12 Z M50 32 C62 32 68 40 68 50 L68 68 L50 68 C38 68 32 58 32 50 C32 40 38 32 50 32 Z" fill="#ffffff" />
+                            </svg>
                         </div>
 
-                        <!-- Bottom Single CTA Button Container (Matching Left Card Layout) -->
-                        <div class="relative z-10 p-6 flex items-center border-t border-white/10 mt-auto">
-                            <button id="btn-right-to-site" class="w-full py-4 rounded-2xl bg-gradient-to-r from-brand-orange to-amber-500 text-white font-bold text-xs uppercase tracking-wider shadow-[0_0_30px_rgba(249,115,22,0.6)] flex items-center justify-center gap-2 transition-all duration-500 hover:scale-[1.02] active:scale-95 border border-white/20">
-                                <span>Websitesine Devam Et</span>
-                                <svg class="w-4 h-4 group-hover:translate-x-1.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                                </svg>
-                            </button>
-                        </div>
+                        <h3 class="text-3xl sm:text-4xl font-black text-white uppercase tracking-[0.2em] drop-shadow-lg">
+                            MAZAD
+                        </h3>
+                    </div>
+
+                    <!-- Bottom CTA Button Container -->
+                    <div class="relative z-10 p-2 flex items-center border-t border-white/20 mt-auto">
+                        <button id="btn-right-to-site" class="w-full py-4 rounded-2xl bg-black/40 hover:bg-black/60 text-white font-bold text-xs uppercase tracking-wider shadow-xl flex items-center justify-center gap-2 transition-all duration-500 hover:scale-[1.02] active:scale-95 border border-white/30 backdrop-blur-xl">
+                            <span>Websitesine Devam Et</span>
+                            <svg class="w-4 h-4 text-amber-300 group-hover:translate-x-1.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
