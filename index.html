@@ -3550,36 +3550,39 @@
             renderDemoVideo();
         }
 
-        /* ── Play & Replay Controls (Ultra-Smooth Center Focus Animation) ── */
+        /* ── Play & Replay Controls (Cinematic Morph & Center Stage Transition) ── */
         function playDemo() {
             isPlaying = true;
             
-            // 1. Hide right card smoothly
+            // 1. Right card dissolves with high-speed blur & slide out
             if (rightHalf) {
+                rightHalf.style.transition = 'all 450ms cubic-bezier(0.22, 1, 0.36, 1)';
                 rightHalf.style.opacity = '0';
-                rightHalf.style.transform = 'scale(0.8)';
+                rightHalf.style.filter = 'blur(12px)';
+                rightHalf.style.transform = 'scale(0.75) translateX(120px)';
                 rightHalf.style.pointerEvents = 'none';
                 setTimeout(() => {
                     rightHalf.style.display = 'none';
-                }, 300);
+                }, 450);
             }
 
-            // 2. Center left card in container with glowing aura
+            // 2. Left card morphs and glides to center with spring physics
             if (leftHalf) {
-                leftHalf.style.transform = 'scale(1.06)';
-                leftHalf.classList.add('shadow-[0_0_120px_rgba(249,115,22,0.8)]', 'border-brand-orange');
+                leftHalf.style.transition = 'all 650ms cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                leftHalf.style.transform = 'scale(1.08)';
+                leftHalf.classList.add('shadow-[0_0_140px_rgba(249,115,22,0.85)]', 'border-amber-400');
             }
 
-            // 3. Unblur Video Canvas
+            // 3. Unblur Video Canvas smoothly
             if (videoCanvas) {
-                videoCanvas.style.transition = 'filter 500ms ease-out, opacity 500ms ease-out';
+                videoCanvas.style.transition = 'filter 650ms ease-out, opacity 650ms ease-out, transform 650ms ease-out';
                 videoCanvas.style.filter = 'blur(0px)';
                 videoCanvas.style.opacity = '1';
                 videoCanvas.style.transform = 'scale(1)';
             }
             if (playBtn) {
-                playBtn.style.transform = 'scale(0.85)';
-                playBtn.style.opacity = '0.4';
+                playBtn.style.transform = 'scale(0.8)';
+                playBtn.style.opacity = '0.3';
             }
         }
 
