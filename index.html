@@ -894,19 +894,26 @@
         </div>
 
 
-        <!-- ================= STAGE 2: Tall, Sleek & Minimalist Choice Cards (With Mazad Logo) ================= -->
-        <div id="portal-split-stage" class="absolute inset-0 z-10 flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-all duration-700 transform scale-95">
+        <!-- ================= STAGE 2: Tall Phone-Ratio Choice Cards with Ambient Living Background ================= -->
+        <div id="portal-split-stage" class="absolute inset-0 z-10 flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-all duration-700 transform scale-95 overflow-hidden">
             
-            <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 relative z-10">
+            <!-- Ambient Living Background behind Stage 2 (Ana Site Atmosferi) -->
+            <div class="absolute inset-0 bg-[#020617] pointer-events-none z-0">
+                <div class="absolute inset-0 bg-[radial-gradient(#f97316_1px,transparent_1px)] [background-size:36px_36px] opacity-20"></div>
+                <div class="absolute w-[750px] h-[750px] bg-brand-orange/20 rounded-full blur-[160px] top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/2 animate-pulse"></div>
+                <div class="absolute w-[600px] h-[600px] bg-amber-500/15 rounded-full blur-[140px] top-1/2 right-1/4 -translate-y-1/2 translate-x-1/2 animate-pulse" style="animation-delay: 2.5s;"></div>
+            </div>
+
+            <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 relative z-10">
                 
-                <!-- LEFT CARD: Video Demo Section (Tall, Sleek & Minimal) -->
-                <div id="portal-left-half" class="group relative overflow-hidden bg-[#090d1e]/85 backdrop-blur-2xl border border-brand-orange/40 rounded-3xl p-6 sm:p-8 min-h-[420px] sm:min-h-[480px] flex flex-col justify-between cursor-pointer transition-all duration-500 hover:scale-[1.02] hover:border-brand-orange hover:shadow-[0_0_60px_rgba(249,115,22,0.4)]">
+                <!-- LEFT CARD: Video Demo Section (Phone-Ratio Tall Card) -->
+                <div id="portal-left-half" class="group relative overflow-hidden bg-[#090d1e]/85 backdrop-blur-2xl border border-brand-orange/40 rounded-[38px] p-6 sm:p-8 min-h-[480px] sm:min-h-[540px] flex flex-col justify-between cursor-pointer transition-all duration-500 hover:scale-[1.03] hover:border-brand-orange hover:shadow-[0_0_70px_rgba(249,115,22,0.45)]">
                     <!-- Conic Border Sweep Laser -->
                     <div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0_260deg,#f97316_360deg)] animate-spin-slow opacity-60 group-hover:opacity-100 transition-opacity"></div>
                     
-                    <div class="relative bg-[#090d1e]/90 rounded-[22px] p-6 h-full flex flex-col justify-between z-10">
+                    <div class="relative bg-[#090d1e]/95 rounded-[30px] p-6 sm:p-7 h-full flex flex-col justify-between z-10 border border-white/10">
                         <!-- Background Canvas Preview -->
-                        <div class="absolute inset-0 rounded-[22px] overflow-hidden pointer-events-none opacity-40 group-hover:opacity-75 transition-opacity">
+                        <div class="absolute inset-0 rounded-[30px] overflow-hidden pointer-events-none opacity-40 group-hover:opacity-75 transition-opacity">
                             <canvas id="demo-video-canvas" class="w-full h-full object-cover filter blur-xl scale-110"></canvas>
                         </div>
 
@@ -921,17 +928,17 @@
                             </span>
                         </div>
 
-                        <!-- Center Play Graphic & Title (Stripped Long Text) -->
-                        <div class="relative z-10 flex flex-col items-center text-center my-auto py-4">
-                            <div id="left-play-btn" class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-tr from-brand-orange to-amber-500 flex items-center justify-center text-white mb-5 shadow-[0_0_40px_rgba(249,115,22,0.65)] group-hover:scale-110 transition-transform">
-                                <span class="absolute inset-[-10px] rounded-full border border-brand-orange/50 animate-ping"></span>
-                                <svg class="w-10 h-10 fill-current ml-1" viewBox="0 0 24 24">
+                        <!-- Center Play Graphic & Title -->
+                        <div class="relative z-10 flex flex-col items-center text-center my-auto py-6">
+                            <div id="left-play-btn" class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-tr from-brand-orange to-amber-500 flex items-center justify-center text-white mb-6 shadow-[0_0_50px_rgba(249,115,22,0.7)] group-hover:scale-110 transition-transform">
+                                <span class="absolute inset-[-12px] rounded-full border border-brand-orange/50 animate-ping"></span>
+                                <svg class="w-12 h-12 fill-current ml-1" viewBox="0 0 24 24">
                                     <path d="M8 5v14l11-7z"/>
                                 </svg>
                             </div>
 
                             <!-- Audio Wave Equalizer Bars -->
-                            <div class="flex items-center gap-1.5 h-6 mb-3 opacity-80 group-hover:opacity-100">
+                            <div class="flex items-center gap-1.5 h-6 mb-4 opacity-80 group-hover:opacity-100">
                                 <span class="w-1 bg-brand-orange rounded-full animate-bounce h-3"></span>
                                 <span class="w-1 bg-amber-400 rounded-full animate-bounce h-6" style="animation-delay:0.2s"></span>
                                 <span class="w-1 bg-brand-orange rounded-full animate-bounce h-4" style="animation-delay:0.1s"></span>
@@ -946,13 +953,13 @@
 
                         <!-- Bottom 2 Control Buttons -->
                         <div class="relative z-10 flex items-center gap-3 pt-5 border-t border-white/10 mt-2">
-                            <button id="btn-replay-demo" class="w-1/2 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all active:scale-95">
+                            <button id="btn-replay-demo" class="w-1/2 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all active:scale-95">
                                 <svg class="w-4 h-4 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
                                 </svg>
                                 Tekrar İzle
                             </button>
-                            <button id="btn-left-to-site" class="w-1/2 py-3 rounded-xl bg-gradient-to-r from-brand-orange to-amber-500 text-white font-bold text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(249,115,22,0.5)] flex items-center justify-center gap-1.5 transition-all hover:scale-[1.02] active:scale-95">
+                            <button id="btn-left-to-site" class="w-1/2 py-3.5 rounded-xl bg-gradient-to-r from-brand-orange to-amber-500 text-white font-bold text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(249,115,22,0.5)] flex items-center justify-center gap-1.5 transition-all hover:scale-[1.02] active:scale-95">
                                 Siteye Geç →
                             </button>
                         </div>
@@ -960,12 +967,12 @@
                 </div>
 
 
-                <!-- RIGHT CARD: Direct Site Entry Section (With Glowing Mazad Logo & Tall Height) -->
-                <div id="portal-right-half" class="group relative overflow-hidden bg-[#04091e]/85 backdrop-blur-2xl border border-white/15 rounded-3xl p-6 sm:p-8 min-h-[420px] sm:min-h-[480px] flex flex-col justify-between cursor-pointer transition-all duration-500 hover:scale-[1.02] hover:border-brand-orange/60 hover:shadow-[0_0_60px_rgba(249,115,22,0.4)]">
+                <!-- RIGHT CARD: Direct Site Entry Section (Phone-Ratio Tall Card with Mazad Logo) -->
+                <div id="portal-right-half" class="group relative overflow-hidden bg-[#04091e]/85 backdrop-blur-2xl border border-white/15 rounded-[38px] p-6 sm:p-8 min-h-[480px] sm:min-h-[540px] flex flex-col justify-between cursor-pointer transition-all duration-500 hover:scale-[1.03] hover:border-brand-orange/60 hover:shadow-[0_0_70px_rgba(249,115,22,0.45)]">
                     
-                    <div class="relative bg-[#07112e]/90 rounded-[22px] p-6 h-full flex flex-col justify-between z-10">
+                    <div class="relative bg-[#07112e]/95 rounded-[30px] p-6 sm:p-7 h-full flex flex-col justify-between z-10 border border-white/10">
                         <!-- Cyber Grid Pattern Overlay -->
-                        <div class="absolute inset-0 bg-[radial-gradient(#f97316_1px,transparent_1px)] [background-size:24px_24px] opacity-15 group-hover:opacity-35 transition-opacity rounded-[22px] pointer-events-none"></div>
+                        <div class="absolute inset-0 bg-[radial-gradient(#f97316_1px,transparent_1px)] [background-size:24px_24px] opacity-15 group-hover:opacity-35 transition-opacity rounded-[30px] pointer-events-none"></div>
 
                         <!-- Top Badge Tag -->
                         <div class="relative z-10 flex items-center justify-between mb-2">
@@ -979,11 +986,11 @@
                         </div>
 
                         <!-- Center Prompt with Glowing Mazad Logo Emblem (Logolu Tasarım) -->
-                        <div class="relative z-10 flex flex-col items-center text-center my-auto py-4">
+                        <div class="relative z-10 flex flex-col items-center text-center my-auto py-6">
                             <!-- Mazad Brand Logo Emblem -->
-                            <div class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-gradient-to-tr from-brand-orange to-amber-500 p-1 flex items-center justify-center mb-5 group-hover:scale-110 shadow-[0_0_40px_rgba(249,115,22,0.6)] transition-all duration-500">
-                                <div class="w-full h-full bg-[#020617] rounded-[22px] flex items-center justify-center p-3">
-                                    <svg class="w-12 h-12 fill-white group-hover:rotate-6 transition-transform" viewBox="0 0 100 100">
+                            <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-tr from-brand-orange to-amber-500 p-1 flex items-center justify-center mb-6 group-hover:scale-110 shadow-[0_0_50px_rgba(249,115,22,0.65)] transition-all duration-500">
+                                <div class="w-full h-full bg-[#020617] rounded-[24px] flex items-center justify-center p-3.5">
+                                    <svg class="w-14 h-14 fill-white group-hover:rotate-6 transition-transform" viewBox="0 0 100 100">
                                         <path d="M50 12 C28 12 12 28 12 50 C12 72 28 88 50 88 L78 88 C83 88 88 83 88 78 L88 50 C88 28 72 12 50 12 Z M50 32 C62 32 68 40 68 50 L68 68 L50 68 C38 68 32 58 32 50 C32 40 38 32 50 32 Z" fill="#ffffff" />
                                     </svg>
                                 </div>
@@ -996,7 +1003,7 @@
 
                         <!-- Bottom Single CTA Button -->
                         <div class="relative z-10 pt-5 border-t border-white/10 mt-2">
-                            <button id="btn-right-to-site" class="w-full py-3 rounded-xl bg-white/10 group-hover:bg-gradient-to-r group-hover:from-brand-orange group-hover:to-amber-500 text-white font-bold text-xs uppercase tracking-wider border border-white/20 group-hover:border-transparent shadow-none group-hover:shadow-[0_0_25px_rgba(249,115,22,0.5)] flex items-center justify-center gap-2 transition-all duration-500">
+                            <button id="btn-right-to-site" class="w-full py-3.5 rounded-xl bg-white/10 group-hover:bg-gradient-to-r group-hover:from-brand-orange group-hover:to-amber-500 text-white font-bold text-xs uppercase tracking-wider border border-white/20 group-hover:border-transparent shadow-none group-hover:shadow-[0_0_25px_rgba(249,115,22,0.5)] flex items-center justify-center gap-2 transition-all duration-500">
                                 <span>Websitesine Devam Et</span>
                                 <svg class="w-4 h-4 group-hover:translate-x-1.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
