@@ -907,53 +907,58 @@
             <!-- Cards Flex Centered Container -->
             <div id="portal-cards-container" class="w-full max-w-4xl flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 relative z-10 transition-all duration-700">
                 
-                <!-- LEFT CARD: Video Demo Section (Tall Smartphone Ratio Card) -->
-                <div id="portal-left-half" class="w-full md:w-1/2 group relative overflow-hidden bg-[#090d1e]/85 backdrop-blur-2xl border border-brand-orange/40 rounded-[42px] p-6 sm:p-9 min-h-[580px] sm:min-h-[660px] flex flex-col justify-between cursor-pointer transition-all duration-500 hover:scale-[1.03] hover:border-brand-orange hover:shadow-[0_0_80px_rgba(249,115,22,0.5)]">
-                    <!-- Conic Border Sweep Laser -->
-                    <div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0_260deg,#f97316_360deg)] animate-spin-slow opacity-60 group-hover:opacity-100 transition-opacity"></div>
+                <!-- LEFT CARD: Edge-to-Edge Video Demo Player (No Spin Effects, Full Video View) -->
+                <div id="portal-left-half" class="w-full md:w-1/2 group relative overflow-hidden bg-[#020617] border-2 border-brand-orange/60 rounded-[42px] min-h-[620px] sm:min-h-[700px] h-[75vh] max-h-[760px] flex flex-col justify-between cursor-pointer transition-all duration-500 hover:scale-[1.02] hover:border-brand-orange hover:shadow-[0_0_90px_rgba(249,115,22,0.55)]">
                     
-                    <div class="relative bg-[#090d1e]/95 rounded-[34px] p-6 sm:p-9 h-full flex flex-col justify-between z-10 border border-white/10">
-                        <!-- Real HD Video Player (images/tanitim_videosu.mp4) & Particle Canvas Overlay -->
-                        <div class="absolute inset-0 rounded-[34px] overflow-hidden z-0">
-                            <video id="real-demo-video" class="w-full h-full object-cover transition-all duration-700 filter blur-xl opacity-50 scale-105 pointer-events-none" src="images/tanitim_videosu.mp4" playsinline preload="auto" loop></video>
-                            <canvas id="demo-video-canvas" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-110 opacity-30 pointer-events-none"></canvas>
+                    <!-- Floating Corner "Siteye Geç" Button (Only Shows While Video Plays) -->
+                    <button id="video-top-site-btn" class="absolute top-5 right-5 z-30 px-5 py-2.5 rounded-full bg-gradient-to-r from-brand-orange to-amber-500 text-white font-bold text-xs tracking-wider uppercase shadow-[0_0_25px_rgba(249,115,22,0.6)] backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-500 hover:scale-105 active:scale-95 flex items-center gap-2 border border-white/20">
+                        <span>Siteye Geç</span>
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                        </svg>
+                    </button>
+
+                    <!-- Real HD Video Player (images/tanitim_videosu.mp4) Edge-to-Edge -->
+                    <div class="absolute inset-0 rounded-[40px] overflow-hidden z-0 bg-black">
+                        <video id="real-demo-video" class="w-full h-full object-cover transition-all duration-700 filter blur-xl opacity-60 scale-105" src="images/tanitim_videosu.mp4" playsinline preload="auto" loop></video>
+                        <canvas id="demo-video-canvas" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-110 opacity-20 pointer-events-none"></canvas>
+                        <div id="video-dark-overlay" class="absolute inset-0 bg-black/40 transition-opacity duration-700 pointer-events-none"></div>
+                    </div>
+
+                    <!-- Center Initial Play Overlay (Oynatıldığında Otomatik Kaybolur) -->
+                    <div id="left-center-overlay" class="relative z-10 flex flex-col items-center text-center my-auto py-10 transition-all duration-700 pointer-events-none">
+                        <div id="left-play-btn" class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-gradient-to-tr from-brand-orange to-amber-500 flex items-center justify-center text-white mb-8 shadow-[0_0_60px_rgba(249,115,22,0.8)] group-hover:scale-110 transition-transform">
+                            <span class="absolute inset-[-15px] rounded-full border border-brand-orange/50 animate-ping"></span>
+                            <svg class="w-14 h-14 fill-current ml-1" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
                         </div>
 
-                        <!-- Center Play Graphic & Title -->
-                        <div class="relative z-10 flex flex-col items-center text-center my-auto py-10">
-                            <div id="left-play-btn" class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-gradient-to-tr from-brand-orange to-amber-500 flex items-center justify-center text-white mb-8 shadow-[0_0_60px_rgba(249,115,22,0.75)] group-hover:scale-110 transition-transform">
-                                <span class="absolute inset-[-15px] rounded-full border border-brand-orange/50 animate-ping"></span>
-                                <svg class="w-14 h-14 fill-current ml-1" viewBox="0 0 24 24">
-                                    <path d="M8 5v14l11-7z"/>
-                                </svg>
-                            </div>
-
-                            <!-- Audio Wave Equalizer Bars -->
-                            <div class="flex items-center gap-1.5 h-7 mb-5 opacity-80 group-hover:opacity-100">
-                                <span class="w-1.5 bg-brand-orange rounded-full animate-bounce h-4"></span>
-                                <span class="w-1.5 bg-amber-400 rounded-full animate-bounce h-7" style="animation-delay:0.2s"></span>
-                                <span class="w-1.5 bg-brand-orange rounded-full animate-bounce h-5" style="animation-delay:0.1s"></span>
-                                <span class="w-1.5 bg-amber-500 rounded-full animate-bounce h-8" style="animation-delay:0.3s"></span>
-                                <span class="w-1.5 bg-brand-orange rounded-full animate-bounce h-4" style="animation-delay:0.15s"></span>
-                            </div>
-
-                            <h3 class="text-3xl sm:text-4xl font-black text-white uppercase group-hover:text-brand-orange transition-colors tracking-tight drop-shadow-md">
-                                Demoyu İzle
-                            </h3>
+                        <!-- Audio Wave Equalizer Bars -->
+                        <div class="flex items-center gap-1.5 h-7 mb-5 opacity-80 group-hover:opacity-100">
+                            <span class="w-1.5 bg-brand-orange rounded-full animate-bounce h-4"></span>
+                            <span class="w-1.5 bg-amber-400 rounded-full animate-bounce h-7" style="animation-delay:0.2s"></span>
+                            <span class="w-1.5 bg-brand-orange rounded-full animate-bounce h-5" style="animation-delay:0.1s"></span>
+                            <span class="w-1.5 bg-amber-500 rounded-full animate-bounce h-8" style="animation-delay:0.3s"></span>
+                            <span class="w-1.5 bg-brand-orange rounded-full animate-bounce h-4" style="animation-delay:0.15s"></span>
                         </div>
 
-                        <!-- Bottom 2 Control Buttons -->
-                        <div class="relative z-10 flex items-center gap-4 pt-6 border-t border-white/10 mt-2">
-                            <button id="btn-replay-demo" class="w-1/2 py-4 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/15 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all active:scale-95">
-                                <svg class="w-4 h-4 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-                                </svg>
-                                Tekrar İzle
-                            </button>
-                            <button id="btn-left-to-site" class="w-1/2 py-4 rounded-2xl bg-gradient-to-r from-brand-orange to-amber-500 text-white font-bold text-xs uppercase tracking-wider shadow-[0_0_25px_rgba(249,115,22,0.55)] flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-95">
-                                Siteye Geç →
-                            </button>
-                        </div>
+                        <h3 class="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight drop-shadow-md">
+                            Demoyu İzle
+                        </h3>
+                    </div>
+
+                    <!-- Bottom Buttons Container (Oynatıldığında Kaybolur) -->
+                    <div id="left-bottom-controls" class="relative z-10 p-6 flex items-center gap-4 border-t border-white/10 mt-auto transition-all duration-700">
+                        <button id="btn-replay-demo" class="w-1/2 py-4 rounded-2xl bg-black/60 hover:bg-black/80 border border-white/20 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all active:scale-95 backdrop-blur-xl">
+                            <svg class="w-4 h-4 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                            </svg>
+                            Tekrar İzle
+                        </button>
+                        <button id="btn-left-to-site" class="w-1/2 py-4 rounded-2xl bg-gradient-to-r from-brand-orange to-amber-500 text-white font-bold text-xs uppercase tracking-wider shadow-[0_0_25px_rgba(249,115,22,0.55)] flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-95 border border-white/20">
+                            Siteye Geç →
+                        </button>
                     </div>
                 </div>
 
@@ -3553,6 +3558,10 @@
 
         /* ── Play & Replay Controls (Cinematic Morph & Real Video Playback) ── */
         const realVideo = document.getElementById('real-demo-video');
+        const leftCenterOverlay = document.getElementById('left-center-overlay');
+        const leftBottomControls = document.getElementById('left-bottom-controls');
+        const videoDarkOverlay = document.getElementById('video-dark-overlay');
+        const videoTopSiteBtn = document.getElementById('video-top-site-btn');
 
         function playDemo() {
             isPlaying = true;
@@ -3576,18 +3585,33 @@
                 leftHalf.classList.add('shadow-[0_0_140px_rgba(249,115,22,0.85)]', 'border-amber-400');
             }
 
-            // 3. Play Real MP4 Video & Unblur smoothly
+            // 3. Hide center text/equalizer overlays & bottom buttons so video is completely unobstructed!
+            if (leftCenterOverlay) {
+                leftCenterOverlay.style.opacity = '0';
+                leftCenterOverlay.style.pointerEvents = 'none';
+            }
+            if (leftBottomControls) {
+                leftBottomControls.style.opacity = '0';
+                leftBottomControls.style.pointerEvents = 'none';
+            }
+            if (videoDarkOverlay) {
+                videoDarkOverlay.style.opacity = '0';
+            }
+
+            // 4. Reveal corner floating "Siteye Geç" button
+            if (videoTopSiteBtn) {
+                videoTopSiteBtn.classList.remove('opacity-0', 'pointer-events-none');
+                videoTopSiteBtn.classList.add('opacity-100', 'pointer-events-auto');
+            }
+
+            // 5. Play Real MP4 Video & Unblur smoothly
             if (realVideo) {
                 realVideo.style.transition = 'filter 650ms ease-out, opacity 650ms ease-out, transform 650ms ease-out';
                 realVideo.style.filter = 'blur(0px)';
                 realVideo.style.opacity = '1';
                 realVideo.style.transform = 'scale(1)';
+                realVideo.controls = true; // Enables HTML5 playback controls (sound, seek, fullscreen)
                 realVideo.play().catch((err) => console.log('Video play error:', err));
-            }
-
-            if (playBtn) {
-                playBtn.style.transform = 'scale(0.8)';
-                playBtn.style.opacity = '0.2';
             }
         }
 
@@ -3596,15 +3620,31 @@
             if (realVideo) {
                 realVideo.pause();
                 realVideo.currentTime = 0;
+                realVideo.controls = false;
                 realVideo.style.filter = 'blur(25px)';
                 realVideo.style.opacity = '0.5';
                 realVideo.style.transform = 'scale(1.05)';
             }
-            if (playBtn) {
-                playBtn.style.transform = 'scale(1)';
-                playBtn.style.opacity = '1';
+            if (leftCenterOverlay) {
+                leftCenterOverlay.style.opacity = '1';
+            }
+            if (leftBottomControls) {
+                leftBottomControls.style.opacity = '1';
+                leftBottomControls.style.pointerEvents = 'auto';
+            }
+            if (videoDarkOverlay) {
+                videoDarkOverlay.style.opacity = '1';
+            }
+            if (videoTopSiteBtn) {
+                videoTopSiteBtn.classList.add('opacity-0', 'pointer-events-none');
+                videoTopSiteBtn.classList.remove('opacity-100', 'pointer-events-auto');
             }
         }
+
+        videoTopSiteBtn?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closePortal();
+        });
 
         leftHalf?.addEventListener('click', (e) => {
             if (e.target.closest('#btn-replay-demo') || e.target.closest('#btn-left-to-site')) return;
