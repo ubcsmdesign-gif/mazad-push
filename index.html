@@ -848,74 +848,28 @@
     <!-- Full-Screen Two-Stage Welcome Portal -->
     <div id="welcome-portal" class="fixed inset-0 w-full h-full bg-[#020617] z-[9999] transition-all duration-1000 overflow-hidden">
         
-        <!-- ================= STAGE 1: Glowing Emblem Showcase Intro ================= -->
-        <div id="portal-intro-stage" class="absolute inset-0 z-20 flex flex-col items-center justify-center p-6 text-center transition-all duration-1000">
-            <!-- Background Radial Glow -->
-            <div id="intro-aura" class="absolute w-[600px] h-[600px] bg-brand-orange/20 rounded-full blur-[140px] pointer-events-none transition-all duration-1000"></div>
+        <!-- ================= STAGE 1: Clean Single Glowing Orange Card (No Text, 2s Reveal) ================= -->
+        <div id="portal-intro-stage" class="absolute inset-0 z-20 flex flex-col items-center justify-center p-6 text-center transition-all duration-700">
+            <!-- Background Radial Aura -->
+            <div id="intro-aura" class="absolute w-[750px] h-[750px] bg-brand-orange/25 rounded-full blur-[160px] pointer-events-none transition-all duration-1000 opacity-0"></div>
 
-            <!-- Central Converging Stage -->
-            <div class="relative z-10 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-14 max-w-5xl">
-                <!-- Left Feature Card -->
-                <div class="hidden md:block text-left max-w-xs border-l-2 border-brand-orange pl-6 bg-[#090d1e]/80 backdrop-blur-xl p-6 rounded-r-3xl border border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.6)]">
-                    <span class="text-brand-orange text-xs font-mono uppercase tracking-widest block mb-1">Ecosystem Core</span>
-                    <h3 class="text-xl font-black text-white mb-2">MAZAD PLATFORM</h3>
-                    <p class="text-white/60 text-xs leading-relaxed">
-                        A unified digital gateway integrating real-time auctions, B2B wholesale hubs, and commercial transactions.
-                    </p>
-                </div>
+            <!-- Single Glowing Orange Device Card (Sadece Görseldeki Kart - Yazısız) -->
+            <div id="glowing-device-emblem" class="relative cursor-pointer group opacity-0 scale-90 transition-all duration-[2000ms] ease-out">
+                <!-- Pulsating Outer Glow Ring -->
+                <div class="absolute inset-[-30px] bg-brand-orange blur-[70px] opacity-70 rounded-[50px] animate-pulse"></div>
 
-                <!-- Central Glowing Emblem Device Card (Sönükten Parlaklığa Yanan Tasarım) -->
-                <div id="glowing-device-emblem" class="relative group cursor-pointer">
-                    <!-- Dynamic Outer Aura Ring -->
-                    <div id="emblem-aura-ring" class="absolute inset-[-20px] bg-brand-orange blur-[50px] opacity-30 rounded-[40px] transition-all duration-1000 group-hover:opacity-100 group-hover:blur-[70px]"></div>
-
-                    <!-- Main Glowing Card Box -->
-                    <div id="emblem-card-box" class="relative w-64 h-96 md:w-72 md:h-[420px] bg-gradient-to-b from-brand-orange via-orange-600 to-amber-500 rounded-[36px] p-1 shadow-[0_0_80px_rgba(249,115,22,0.5)] transform transition-all duration-700 group-hover:scale-105 flex flex-col justify-between overflow-hidden">
-                        
-                        <!-- Rotating Conic Border Glow -->
-                        <div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0_260deg,#f97316_360deg)] animate-spin-slow opacity-90"></div>
-
-                        <div class="relative w-full h-full bg-[#020617] rounded-[32px] flex flex-col items-center justify-center p-6 text-center border border-white/20 z-10 overflow-hidden">
-                            <!-- Inner Glowing Grid background -->
-                            <div class="absolute inset-0 bg-[radial-gradient(#f97316_1px,transparent_1px)] [background-size:20px_20px] opacity-20 pointer-events-none"></div>
-
-                            <!-- Glowing Logo Emblem -->
-                            <div class="relative w-24 h-24 rounded-3xl bg-brand-orange/20 border-2 border-brand-orange/60 flex items-center justify-center mb-6 shadow-[0_0_40px_rgba(249,115,22,0.6)] group-hover:rotate-6 transition-transform">
-                                <span class="absolute inset-[-10px] rounded-3xl border border-brand-orange/40 animate-ping"></span>
-                                <img src="images/logo.jpg" class="w-14 h-14 rounded-2xl object-cover shadow-[0_0_25px_rgba(249,115,22,0.9)]" alt="Mazad Emblem">
-                            </div>
-
-                            <h2 class="text-3xl font-black text-white tracking-widest uppercase mb-1 drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">
-                                MAZAD
-                            </h2>
-                            <span class="text-xs font-mono text-brand-orange tracking-widest uppercase font-bold">
-                                GLOBAL ECOSYSTEM
-                            </span>
-
-                            <p class="text-[11px] text-gray-400 font-light mt-4 leading-relaxed max-w-[200px]">
-                                Dokunun veya aşağıdaki butona basarak seçenekleri açın.
-                            </p>
+                <!-- The Solid Glowing Orange Card (Görseldeki Tam Kart Tasarımı) -->
+                <div class="relative w-64 h-[440px] sm:w-72 sm:h-[480px] bg-gradient-to-b from-[#ff8c00] via-[#f97316] to-[#d97706] rounded-[42px] p-6 shadow-[0_0_100px_rgba(249,115,22,0.8)] border border-amber-300/40 flex flex-col items-center justify-center transition-all duration-700 group-hover:scale-105 group-hover:shadow-[0_0_150px_rgba(249,115,22,1)] z-10">
+                    
+                    <!-- White Mazad Logo Emblem (Görseldeki Tam Beyaz Logo) -->
+                    <div class="flex flex-col items-center justify-center gap-3">
+                        <div class="w-28 h-28 sm:w-32 sm:h-32 bg-white rounded-3xl p-3 shadow-2xl flex items-center justify-center mb-2">
+                            <img src="images/logo.jpg" class="w-full h-full object-cover rounded-2xl" alt="Mazad Logo">
                         </div>
+                        <span class="text-white font-black tracking-[0.2em] text-3xl uppercase drop-shadow-lg">MAZAD</span>
                     </div>
                 </div>
-
-                <!-- Right Feature Card -->
-                <div class="hidden md:block text-right max-w-xs border-r-2 border-brand-orange pr-6 bg-[#090d1e]/80 backdrop-blur-xl p-6 rounded-l-3xl border border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.6)]">
-                    <span class="text-brand-orange text-xs font-mono uppercase tracking-widest block mb-1">Fintech Grid</span>
-                    <h3 class="text-xl font-black text-white mb-2">SECURE ESCROW</h3>
-                    <p class="text-white/60 text-xs leading-relaxed">
-                        Equipped with bank-grade security protocols, automated bidder settlement accounts, and multi-currency compliance.
-                    </p>
-                </div>
             </div>
-
-            <!-- Glowing Action Button to Reveal Split Choices -->
-            <button id="btn-reveal-split" class="relative z-10 mt-10 px-10 py-4 rounded-full bg-gradient-to-r from-brand-orange via-orange-500 to-amber-500 text-white font-bold text-xs tracking-widest uppercase shadow-[0_0_40px_rgba(249,115,22,0.6)] hover:scale-105 transition-all cursor-pointer flex items-center gap-3 border border-white/20">
-                <span>Seçenekleri Göster (Video / Site)</span>
-                <svg class="w-4 h-4 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-                </svg>
-            </button>
         </div>
 
 
@@ -3436,7 +3390,6 @@
         const introStage = document.getElementById('portal-intro-stage');
         const splitStage = document.getElementById('portal-split-stage');
         const glowingEmblem = document.getElementById('glowing-device-emblem');
-        const btnRevealSplit = document.getElementById('btn-reveal-split');
         const introAura = document.getElementById('intro-aura');
 
         const leftHalf = document.getElementById('portal-left-half');
@@ -3453,22 +3406,36 @@
         // Freeze scrolling on main page while portal is active
         document.body.style.overflow = 'hidden';
 
-        /* ── STAGE 1: Emblem Breathing Glow Pulse Animation ── */
+        /* ── STAGE 1: 0 to 2-Second Fade-In & Glow Animation ── */
+        requestAnimationFrame(() => {
+            setTimeout(() => {
+                if (glowingEmblem) {
+                    glowingEmblem.classList.remove('opacity-0', 'scale-90');
+                    glowingEmblem.classList.add('opacity-100', 'scale-100');
+                }
+                if (introAura) {
+                    introAura.classList.remove('opacity-0');
+                    introAura.classList.add('opacity-100');
+                }
+            }, 50);
+        });
+
+        // Breathing Glow Pulse Loop after 2s
         let glowPhase = 0;
         setInterval(() => {
             if (!introStage || introStage.style.display === 'none') return;
             glowPhase += 0.05;
             const intensity = (Math.sin(glowPhase) + 1) / 2; // 0 to 1
             if (introAura) {
-                introAura.style.opacity = (0.2 + intensity * 0.6).toFixed(2);
-                introAura.style.transform = `scale(${1 + intensity * 0.25})`;
+                introAura.style.opacity = (0.4 + intensity * 0.5).toFixed(2);
+                introAura.style.transform = `scale(${1 + intensity * 0.2})`;
             }
         }, 50);
 
         function transitionToSplitStage() {
             if (!introStage || !splitStage) return;
             introStage.style.opacity = '0';
-            introStage.style.transform = 'scale(0.9)';
+            introStage.style.transform = 'scale(1.1)';
             introStage.style.pointerEvents = 'none';
 
             setTimeout(() => {
@@ -3479,7 +3446,6 @@
         }
 
         glowingEmblem?.addEventListener('click', transitionToSplitStage);
-        btnRevealSplit?.addEventListener('click', transitionToSplitStage);
 
         /* ── STAGE 2: Left Side Video Canvas Visualizer ── */
         let isPlaying = false;
