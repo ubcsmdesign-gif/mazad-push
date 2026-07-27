@@ -1241,5 +1241,83 @@
 
         initEcosystemHub();
     </script>
+
+    <!-- ===== YAMAN AI FLOATING COPILOT WIDGET ===== -->
+    <div id="yaman-ai-widget-wrapper" class="fixed bottom-6 right-6 z-[9999]">
+        <button onclick="toggleYamanAIChat()" class="relative group flex items-center gap-3 px-5 py-3.5 rounded-full bg-[#050a1c]/90 border-2 border-[#f97316]/60 shadow-[0_0_35px_rgba(249,115,22,0.55)] hover:scale-105 active:scale-95 transition-all duration-300 backdrop-blur-xl">
+            <span class="absolute inset-[-4px] rounded-full bg-[#f97316]/40 blur-md opacity-70 group-hover:opacity-100 transition-opacity animate-pulse"></span>
+            <div class="relative w-10 h-10 rounded-full bg-gradient-to-tr from-[#f97316] via-amber-400 to-orange-500 p-[2px] flex items-center justify-center shadow-lg">
+                <div class="w-full h-full bg-[#020617] rounded-full flex items-center justify-center relative overflow-hidden">
+                    <img src="images/ai_character.png" class="w-full h-full object-cover rounded-full" alt="Yaman AI">
+                    <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border border-black animate-ping"></span>
+                </div>
+            </div>
+            <div class="hidden sm:flex flex-col text-left">
+                <span class="text-xs font-black text-white tracking-wide group-hover:text-[#f97316] transition-colors">YAMAN AI</span>
+                <span class="text-[9px] font-mono text-emerald-400 font-bold uppercase tracking-wider">Canlı Copilot Aktif</span>
+            </div>
+            <span class="w-2.5 h-2.5 rounded-full bg-[#f97316] animate-ping ml-1"></span>
+        </button>
+
+        <div id="yaman-ai-chat-drawer" class="absolute bottom-16 right-0 w-[92vw] sm:w-[380px] bg-[#050a1c]/95 border-2 border-[#f97316]/50 rounded-[32px] p-5 shadow-[0_0_90px_rgba(249,115,22,0.4)] backdrop-blur-2xl opacity-0 pointer-events-none transform translate-y-6 scale-95 transition-all duration-300 overflow-hidden">
+            <div class="absolute -top-20 -right-20 w-48 h-48 bg-[#f97316]/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-[#f97316] to-amber-400 p-0.5 shadow-[0_0_15px_rgba(249,115,22,0.5)]">
+                        <div class="w-full h-full bg-[#020617] rounded-[14px] overflow-hidden"><img src="images/ai_character.png" class="w-full h-full object-cover" alt="Yaman AI"></div>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-black text-white flex items-center gap-2">Yaman AI Copilot <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[9px] font-mono font-bold">ONLINE</span></h4>
+                        <p class="text-[10px] text-white/50">Mazad Akıllı Ticaret & Ürün Asistanı</p>
+                    </div>
+                </div>
+                <button onclick="toggleYamanAIChat()" class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 text-white/70 hover:text-white flex items-center justify-center text-xs transition-colors">✕</button>
+            </div>
+            <div id="yaman-chat-messages" class="h-64 overflow-y-auto space-y-3 pr-1 text-xs mb-4">
+                <div class="flex items-start gap-2.5">
+                    <div class="w-8 h-8 rounded-xl overflow-hidden flex-shrink-0 border border-[#f97316]/30"><img src="images/ai_character.png" class="w-full h-full object-cover" alt="Yaman"></div>
+                    <div class="p-3 rounded-2xl rounded-tl-none bg-white/[0.05] border border-white/10 text-white/90 leading-relaxed">Merhaba! Ben <strong>Yaman AI Copilot</strong>. 👋<br>Mazad Ekosistemi hakkında her şeyi bana sorabilirsin!</div>
+                </div>
+            </div>
+            <div class="flex items-center gap-1.5 overflow-x-auto pb-3 mb-3 text-[10px]">
+                <button onclick="sendYamanQuick('Mazad ekosistemi neler içeriyor?')" class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:border-[#f97316]/50 text-white/70 hover:text-white whitespace-nowrap transition-all">🌐 Ekosistem</button>
+                <button onclick="sendYamanQuick('Escrow ödeme güvenliği nedir?')" class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:border-[#f97316]/50 text-white/70 hover:text-white whitespace-nowrap transition-all">💳 Escrow</button>
+                <button onclick="sendYamanQuick('Açık iş ilanları ve başvuru')" class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:border-[#f97316]/50 text-white/70 hover:text-white whitespace-nowrap transition-all">💼 Kariyer</button>
+            </div>
+            <form onsubmit="handleYamanSubmit(event)" class="flex items-center gap-2">
+                <input type="text" id="yaman-chat-input" placeholder="Yaman AI'a sorun..." class="w-full bg-[#020617] border border-white/15 rounded-2xl px-4 py-2.5 text-xs text-white placeholder-white/40 focus:border-[#f97316] outline-none transition-all">
+                <button type="submit" class="w-9 h-9 rounded-2xl bg-[#f97316] hover:bg-orange-400 text-white flex items-center justify-center font-bold text-xs flex-shrink-0 transition-transform active:scale-95">➔</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleYamanAIChat() {
+            const d = document.getElementById('yaman-ai-chat-drawer');
+            if (!d) return;
+            const open = d.classList.contains('opacity-100');
+            if (open) { d.classList.remove('opacity-100','pointer-events-auto','translate-y-0','scale-100'); d.classList.add('opacity-0','pointer-events-none','translate-y-6','scale-95'); }
+            else { d.classList.remove('opacity-0','pointer-events-none','translate-y-6','scale-95'); d.classList.add('opacity-100','pointer-events-auto','translate-y-0','scale-100'); document.getElementById('yaman-chat-input')?.focus(); }
+        }
+        function sendYamanQuick(t) { const i = document.getElementById('yaman-chat-input'); if(i){i.value=t; handleYamanSubmit(new Event('submit'));} }
+        function handleYamanSubmit(e) {
+            e.preventDefault();
+            const input = document.getElementById('yaman-chat-input'), body = document.getElementById('yaman-chat-messages');
+            if (!input||!body||!input.value.trim()) return;
+            const msg = input.value.trim(); input.value='';
+            body.innerHTML += `<div class="flex justify-end"><div class="p-3 rounded-2xl rounded-br-none bg-[#f97316] text-white text-xs max-w-[80%]">${msg}</div></div>`;
+            body.scrollTop = body.scrollHeight;
+            setTimeout(() => {
+                let r = "Mazad ekosistemi hakkında menüden ilgili sayfayı ziyaret edebilirsiniz.";
+                const m = msg.toLowerCase();
+                if (m.includes('ekosistem')||m.includes('neler')) r="<strong>Mazad Ekosistemi:</strong> Açık artırma, Escrow ödeme, lojistik ağı, Fintech altyapısı ve Yaman AI Copilot'u tek çatı altında birleştiren entegre bir dijital ticaret platformu.";
+                else if (m.includes('escrow')||m.includes('güven')||m.includes('ödeme')) r="<strong>Escrow Güvenliği:</strong> Mazad Cash alıcının ödemesini tarafsız banka kasasında kilitler, ürün teslim edilene kadar satıcıya aktarılmaz.";
+                else if (m.includes('kariyer')||m.includes('iş')||m.includes('ilan')) r="<strong>Kariyer:</strong> <a href='careers.html' class='text-amber-300 font-bold underline'>Careers sayfasından</a> açık pozisyonlarımıza başvurabilirsiniz!";
+                else if (m.includes('ülke')||m.includes('faaliyet')) r="<strong>Aktif Ülkeler:</strong> Türkiye (HQ), Irak, Suudi Arabistan, BAE, Kuveyt, Katar, Mısır, Bahreyn, Cezayir ve Libya.";
+                body.innerHTML += `<div class="flex items-start gap-2.5"><div class="w-8 h-8 rounded-xl overflow-hidden flex-shrink-0 border border-[#f97316]/30"><img src="images/ai_character.png" class="w-full h-full object-cover"></div><div class="p-3 rounded-2xl rounded-tl-none bg-white/5 border border-white/10 text-white/90 text-xs leading-relaxed">${r}</div></div>`;
+                body.scrollTop = body.scrollHeight;
+            }, 500);
+        }
+    </script>
 </body>
 </html>
