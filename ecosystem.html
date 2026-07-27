@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecosystem — MAZAD GLOBAL</title>
+    <meta name="description" content="Explore the connected digital commerce ecosystem of Mazad Global — linking marketplaces, secure escrow payments, logistics, localized AI, and enterprise ERP.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            orange: '#f97316',
+                            dark: '#020617',
+                            card: '#ffffff'
+                        }
+                    },
+                    animation: {
+                        'spin-slow': 'spin 3s linear infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #020617;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Breathing Organism Background */
+        .organism-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: radial-gradient(circle at 50% 50%, #f97316 0%, #020617 80%);
+            animation: breathe 15s ease-in-out infinite;
+            z-index: 1;
+        }
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); opacity: 0.2; }
+            50% { transform: scale(1.2); opacity: 0.45; }
+        }
+
+        /* Ambient particle sparks grid overlay */
+        .sparks-container {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 2;
+            opacity: 0.8;
+        }
+
+        /* Navbar Laser Border */
+        .laser-border {
+            background: linear-gradient(90deg, transparent, rgba(249,115,22,0.8), #fff, rgba(249,115,22,0.8), transparent);
+            background-size: 200% 100%;
+            animation: sweep 2.5s linear infinite;
+        }
+        @keyframes sweep {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        @keyframes navSlideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-nav { animation: navSlideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+        @keyframes flipIn {
+            from { opacity: 0; transform: perspective(600px) rotateX(-90deg) translateY(20px); }
+            to { opacity: 1; transform: perspective(600px) rotateX(0deg) translateY(0); }
+        }
+        .nav-item {
+            opacity: 0;
+            transform-origin: top;
+            animation: flipIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        .delay-1 { animation-delay: 0.3s; } .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.5s; } .delay-4 { animation-delay: 0.6s; }
+        .delay-5 { animation-delay: 0.7s; } .delay-6 { animation-delay: 0.8s; }
+        .delay-7 { animation-delay: 0.9s; } .delay-8 { animation-delay: 1.0s; }
+        .delay-9 { animation-delay: 1.1s; }
+
+        @keyframes levitatePulse {
+            0%, 100% { transform: translateY(0); filter: drop-shadow(0 0 8px rgba(249,115,22,0.4)); }
+            50% { transform: translateY(-3px); filter: drop-shadow(0 0 20px rgba(249,115,22,0.8)); }
+        }
+        .logo-breathing { animation: levitatePulse 3s ease-in-out infinite; }
+
+        /* ===== Projects Dropdown ===== */
+        .projects-dropdown-panel {
+            transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .projects-dropdown-panel.open {
+            opacity: 1 !important;
+            transform: translateX(-50%) translateY(0) !important;
+            pointer-events: auto !important;
+        }
+        #projects-chevron.open {
+            transform: rotate(180deg);
+            color: #f97316;
+        }
+        .proj-link { position: relative; overflow: hidden; }
+        .proj-link::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(249,115,22,0.12), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        .proj-link:hover::before { opacity: 1; }
+
+        /* Page Hero animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Page Hero particle line */
+        .hero-line {
+            background: linear-gradient(90deg, transparent, rgba(249,115,22,0.6), transparent);
+            animation: lineSlide 3s ease-in-out infinite;
+        }
+        @keyframes lineSlide {
+            0%, 100% { opacity: 0.4; transform: scaleX(0.7); }
+            50% { opacity: 1; transform: scaleX(1); }
+        }
+
+        /* ── ECOSYSTEM HUB PILLARS & MAP STYLING ── */
+        .pipeline-node {
+            position: absolute;
+            width: 84px;
+            height: 84px;
+            border-radius: 9999px;
+            background: #030712;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            font-weight: 900;
+            font-family: monospace;
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translate(-50%, -50%);
+            z-index: 30;
+            pointer-events: auto;
+        }
+        .pipeline-node:hover {
+            transform: translate(-50%, -50%) scale(1.15);
+            border-color: rgba(249, 115, 22, 0.6);
+            color: #ffffff;
+            box-shadow: 0 0 20px rgba(249, 115, 22, 0.2);
+        }
+        .pipeline-node.active {
+            border-color: #f97316 !important;
+            box-shadow: 0 0 30px rgba(249, 115, 22, 0.6), inset 0 0 12px rgba(249, 115, 22, 0.3);
+            color: #ffffff !important;
+            background: #090f1d;
+        }
+        
+        .pill-badge {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            background: rgba(239, 68, 68, 0.18);
+            border: 1px solid rgba(239, 68, 68, 0.5);
+            padding: 5px 14px;
+            border-radius: 9999px;
+            font-size: 11px;
+            font-weight: 900;
+            color: #f87171;
+            font-family: monospace;
+            box-shadow: 0 0 12px rgba(239, 68, 68, 0.15);
+            pointer-events: none;
+            z-index: 25;
+            transition: all 0.4s ease;
+        }
+        .pill-badge.active {
+            background: #ef4444;
+            border-color: #f87171;
+            color: #ffffff;
+            box-shadow: 0 0 20px rgba(239, 68, 68, 0.7);
+        }
+ 
+        .node-index-label {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 25px;
+            height: 25px;
+            border-radius: 9999px;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: rgba(255,255,255,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 900;
+            font-family: monospace;
+            pointer-events: none;
+            transition: all 0.4s ease;
+        }
+        .pipeline-node.active .node-index-label {
+            background: #f97316;
+            border-color: #ffffff;
+            color: #ffffff;
+            box-shadow: 0 0 10px rgba(249, 115, 22, 0.6);
+        }
+ 
+        .node-subtitle-label {
+            position: absolute;
+            top: 92px;
+            font-size: 13px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.45);
+            pointer-events: none;
+            text-align: center;
+            width: 170px;
+            white-space: normal;
+            line-height: 1.25;
+            transition: all 0.4s ease;
+        }
+        .pipeline-node.active .node-subtitle-label {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255,255,255,0.2);
+        }
+
+        /* Floating card hover glow */
+        .value-card:hover .value-icon {
+            filter: drop-shadow(0 0 12px rgba(249,115,22,0.8));
+        }
+
+        /* CTA gradient border */
+        .cta-border-glow {
+            box-shadow: 0 0 40px rgba(249,115,22,0.15), inset 0 0 40px rgba(249,115,22,0.02);
+        }
+
+        /* Counter number gradient */
+        .stat-number {
+            background: linear-gradient(135deg, #f97316, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Spotlight mouse tracker cards */
+        .spotlight-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: border-color 0.5s ease, background-color 0.5s ease;
+        }
+        .spotlight-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+                400px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+                rgba(249, 115, 22, 0.12),
+                transparent 50%
+            );
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .spotlight-card:hover::before {
+            opacity: 1;
+        }
+        .spotlight-card::after {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            background: radial-gradient(
+                350px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+                rgba(249, 115, 22, 0.4),
+                transparent 60%
+            );
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            border-radius: inherit;
+            padding: 1px;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+        .spotlight-card:hover::after {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-[#020617] min-h-screen text-white relative">
+
+    <!-- Ambient background -->
+    <div class="organism-bg"></div>
+
+    <!-- Background sparks canvas overlay -->
+    <canvas id="ecosystem-sparks-canvas" class="sparks-container absolute inset-0 z-0"></canvas>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="fixed top-0 left-0 w-full bg-[#020617]/85 backdrop-blur-xl z-50 animate-nav border-b border-white/5">
+        <div class="absolute bottom-0 left-0 w-full h-[2px] laser-border opacity-60"></div>
+        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="flex justify-between items-center h-24">
+
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer mr-8 group logo-breathing" onclick="location.href='index.html'">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-brand-orange blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-700 rounded-full"></div>
+                        <img src="images/logo.jpg" class="h-10 w-10 relative z-10 rounded-xl transition-all duration-700 ease-out group-hover:scale-125 group-hover:rotate-6 shadow-[0_0_15px_rgba(249,115,22,0.3)]" alt="Mazad Logo">
+                    </div>
+                    <span class="ml-3 text-white font-extrabold text-2xl tracking-wide transition-all duration-500 group-hover:tracking-[0.2em] group-hover:text-brand-orange">
+                        MAZAD<span class="text-brand-orange group-hover:text-white transition-colors duration-500">GLOBAL</span>
+                    </span>
+                </div>
+
+                <!-- Desktop Nav -->
+                <div class="hidden lg:flex flex-1 items-center justify-between">
+                    <div class="flex items-center space-x-2 xl:space-x-4">
+                        <a href="index.html" class="nav-item delay-1 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1">
+                            <span class="relative z-10 group-hover:drop-shadow-[0_0_12px_#f97316]">Home</span>
+                            <div class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100"></div>
+                            <span class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full group-hover:left-0 shadow-[0_0_10px_#ffffff]"></span>
+                        </a>
+                        <a href="about.html" class="nav-item delay-2 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1">
+                            <span class="relative z-10 group-hover:drop-shadow-[0_0_12px_#f97316]">About</span>
+                            <div class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100"></div>
+                            <span class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full group-hover:left-0 shadow-[0_0_10px_#ffffff]"></span>
+                        </a>
+                        <!-- Our Projects Dropdown Trigger -->
+                        <div class="nav-item delay-3 relative" id="projects-dropdown-wrapper">
+                            <button id="projects-dropdown-btn"
+                                class="relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1 flex items-center gap-1.5">
+                                <span class="relative z-10 group-hover:drop-shadow-[0_0_12px_#f97316]">Our Projects</span>
+                                <svg id="projects-chevron" class="w-3.5 h-3.5 text-white/50 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                                <div class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100"></div>
+                                <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full shadow-[0_0_10px_#ffffff]"></span>
+                            </button>
+                            <!-- Dropdown Panel -->
+                            <div id="projects-dropdown"
+                                class="projects-dropdown-panel absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[520px] bg-[#020617]/95 backdrop-blur-2xl border border-white/10 rounded-[24px] shadow-[0_20px_60px_rgba(0,0,0,0.7),0_0_40px_rgba(249,115,22,0.08)] overflow-hidden pointer-events-none opacity-0 translate-y-2 z-[100]">
+                                <div class="h-[2px] w-full bg-gradient-to-r from-transparent via-brand-orange to-transparent opacity-60"></div>
+                                <div class="p-6">
+                                    <div class="flex items-center gap-2 mb-5">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse"></span>
+                                        <span class="text-brand-orange text-[10px] font-mono uppercase tracking-widest">Mazad Ecosystem</span>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <a href="https://mazad.market/en" id="proj-link-1" target="_blank" rel="noopener noreferrer" class="proj-link group/item flex items-center gap-3 p-4 rounded-[16px] bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 hover:bg-brand-orange/8 transition-all duration-300">
+                                            <div class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 group-hover/item:border-orange-500/60 group-hover/item:scale-110 flex items-center justify-center flex-shrink-0 transition-all duration-300">
+                                                <svg class="w-4.5 h-4.5 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                                            </div>
+                                            <div><div class="text-white font-semibold text-[13px] group-hover/item:text-brand-orange transition-colors duration-200">Mazad Market</div><div class="text-white/40 text-[11px] mt-0.5">E-Commerce & Auctions</div></div>
+                                            <svg class="w-3.5 h-3.5 text-white/20 group-hover/item:text-brand-orange group-hover/item:translate-x-1 transition-all duration-200 ml-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                        </a>
+                                        <a href="https://mazad.one/" id="proj-link-2" target="_blank" rel="noopener noreferrer" class="proj-link group/item flex items-center gap-3 p-4 rounded-[16px] bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 hover:bg-brand-orange/8 transition-all duration-300">
+                                            <div class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 group-hover/item:border-orange-500/60 group-hover/item:scale-110 flex items-center justify-center flex-shrink-0 transition-all duration-300"><img src="images/logo.jpg" class="w-5 h-5 rounded-md" alt=""></div>
+                                            <div><div class="text-white font-semibold text-[13px] group-hover/item:text-brand-orange transition-colors duration-200">Mazad One</div><div class="text-white/40 text-[11px] mt-0.5">Unified Identity & SSO</div></div>
+                                            <svg class="w-3.5 h-3.5 text-white/20 group-hover/item:text-brand-orange group-hover/item:translate-x-1 transition-all duration-200 ml-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                        </a>
+                                        <a href="https://mazad.cash/en" id="proj-link-3" target="_blank" rel="noopener noreferrer" class="proj-link group/item flex items-center gap-3 p-4 rounded-[16px] bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 hover:bg-brand-orange/8 transition-all duration-300">
+                                            <div class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 group-hover/item:border-orange-500/60 group-hover/item:scale-110 flex items-center justify-center flex-shrink-0 transition-all duration-300"><svg class="w-4.5 h-4.5 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg></div>
+                                            <div><div class="text-white font-semibold text-[13px] group-hover/item:text-brand-orange transition-colors duration-200">Mazad Cash</div><div class="text-white/40 text-[11px] mt-0.5">Digital Wallet & Fintech</div></div>
+                                            <svg class="w-3.5 h-3.5 text-white/20 group-hover/item:text-brand-orange group-hover/item:translate-x-1 transition-all duration-200 ml-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                        </a>
+                                        <a href="https://mazad-ai.com/" id="proj-link-4" target="_blank" rel="noopener noreferrer" class="proj-link group/item flex items-center gap-3 p-4 rounded-[16px] bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 hover:bg-brand-orange/8 transition-all duration-300">
+                                            <div class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 group-hover/item:border-orange-500/60 group-hover/item:scale-110 flex items-center justify-center flex-shrink-0 transition-all duration-300"><svg class="w-4.5 h-4.5 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg></div>
+                                            <div><div class="text-white font-semibold text-[13px] group-hover/item:text-brand-orange transition-colors duration-200">Mazad AI</div><div class="text-white/40 text-[11px] mt-0.5">Yaman Copilot & Studio</div></div>
+                                            <svg class="w-3.5 h-3.5 text-white/20 group-hover/item:text-brand-orange group-hover/item:translate-x-1 transition-all duration-200 ml-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                        </a>
+                                        <a href="https://mazad.studio/en" id="proj-link-5" target="_blank" rel="noopener noreferrer" class="proj-link group/item flex items-center gap-3 p-4 rounded-[16px] bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 hover:bg-brand-orange/8 transition-all duration-300">
+                                            <div class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 group-hover/item:border-orange-500/60 group-hover/item:scale-110 flex items-center justify-center flex-shrink-0 transition-all duration-300"><svg class="w-4.5 h-4.5 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></div>
+                                            <div><div class="text-white font-semibold text-[13px] group-hover/item:text-brand-orange transition-colors duration-200">Mazad Studio</div><div class="text-white/40 text-[11px] mt-0.5">Creative AI Suite</div></div>
+                                            <svg class="w-3.5 h-3.5 text-white/20 group-hover/item:text-brand-orange group-hover/item:translate-x-1 transition-all duration-200 ml-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                        </a>
+                                        <a href="https://erp.mazad.global/login" id="proj-link-6" target="_blank" rel="noopener noreferrer" class="proj-link group/item flex items-center gap-3 p-4 rounded-[16px] bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 hover:bg-brand-orange/8 transition-all duration-300">
+                                            <div class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 group-hover/item:border-orange-500/60 group-hover/item:scale-110 flex items-center justify-center flex-shrink-0 transition-all duration-300"><svg class="w-4.5 h-4.5 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A1 1 0 013 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88v9z"/></svg></div>
+                                            <div><div class="text-white font-semibold text-[13px] group-hover/item:text-brand-orange transition-colors duration-200">Mazad ERP</div><div class="text-white/40 text-[11px] mt-0.5">Enterprise Resource Planning</div></div>
+                                            <svg class="w-3.5 h-3.5 text-white/20 group-hover/item:text-brand-orange group-hover/item:translate-x-1 transition-all duration-200 ml-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+                            </div>
+                        </div>
+                        <a href="ecosystem.html" class="nav-item delay-4 relative px-3 py-2 text-brand-orange transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider">
+                            <span class="relative z-10 drop-shadow-[0_0_12px_#f97316]">Eco System</span>
+                            <div class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-60"></div>
+                            <span class="absolute bottom-0 left-0 w-full h-[2px] bg-brand-orange shadow-[0_0_10px_#f97316]"></span>
+                        </a>
+                        <a href="business-model.html" class="nav-item delay-5 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1">
+                            <span class="relative z-10 group-hover:drop-shadow-[0_0_12px_#f97316]">Business Model</span>
+                            <div class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100"></div>
+                            <span class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full group-hover:left-0 shadow-[0_0_10px_#ffffff]"></span>
+                        </a>
+                        <a href="fintech.html" class="nav-item delay-6 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1">
+                            <span class="relative z-10 group-hover:drop-shadow-[0_0_12px_#f97316]">Fintech</span>
+                            <div class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100"></div>
+                            <span class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full group-hover:left-0 shadow-[0_0_10px_#ffffff]"></span>
+                        </a>
+                        <a href="countries.html" class="nav-item delay-7 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1">
+                            <span class="relative z-10 group-hover:drop-shadow-[0_0_12px_#f97316]">Countries</span>
+                            <div class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100"></div>
+                            <span class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full group-hover:left-0 shadow-[0_0_10px_#ffffff]"></span>
+                        </a>
+                        <a href="contact.html" class="nav-item delay-8 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1">
+                            <span class="relative z-10 group-hover:drop-shadow-[0_0_12px_#f97316]">Contact</span>
+                            <div class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100"></div>
+                            <span class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full group-hover:left-0 shadow-[0_0_10px_#ffffff]"></span>
+                        </a>
+                    </div>
+
+                    <!-- Language Selectors -->
+                    <div class="nav-item delay-9 ml-8 relative p-[2px] rounded-full overflow-hidden group cursor-pointer hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-[conic-gradient(from_0deg,transparent_0_280deg,#f97316_360deg)] animate-spin-slow opacity-50 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="relative bg-[#020617] rounded-full flex items-center px-4 py-2 h-full w-full">
+                            <button class="text-brand-orange font-black text-sm px-2 transition hover:drop-shadow-[0_0_8px_#f97316]">TR</button>
+                            <span class="text-white/20 text-xs mx-1">|</span>
+                            <button class="text-white/70 hover:text-white font-medium text-sm px-2 transition hover:drop-shadow-[0_0_8px_#ffffff]">AR</button>
+                            <span class="text-white/20 text-xs mx-1">|</span>
+                            <button class="text-white/70 hover:text-white font-medium text-sm px-2 transition hover:drop-shadow-[0_0_8px_#ffffff]">EN</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-white hover:text-brand-orange focus:outline-none transition-colors">
+                        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-[#020617] border-t border-brand-orange/20 shadow-2xl">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="index.html" class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:bg-white/5 transition-all duration-300">Home</a>
+                <a href="about.html" class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:bg-white/5 transition-all duration-300">About</a>
+                <a href="#" class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:bg-white/5 transition-all duration-300">Our Projects</a>
+                <a href="ecosystem.html" class="block px-3 py-3 rounded-md text-sm font-medium text-brand-orange bg-white/5 transition-all duration-300">Eco System</a>
+                <a href="business-model.html" class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:bg-white/5 transition-all duration-300">Business Model</a>
+                <a href="fintech.html" class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:bg-white/5 transition-all duration-300">Fintech</a>
+                <a href="countries.html" class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:bg-white/5 transition-all duration-300">Countries</a>
+                <a href="contact.html" class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:bg-white/5 transition-all duration-300">Contact</a>
+
+                <div class="mt-4 pt-4 border-t border-white/10 flex justify-center gap-4">
+                    <button class="text-brand-orange font-bold text-sm px-3 py-2 bg-white/5 rounded-lg border border-brand-orange/30">TR</button>
+                    <button class="text-white hover:text-brand-orange font-medium text-sm px-3 py-2 bg-white/5 rounded-lg border border-transparent transition">AR</button>
+                    <button class="text-white hover:text-brand-orange font-medium text-sm px-3 py-2 bg-white/5 rounded-lg border border-transparent transition">EN</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Wrapper -->
+    <div class="relative z-10 pt-28">
+
+        <!-- ===== HERO ===== -->
+        <header class="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-24 pt-16 pb-12 text-center relative z-10 fade-in-up">
+            <div class="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-500/10 text-orange-400 text-xs font-semibold tracking-wider uppercase">
+                <span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-ping"></span>
+                Ecosystem Core
+            </div>
+            <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-6">
+                The Connected Commerce <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-amber-400">Ecosystem of MENA</span>
+            </h1>
+            <div class="h-[2px] w-48 mx-auto hero-line mb-8"></div>
+            <p class="text-white/60 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
+                Every product in the Mazad universe is interconnected. By sharing core identity metrics, secure escrow accounts, logistics routes, and automated AI tools, we build a unified commerce gateway across 22 countries.
+            </p>
+               <!-- ===== INTERACTIVE ECOSYSTEM MAP PANEL ===== -->
+        <section class="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-24 py-16 relative z-10 reveal" id="ecosystem-interactive-section">
+            <div class="flex flex-col gap-12">
+                
+                <!-- Top: Full Width Wavy Pipeline -->
+                <div class="w-full relative select-none" id="ecosystem-pipeline-container" style="aspect-ratio: 1200 / 450; width: 100%; min-height: 480px;">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(249,115,22,0.05),transparent_70%)] pointer-events-none"></div>
+
+                    <!-- SVG Connections Grid -->
+                    <svg id="ecosystem-svg-pipeline" class="w-full h-full overflow-visible" viewBox="0 0 1200 450">
+                        <defs>
+                            <linearGradient id="active-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#f97316" />
+                                <stop offset="100%" stop-color="#fbbf24" />
+                            </linearGradient>
+                            <filter id="neon-glow" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur stdDeviation="6" result="blur" />
+                                <feMerge>
+                                    <feMergeNode in="blur" />
+                                    <feMergeNode in="SourceGraphic" />
+                                </feMerge>
+                            </filter>
+                        </defs>
+
+                        <!-- Background wave track -->
+                        <path id="pipeline-bg-path" d="M 50,120 C 150,120 160,190 200,190 C 240,190 270,90 320,90 C 370,90 400,250 480,250 C 560,250 580,110 660,110 C 740,110 760,210 820,210 C 880,210 910,90 1150,90" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="6" stroke-linecap="round"></path>
+
+                        <!-- Progress wave track -->
+                        <path id="pipeline-active-path" d="M 50,120 C 150,120 160,190 200,190 C 240,190 270,90 320,90 C 370,90 400,250 480,250 C 560,250 580,110 660,110 C 740,110 760,210 820,210 C 880,210 910,90 1150,90" fill="none" stroke="url(#active-gradient)" stroke-width="6" stroke-linecap="round" stroke-dasharray="1500" stroke-dashoffset="1500" filter="url(#neon-glow)"></path>
+                    </svg>
+
+                    <!-- Dynamite sparks canvas overlay -->
+                    <canvas id="dynamite-sparks" class="absolute inset-0 pointer-events-none z-20"></canvas>
+
+                    <!-- Dynamic HTML Overlay for nodes & labels -->
+                    <div id="pipeline-nodes-wrapper" class="absolute inset-0 z-30 pointer-events-none">
+                        <!-- Placed dynamically via Javascript -->
+                    </div>
+                </div>
+
+                <!-- Bottom: console and details side-by-side -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mt-4">
+                    <!-- Left: Diagnostics Console -->
+                    <div class="col-span-1 lg:col-span-5 p-6 bg-[#030712] border border-white/5 rounded-3xl shadow-2xl relative overflow-hidden flex flex-col justify-between">
+                        <div>
+                            <!-- Top header -->
+                            <div class="flex items-center justify-between pb-4 border-b border-white/5 mb-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                                </div>
+                                <button id="autoplay-simulation-btn" class="px-2.5 py-1 text-[8px] font-mono bg-brand-orange/20 border border-brand-orange/40 hover:bg-brand-orange/30 text-brand-orange rounded-full uppercase tracking-wider transition-all duration-300">
+                                    ⚡ Run Simulation Mode
+                                </button>
+                            </div>
+                            
+                            <!-- Log Content -->
+                            <div class="h-44 console-log text-[13px] text-brand-orange/80 overflow-y-auto leading-relaxed flex flex-col gap-2 font-mono scrollbar-none" id="log-console">
+                                <div>&gt; System initialized. Mazad Core Hub ONLINE.</div>
+                                <div>&gt; Syncing multi-tenant databases...</div>
+                                <div>&gt; [ONE] Single Sign-On initialized. Ready for connections.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Info details card -->
+                    <div class="col-span-1 lg:col-span-7 p-8 bg-white/5 border border-white/5 rounded-3xl flex flex-col justify-center min-h-[220px]">
+                        <h3 class="text-3xl font-black text-white mb-3" id="module-detail-title">Mazad One Core</h3>
+                        <p class="text-white/60 text-[15px] md:text-[17px] leading-relaxed" id="module-detail-desc">
+                            Mazad One provides unified Single Sign-On (SSO) credentials, linking digital wallets, auction logs, and business identities seamlessly across the MENA region.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== DETAILED PILLARS GRID ===== -->
+        <main class="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-24 mb-32">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">Ecosystem Modules</h2>
+                <p class="text-white/40 max-w-xl mx-auto text-sm">
+                    Hover over any component card to visually connect it with the Core Hub above and access live diagnostic feeds.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="grid-cards-container">
+                <!-- Card 1: Mazad One -->
+                <div class="reveal spotlight-card eco-grid-card relative p-8 rounded-[32px] cursor-pointer active-module" data-module="one" style="transition-delay: 0.05s;">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange flex-shrink-0 animate-pulse">
+                            <img src="images/logo.jpg" class="w-8 h-8 rounded-lg" alt="One Logo">
+                        </div>
+                        <div>
+                            <span class="text-orange-400 font-bold uppercase tracking-wider text-xs block">Module 01</span>
+                            <h3 class="text-lg font-extrabold text-white">Mazad One</h3>
+                        </div>
+                    </div>
+                    <p class="text-white/50 text-sm leading-relaxed mb-4">
+                        Say goodbye to fragmented profiles. Mazad One links your identity, security credentials, business info, and personal settings across the entire ecosystem. Sign in once and navigate securely with bank-grade encryption.
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <span class="h-2 w-2 rounded-full bg-orange-500 animate-ping"></span>
+                        <span class="text-[10px] text-white/40 uppercase font-mono tracking-wider">SSO Integrated</span>
+                    </div>
+                </div>
+
+                <!-- Card 2: Mazad Market -->
+                <div class="reveal spotlight-card eco-grid-card relative p-8 rounded-[32px] cursor-pointer text-white/70" data-module="market" style="transition-delay: 0.1s;">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange flex-shrink-0">
+                            <svg class="w-6 h-6 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                        </div>
+                        <div>
+                            <span class="text-orange-400 font-bold uppercase tracking-wider text-xs block">Module 02</span>
+                            <h3 class="text-lg font-extrabold text-white">Mazad Market</h3>
+                        </div>
+                    </div>
+                    <p class="text-white/50 text-sm leading-relaxed mb-4">
+                        Unifying B2B, B2C, and C2C commerce into one space. Explore premium product stores, launch local auctions, or bid on region-wide listings. Integrated smart contracts guarantee transparent bidding and secure logistics.
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <span class="h-2 w-2 rounded-full bg-orange-500 animate-ping"></span>
+                        <span class="text-[10px] text-white/40 uppercase font-mono tracking-wider">Auctions Ready</span>
+                    </div>
+                </div>
+
+                <!-- Card 3: Mazad Cash -->
+                <div class="reveal spotlight-card eco-grid-card relative p-8 rounded-[32px] cursor-pointer text-white/70" data-module="cash" style="transition-delay: 0.15s;">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange flex-shrink-0">
+                            <svg class="w-6 h-6 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <div>
+                            <span class="text-orange-400 font-bold uppercase tracking-wider text-xs block">Module 03</span>
+                            <h3 class="text-lg font-extrabold text-white">Mazad Cash</h3>
+                        </div>
+                    </div>
+                    <p class="text-white/50 text-sm leading-relaxed mb-4">
+                        Mazad Cash provides fully compliant digital wallet services built specifically for Iraq and regional currencies. Execute lightning-fast payments, send bank transfers, check detailed invoices, and handle escrow balances effortlessly.
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <span class="h-2 w-2 rounded-full bg-orange-500 animate-ping"></span>
+                        <span class="text-[10px] text-white/40 uppercase font-mono tracking-wider">Fintech Secured</span>
+                    </div>
+                </div>
+
+                <!-- Card 4: Mazad Studio & AI -->
+                <div class="reveal spotlight-card eco-grid-card relative p-8 rounded-[32px] cursor-pointer text-white/70" data-module="studio" style="transition-delay: 0.2s;">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange flex-shrink-0">
+                            <svg class="w-6 h-6 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                        </div>
+                        <div>
+                            <span class="text-orange-400 font-bold uppercase tracking-wider text-xs block">Module 04</span>
+                            <h3 class="text-lg font-extrabold text-white">Studio & AI</h3>
+                        </div>
+                    </div>
+                    <p class="text-white/50 text-sm leading-relaxed mb-4">
+                        Harness custom generative intelligence. Create high-conversion marketing graphics and product mockups instantly with Mazad Studio. Plus, communicate naturally with Mazad AI, an assistant trained specifically on Iraqi variations.
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <span class="h-2 w-2 rounded-full bg-orange-500 animate-ping"></span>
+                        <span class="text-[10px] text-white/40 uppercase font-mono tracking-wider">AI Generation</span>
+                    </div>
+                </div>
+
+                <!-- Card 5: Mazad ERP -->
+                <div class="reveal spotlight-card eco-grid-card relative p-8 rounded-[32px] cursor-pointer text-white/70" data-module="erp" style="transition-delay: 0.25s;">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange flex-shrink-0">
+                            <svg class="w-6 h-6 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A1 1 0 013 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88v9z"/></svg>
+                        </div>
+                        <div>
+                            <span class="text-orange-400 font-bold uppercase tracking-wider text-xs block">Module 05</span>
+                            <h3 class="text-lg font-extrabold text-white">Mazad ERP</h3>
+                        </div>
+                    </div>
+                    <p class="text-white/50 text-sm leading-relaxed mb-4">
+                        Multi-tenant business ERP managing catalog directories, inventory syncing, automated invoice files, multi-currency flows, and ledger analytics. Built to streamline backend business operations for regional companies.
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <span class="h-2 w-2 rounded-full bg-orange-500 animate-ping"></span>
+                        <span class="text-[10px] text-white/40 uppercase font-mono tracking-wider">Enterprise Sync</span>
+                    </div>
+                </div>
+
+                <!-- Card 6: Mazad Logistics -->
+                <div class="reveal spotlight-card eco-grid-card relative p-8 rounded-[32px] cursor-pointer text-white/70" data-module="logistics" style="transition-delay: 0.3s;">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange flex-shrink-0">
+                            <svg class="w-6 h-6 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10M20 16v-4a1 1 0 00-1-1h-3m-3 0v4m0-4H12"/></svg>
+                        </div>
+                        <div>
+                            <span class="text-orange-400 font-bold uppercase tracking-wider text-xs block">Module 06</span>
+                            <h3 class="text-lg font-extrabold text-white">Smart Shipping</h3>
+                        </div>
+                    </div>
+                    <p class="text-white/50 text-sm leading-relaxed mb-4">
+                        Fully integrated regional delivery pipelines. Connect with international parcel carriers to guarantee secure, geo-tracked cross-border transport. Deliver from central hubs to destinations across the GCC in 3-7 days.
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <span class="h-2 w-2 rounded-full bg-orange-500 animate-ping"></span>
+                        <span class="text-[10px] text-white/40 uppercase font-mono tracking-wider">Logistics Active</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- ===== CTA BANNER ===== -->
+        <section class="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-24 pb-32 reveal">
+            <div class="relative overflow-hidden rounded-[32px] bg-gradient-to-r from-[#0d0905] via-[#1a0c02] to-[#0d0905] border border-brand-orange/20 p-10 md:p-16 text-center cta-border-glow">
+                <div class="absolute -top-20 left-1/4 w-72 h-72 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none animate-pulse"></div>
+                <div class="absolute -bottom-20 right-1/4 w-72 h-72 bg-amber-500/8 rounded-full blur-3xl pointer-events-none animate-pulse" style="animation-delay: 1s;"></div>
+                <div class="relative z-10">
+                    <div class="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-500/10 text-orange-400 text-xs font-semibold tracking-wider uppercase">
+                        <span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-ping"></span>
+                        Join the Movement
+                    </div>
+                    <h2 class="text-2xl md:text-4xl font-black text-white mb-4">
+                        Ready to Build the Future <br class="hidden md:block">
+                        with <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-amber-400">Mazad Global?</span>
+                    </h2>
+                    <p class="text-white/60 max-w-xl mx-auto mb-10 leading-relaxed">
+                        Whether you are a merchant, investor, or technology partner — the Mazad ecosystem has a place for you. Let's shape the future of digital commerce together.
+                    </p>
+                    <div class="flex flex-wrap items-center justify-center gap-4">
+                        <a href="#" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-orange hover:bg-orange-400 text-white font-bold text-sm tracking-wide transition-all duration-300 hover:shadow-[0_0_30px_rgba(249,115,22,0.5)] hover:-translate-y-0.5">
+                            Get in Touch
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </a>
+                        <a href="index.html" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/5 border border-white/15 hover:border-brand-orange/50 text-white font-bold text-sm tracking-wide transition-all duration-300 hover:bg-brand-orange/10 hover:-translate-y-0.5">
+                            Back to Home
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="w-full bg-[#030712] border-t border-white/5 py-16 relative z-20">
+            <div class="max-w-[1440px] mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="md:col-span-2">
+                    <span class="text-white font-extrabold text-2xl tracking-wide">
+                        MAZAD<span class="text-brand-orange">GLOBAL</span>
+                    </span>
+                    <p class="text-white/40 mt-4 max-w-sm leading-relaxed">
+                        Building next-generation digital products, fintech platforms, and enterprise solutions for global markets.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm text-brand-orange">Quick Links</h4>
+                    <ul class="space-y-2 text-white/60">
+                        <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="ecosystem.html" class="text-brand-orange font-semibold">Eco System</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm text-brand-orange">Contact</h4>
+                    <p class="text-white/60 leading-relaxed">
+                        info@mazadglobal.com<br>
+                        Istanbul, Turkey
+                    </p>
+                </div>
+            </div>
+            <div class="max-w-[1440px] mx-auto px-6 lg:px-8 mt-12 pt-8 border-t border-white/5 text-center text-white/30 text-sm">
+                &copy; 2026 MAZAD GLOBAL. All rights reserved.
+            </div>
+        </footer>
+    </div>
+
+    <!-- Interactive Scripting -->
+    <script>
+        // Background Sparks animation loop
+        const canvas = document.getElementById('ecosystem-sparks-canvas');
+        const ctx = canvas.getContext('2d');
+        let sparks = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Spark {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.4;
+                this.vy = (Math.random() - 0.5) * 0.4;
+                this.size = Math.random() * 2 + 1;
+                this.alpha = Math.random() * 0.5 + 0.1;
+                this.life = Math.random() * 300 + 100;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.life--;
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+            draw() {
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(249, 115, 22, ${this.alpha * (this.life / 300)})`;
+                ctx.shadowColor = '#f97316';
+                ctx.shadowBlur = 6;
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        // Initialize sparks
+        for (let i = 0; i < 40; i++) {
+            sparks.push(new Spark());
+        }
+
+        function animateSparks() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            sparks.forEach((spark, index) => {
+                spark.update();
+                spark.draw();
+                if (spark.life <= 0) {
+                    sparks[index] = new Spark();
+                }
+            });
+            requestAnimationFrame(animateSparks);
+        }
+        animateSparks();
+
+        // Spotlight Hover Effect
+        const spotlightCards = document.querySelectorAll('.spotlight-card');
+        spotlightCards.forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        // Scroll reveal observer
+        const reveals = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.12 });
+        reveals.forEach(el => revealObserver.observe(el));
+
+        // ===== Projects Dropdown Toggle =====
+        (function() {
+            const btn = document.getElementById('projects-dropdown-btn');
+            const panel = document.getElementById('projects-dropdown');
+            const chevron = document.getElementById('projects-chevron');
+            if (!btn || !panel) return;
+            function openDropdown() { panel.classList.add('open'); chevron.classList.add('open'); }
+            function closeDropdown() { panel.classList.remove('open'); chevron.classList.remove('open'); }
+            btn.addEventListener('click', (e) => { e.stopPropagation(); panel.classList.contains('open') ? closeDropdown() : openDropdown(); });
+            document.addEventListener('click', (e) => { if (!document.getElementById('projects-dropdown-wrapper').contains(e.target)) closeDropdown(); });
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDropdown(); });
+            document.querySelectorAll('.proj-link').forEach(link => {
+                link.addEventListener('mousemove', (e) => {
+                    const rect = link.getBoundingClientRect();
+                    link.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width * 100).toFixed(1) + '%');
+                    link.style.setProperty('--my', ((e.clientY - rect.top) / rect.height * 100).toFixed(1) + '%');
+                });
+            });
+        })();
+
+        // ===== Ecosystem Map Interactions =====
+        function initEcosystemHub() {
+            const bgPath = document.getElementById('pipeline-bg-path');
+            const activePath = document.getElementById('pipeline-active-path');
+            const nodesWrapper = document.getElementById('pipeline-nodes-wrapper');
+            const sparksCanvas = document.getElementById('dynamite-sparks');
+            const sparksCtx = sparksCanvas.getContext('2d');
+            const consoleLog = document.getElementById('log-console');
+            const moduleDetailTitle = document.getElementById('module-detail-title');
+            const moduleDetailDesc = document.getElementById('module-detail-desc');
+            const playBtn = document.getElementById('autoplay-simulation-btn');
+
+            let totalLength = bgPath.getTotalLength();
+            activePath.style.strokeDasharray = totalLength;
+            activePath.style.strokeDashoffset = totalLength;
+
+            const nodeConfigs = [
+                { key: "one", pct: 0.0, label: "ONE", subtitle: "User Auth", num: 1 },
+                { key: "catalog", pct: 0.11, label: "CAT", subtitle: "Product Catalog", num: 2 },
+                { key: "bidding", pct: 0.22, label: "BID", subtitle: "Live Auctions", num: 3 },
+                { key: "aml", pct: 0.33, label: "KYC", subtitle: "Compliance Sweep", num: 4 },
+                { key: "escrow", pct: 0.44, label: "LOCK", subtitle: "Escrow Deposit", num: 5 },
+                { key: "contract", pct: 0.55, label: "SIGN", subtitle: "Trust Rules", num: 6 },
+                { key: "erp", pct: 0.66, label: "ERP", subtitle: "Ledger Sync", num: 7 },
+                { key: "shipping", pct: 0.77, label: "SHIP", subtitle: "Cargo Assign", num: 8 },
+                { key: "delivery", pct: 0.88, label: "DEL", subtitle: "GCC Express", num: 9 },
+                { key: "settled", pct: 1.0, label: "PAY", subtitle: "Payout Settled", num: 10 }
+            ];
+
+            const pillConfigs = [
+                { pct: 0.05, text: "+IDENTITY" },
+                { pct: 0.165, text: "+TRUST" },
+                { pct: 0.275, text: "+TELEMETRY" },
+                { pct: 0.385, text: "+COMPLIANCE" },
+                { pct: 0.495, text: "+ESCROW LOCK" },
+                { pct: 0.605, text: "+AUTOMATION" },
+                { pct: 0.715, text: "+INVOICE" },
+                { pct: 0.825, text: "+LOGISTICS" },
+                { pct: 0.94, text: "+SETTLED" }
+            ];
+
+            const moduleData = {
+                one: {
+                    title: "Mazad One Identity",
+                    desc: "Unified single sign-on profile syncing secure identity credentials and business registration records across all platform nodes.",
+                    log: "[ONE] SSO token refreshed for merchant session ID-4921."
+                },
+                catalog: {
+                    title: "Global Product Catalog",
+                    desc: "Decentralized product inventories and catalog directories synced instantly from manufacturer lists directly to local storefronts.",
+                    log: "[CATALOG] Indexed 1,420 new manufacturer assets for regional dispatch."
+                },
+                bidding: {
+                    title: "Live Auction Bidding Engine",
+                    desc: "Dynamic high-volume auction engine hosting competitive bidding, reserve targets, and instant bid-extension alerts.",
+                    log: "[AUCTION] Active bidding extension triggered for live item listing."
+                },
+                aml: {
+                    title: "KYC & Anti-Money Laundering Screening",
+                    desc: "Multi-layered security protocols checking buyer and merchant registries against international AML sanctions registers.",
+                    log: "[COMPLIANCE] Sanctions list screening completed successfully for buyer ID-8831."
+                },
+                escrow: {
+                    title: "Escrow Deposit Lock",
+                    desc: "Bidding cash reserves locked in secure digital escrow vaults. Guaranteeing safety and compliance before shipping.",
+                    log: "[CASH] Bid reserve deposit locked in secure digital escrow wallet."
+                },
+                contract: {
+                    title: "Automated Trust Contract Validation",
+                    desc: "Pre-verified parameters trigger immediate contract execution. Zero manual interventions required to approve deal.",
+                    log: "[CONTRACT] Buyer-Seller digital trust agreement verified and committed to ledger."
+                },
+                erp: {
+                    title: "Mazad ERP Order Processing",
+                    desc: "Synchronizes merchant ledger accounts, VAT records, automatic cargo slips, and inventory status.",
+                    log: "[ERP] Inventory quantities successfully synced for catalog items."
+                },
+                shipping: {
+                    title: "Smart Cargo Carrier Assignment",
+                    desc: "Assigns order tracking numbers, links destination warehouses, and generates digital customs declarations.",
+                    log: "[SHIPPING] Cross-border shipping manifest generated and assigned to GCC Express cargo."
+                },
+                delivery: {
+                    title: "Fast Cross-Border Delivery Routing",
+                    desc: "Express shipping routes from Turkey to Iraq and Saudi Arabia with fully geolocated progress updates.",
+                    log: "[LOGISTICS] GCC Express dispatch transit logged at border clearing depot."
+                },
+                settled: {
+                    title: "Payout Settlement Release",
+                    desc: "Escrow reserves are immediately released to the merchant's balance after verified delivery confirmation.",
+                    log: "[CASH] Payout settlement released to Merchant Wallet. Sequence completed [SUCCESS]."
+                }
+            };
+
+            // Inject Nodes
+            nodeConfigs.forEach(config => {
+                const pt = bgPath.getPointAtLength(config.pct * totalLength);
+                const nodeEl = document.createElement('div');
+                nodeEl.className = 'pipeline-node';
+                nodeEl.style.left = (pt.x / 12).toFixed(2) + '%';
+                nodeEl.style.top = (pt.y / 4.5).toFixed(2) + '%';
+                nodeEl.innerHTML = `
+                    <span>${config.label}</span>
+                    <div class="node-index-label">${config.num}</div>
+                    <div class="node-subtitle-label">${config.subtitle}</div>
+                `;
+                nodeEl.setAttribute('data-node', config.key);
+                nodeEl.style.pointerEvents = 'auto'; // allow hover and click
+                nodesWrapper.appendChild(nodeEl);
+            });
+
+            // Inject Pills
+            pillConfigs.forEach(config => {
+                const pt = bgPath.getPointAtLength(config.pct * totalLength);
+                const pillEl = document.createElement('div');
+                pillEl.className = 'pill-badge';
+                pillEl.style.left = (pt.x / 12).toFixed(2) + '%';
+                pillEl.style.top = (pt.y / 4.5).toFixed(2) + '%';
+                pillEl.textContent = config.text;
+                nodesWrapper.appendChild(pillEl);
+            });
+
+            const htmlNodes = document.querySelectorAll('.pipeline-node');
+            const htmlPills = document.querySelectorAll('.pill-badge');
+
+            // Log Terminal Message function
+            function logMessage(msg) {
+                const div = document.createElement('div');
+                div.textContent = `> ${msg}`;
+                consoleLog.appendChild(div);
+                consoleLog.scrollTop = consoleLog.scrollHeight;
+                if (consoleLog.children.length > 25) {
+                    consoleLog.removeChild(consoleLog.firstChild);
+                }
+            }
+
+            // Update details panel
+            function updateDetails(key) {
+                const data = moduleData[key];
+                if (data) {
+                    moduleDetailTitle.textContent = data.title;
+                    moduleDetailDesc.textContent = data.desc;
+                    logMessage(data.log);
+                }
+            }
+
+            // Sparks Canvas sizing and particle system
+            let sparksParticles = [];
+
+            function resizeSparksCanvas() {
+                const rect = sparksCanvas.parentElement.getBoundingClientRect();
+                sparksCanvas.width = rect.width;
+                sparksCanvas.height = rect.height;
+            }
+            window.addEventListener('resize', resizeSparksCanvas);
+            resizeSparksCanvas();
+
+            class DynamiteSparkParticle {
+                constructor(x, y) {
+                    this.x = x;
+                    this.y = y;
+                    this.vx = (Math.random() - 0.5) * 5;
+                    this.vy = (Math.random() - 0.7) * 5 - 2;
+                    this.size = Math.random() * 3 + 1;
+                    this.alpha = Math.random() * 0.7 + 0.3;
+                    this.life = Math.random() * 30 + 15;
+                    this.color = Math.random() > 0.35 ? '#f97316' : '#fbbf24';
+                }
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    this.vy += 0.08; // falling gravity look
+                    this.life--;
+                }
+                draw(ctx) {
+                    ctx.save();
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = this.color;
+                    ctx.globalAlpha = this.alpha * (this.life / 45);
+                    ctx.shadowColor = this.color;
+                    ctx.shadowBlur = 8;
+                    ctx.fill();
+                    ctx.restore();
+                }
+            }
+
+            // Animate canvas sparks loop
+            function animateSparksLoop() {
+                sparksCtx.clearRect(0, 0, sparksCanvas.width, sparksCanvas.height);
+                
+                // Draw all particles
+                sparksParticles.forEach((particle, idx) => {
+                    particle.update();
+                    particle.draw(sparksCtx);
+                    if (particle.life <= 0) {
+                        sparksParticles.splice(idx, 1);
+                    }
+                });
+
+                requestAnimationFrame(animateSparksLoop);
+            }
+            animateSparksLoop();
+
+            // Core progress update function
+            let lastActiveNodeIndex = -1;
+            function updatePipelineProgress(progress) {
+                totalLength = bgPath.getTotalLength();
+                activePath.style.strokeDashoffset = totalLength * (1 - progress);
+
+                // Find spark point coordinates on SVG
+                const pt = bgPath.getPointAtLength(progress * totalLength);
+                const rect = sparksCanvas.getBoundingClientRect();
+                const sparkX = (pt.x / 1200) * rect.width;
+                const sparkY = (pt.y / 450) * rect.height;
+
+                // Add sparks at coordinates
+                if (progress > 0 && progress < 1) {
+                    for (let i = 0; i < 4; i++) {
+                        sparksParticles.push(new DynamiteSparkParticle(sparkX, sparkY));
+                    }
+                }
+
+                // Active Nodes matching
+                let activeNodeIndex = -1;
+                nodeConfigs.forEach((config, idx) => {
+                    const nodeEl = htmlNodes[idx];
+                    if (progress >= config.pct) {
+                        nodeEl.classList.add('active');
+                        activeNodeIndex = idx;
+                    } else {
+                        nodeEl.classList.remove('active');
+                    }
+                });
+
+                // Active Pills matching
+                pillConfigs.forEach((config, idx) => {
+                    const pillEl = htmlPills[idx];
+                    if (progress >= config.pct) {
+                        pillEl.classList.add('active');
+                    } else {
+                        pillEl.classList.remove('active');
+                    }
+                });
+
+                // Trigger node change telemetry logs
+                if (activeNodeIndex !== -1 && activeNodeIndex !== lastActiveNodeIndex) {
+                    lastActiveNodeIndex = activeNodeIndex;
+                    const activeConfig = nodeConfigs[activeNodeIndex];
+                    updateDetails(activeConfig.key);
+                }
+            }
+
+            // Hover and click behaviors for nodes
+            htmlNodes.forEach((node, idx) => {
+                node.addEventListener('mouseenter', () => {
+                    stopSimulation();
+                    const config = nodeConfigs[idx];
+                    updatePipelineProgress(config.pct);
+                });
+            });
+
+            // Scroll position tracking logic
+            function getScrollProgress() {
+                const section = document.getElementById('ecosystem-interactive-section');
+                if (!section) return 0;
+                const rect = section.getBoundingClientRect();
+                const viewHeight = window.innerHeight;
+                
+                // Track progress relative to viewports
+                const totalProgressDistance = rect.height + viewHeight * 0.4;
+                let progress = (viewHeight - rect.top) / totalProgressDistance;
+                return Math.max(0, Math.min(1, progress));
+            }
+
+            let isSimulating = false;
+            window.addEventListener('scroll', () => {
+                if (!isSimulating) {
+                    const progress = getScrollProgress();
+                    updatePipelineProgress(progress);
+                }
+            });
+
+            // Initialize progress on load
+            setTimeout(() => {
+                resizeSparksCanvas();
+                updatePipelineProgress(getScrollProgress());
+            }, 300);
+
+            // Simulation mode autoplay loop
+            let simInterval = null;
+            let simProgress = 0;
+
+            function startSimulation() {
+                if (isSimulating) return;
+                isSimulating = true;
+                playBtn.textContent = "⏹️ Stop Simulation Mode";
+                playBtn.classList.remove('bg-brand-orange/20', 'text-brand-orange');
+                playBtn.classList.add('bg-red-500/20', 'text-red-400');
+                logMessage("SIMULATION: Initiating automated track diagnostics sweep...");
+                simProgress = 0;
+
+                simInterval = setInterval(() => {
+                    simProgress += 0.008;
+                    if (simProgress > 1.0) {
+                        simProgress = 0; // Loop simulation
+                        logMessage("SIMULATION: Sweep completed. Restarting diagnostics...");
+                    }
+                    updatePipelineProgress(simProgress);
+                }, 40);
+            }
+
+            function stopSimulation() {
+                if (!isSimulating) return;
+                isSimulating = false;
+                clearInterval(simInterval);
+                playBtn.textContent = "⚡ Run Simulation Mode";
+                playBtn.classList.remove('bg-red-500/20', 'text-red-400');
+                playBtn.classList.add('bg-brand-orange/20', 'text-brand-orange');
+                logMessage("SIMULATION: Diagnostics sweep terminated.");
+                
+                // Sync back to scroll progress
+                updatePipelineProgress(getScrollProgress());
+            }
+
+            playBtn.addEventListener('click', () => {
+                if (isSimulating) {
+                    stopSimulation();
+                } else {
+                    startSimulation();
+                }
+            });
+        }
+
+        initEcosystemHub();
+    </script>
+</body>
+</html>
