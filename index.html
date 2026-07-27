@@ -904,10 +904,11 @@
                 <div class="absolute w-[600px] h-[600px] bg-amber-500/15 rounded-full blur-[140px] top-1/2 right-1/4 -translate-y-1/2 translate-x-1/2 animate-pulse" style="animation-delay: 2.5s;"></div>
             </div>
 
-            <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 relative z-10">
+            <!-- Cards Flex Centered Container -->
+            <div id="portal-cards-container" class="w-full max-w-4xl flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 relative z-10 transition-all duration-700">
                 
                 <!-- LEFT CARD: Video Demo Section (Phone-Ratio Tall Card) -->
-                <div id="portal-left-half" class="group relative overflow-hidden bg-[#090d1e]/85 backdrop-blur-2xl border border-brand-orange/40 rounded-[38px] p-6 sm:p-8 min-h-[460px] sm:min-h-[520px] flex flex-col justify-between cursor-pointer transition-all duration-500 hover:scale-[1.03] hover:border-brand-orange hover:shadow-[0_0_70px_rgba(249,115,22,0.45)]">
+                <div id="portal-left-half" class="w-full md:w-1/2 group relative overflow-hidden bg-[#090d1e]/85 backdrop-blur-2xl border border-brand-orange/40 rounded-[38px] p-6 sm:p-8 min-h-[460px] sm:min-h-[520px] flex flex-col justify-between cursor-pointer transition-all duration-500 hover:scale-[1.02] hover:border-brand-orange hover:shadow-[0_0_70px_rgba(249,115,22,0.45)]">
                     <!-- Conic Border Sweep Laser -->
                     <div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0_260deg,#f97316_360deg)] animate-spin-slow opacity-60 group-hover:opacity-100 transition-opacity"></div>
                     
@@ -957,7 +958,7 @@
 
 
                 <!-- RIGHT CARD: Direct Site Entry Section (Phone-Ratio Tall Card with Mazad Logo) -->
-                <div id="portal-right-half" class="group relative overflow-hidden bg-[#04091e]/85 backdrop-blur-2xl border border-white/15 rounded-[38px] p-6 sm:p-8 min-h-[460px] sm:min-h-[520px] flex flex-col justify-between cursor-pointer transition-all duration-500 hover:scale-[1.03] hover:border-brand-orange/60 hover:shadow-[0_0_70px_rgba(249,115,22,0.45)]">
+                <div id="portal-right-half" class="w-full md:w-1/2 group relative overflow-hidden bg-[#04091e]/85 backdrop-blur-2xl border border-white/15 rounded-[38px] p-6 sm:p-8 min-h-[460px] sm:min-h-[520px] flex flex-col justify-between cursor-pointer transition-all duration-500 hover:scale-[1.03] hover:border-brand-orange/60 hover:shadow-[0_0_70px_rgba(249,115,22,0.45)]">
                     
                     <div class="relative bg-[#07112e]/95 rounded-[30px] p-6 sm:p-8 h-full flex flex-col justify-between z-10 border border-white/10">
                         <!-- Cyber Grid Pattern Overlay -->
@@ -3549,32 +3550,29 @@
             renderDemoVideo();
         }
 
-        /* ── Play & Replay Controls (Theater Mode Centering Animation) ── */
+        /* ── Play & Replay Controls (Ultra-Smooth Center Focus Animation) ── */
         function playDemo() {
             isPlaying = true;
             
-            // 1. Right card smoothly fades out and shrinks away
+            // 1. Hide right card smoothly
             if (rightHalf) {
-                rightHalf.style.transition = 'all 700ms cubic-bezier(0.16, 1, 0.3, 1)';
                 rightHalf.style.opacity = '0';
-                rightHalf.style.transform = 'scale(0.85) translateX(60px)';
+                rightHalf.style.transform = 'scale(0.8)';
                 rightHalf.style.pointerEvents = 'none';
                 setTimeout(() => {
                     rightHalf.style.display = 'none';
-                }, 700);
+                }, 300);
             }
 
-            // 2. Left Video card expands to full center stage (Ekranın Tam Ortasına Gelme Animasyonu)
+            // 2. Center left card in container with glowing aura
             if (leftHalf) {
-                leftHalf.style.transition = 'all 800ms cubic-bezier(0.16, 1, 0.3, 1)';
-                leftHalf.classList.remove('md:col-span-1');
-                leftHalf.classList.add('md:col-span-2', 'max-w-2xl', 'mx-auto', 'w-full', 'shadow-[0_0_100px_rgba(249,115,22,0.6)]');
-                leftHalf.style.minHeight = '560px';
+                leftHalf.style.transform = 'scale(1.06)';
+                leftHalf.classList.add('shadow-[0_0_120px_rgba(249,115,22,0.8)]', 'border-brand-orange');
             }
 
-            // 3. Unblur Video Canvas completely
+            // 3. Unblur Video Canvas
             if (videoCanvas) {
-                videoCanvas.style.transition = 'all 700ms ease-out';
+                videoCanvas.style.transition = 'filter 500ms ease-out, opacity 500ms ease-out';
                 videoCanvas.style.filter = 'blur(0px)';
                 videoCanvas.style.opacity = '1';
                 videoCanvas.style.transform = 'scale(1)';
