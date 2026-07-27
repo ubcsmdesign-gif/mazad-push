@@ -913,9 +913,10 @@
                     <div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0_260deg,#f97316_360deg)] animate-spin-slow opacity-60 group-hover:opacity-100 transition-opacity"></div>
                     
                     <div class="relative bg-[#090d1e]/95 rounded-[34px] p-6 sm:p-9 h-full flex flex-col justify-between z-10 border border-white/10">
-                        <!-- Background Canvas Preview -->
-                        <div class="absolute inset-0 rounded-[34px] overflow-hidden pointer-events-none opacity-45 group-hover:opacity-80 transition-opacity">
-                            <canvas id="demo-video-canvas" class="w-full h-full object-cover filter blur-xl scale-110"></canvas>
+                        <!-- Real HD Video Player (images/tanitim_videosu.mp4) & Particle Canvas Overlay -->
+                        <div class="absolute inset-0 rounded-[34px] overflow-hidden z-0">
+                            <video id="real-demo-video" class="w-full h-full object-cover transition-all duration-700 filter blur-xl opacity-50 scale-105 pointer-events-none" src="images/tanitim_videosu.mp4" playsinline preload="auto" loop></video>
+                            <canvas id="demo-video-canvas" class="absolute inset-0 w-full h-full object-cover filter blur-xl scale-110 opacity-30 pointer-events-none"></canvas>
                         </div>
 
                         <!-- Center Play Graphic & Title -->
@@ -3550,7 +3551,9 @@
             renderDemoVideo();
         }
 
-        /* ── Play & Replay Controls (Cinematic Morph & Center Stage Transition) ── */
+        /* ── Play & Replay Controls (Cinematic Morph & Real Video Playback) ── */
+        const realVideo = document.getElementById('real-demo-video');
+
         function playDemo() {
             isPlaying = true;
             
@@ -3573,25 +3576,29 @@
                 leftHalf.classList.add('shadow-[0_0_140px_rgba(249,115,22,0.85)]', 'border-amber-400');
             }
 
-            // 3. Unblur Video Canvas smoothly
-            if (videoCanvas) {
-                videoCanvas.style.transition = 'filter 650ms ease-out, opacity 650ms ease-out, transform 650ms ease-out';
-                videoCanvas.style.filter = 'blur(0px)';
-                videoCanvas.style.opacity = '1';
-                videoCanvas.style.transform = 'scale(1)';
+            // 3. Play Real MP4 Video & Unblur smoothly
+            if (realVideo) {
+                realVideo.style.transition = 'filter 650ms ease-out, opacity 650ms ease-out, transform 650ms ease-out';
+                realVideo.style.filter = 'blur(0px)';
+                realVideo.style.opacity = '1';
+                realVideo.style.transform = 'scale(1)';
+                realVideo.play().catch((err) => console.log('Video play error:', err));
             }
+
             if (playBtn) {
                 playBtn.style.transform = 'scale(0.8)';
-                playBtn.style.opacity = '0.3';
+                playBtn.style.opacity = '0.2';
             }
         }
 
         function resetDemo() {
             isPlaying = false;
-            if (videoCanvas) {
-                videoCanvas.style.filter = 'blur(25px)';
-                videoCanvas.style.opacity = '0.7';
-                videoCanvas.style.transform = 'scale(1.1)';
+            if (realVideo) {
+                realVideo.pause();
+                realVideo.currentTime = 0;
+                realVideo.style.filter = 'blur(25px)';
+                realVideo.style.opacity = '0.5';
+                realVideo.style.transform = 'scale(1.05)';
             }
             if (playBtn) {
                 playBtn.style.transform = 'scale(1)';
