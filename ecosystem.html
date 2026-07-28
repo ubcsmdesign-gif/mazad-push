@@ -345,161 +345,150 @@
     <canvas id="ecosystem-sparks-canvas" class="sparks-container absolute inset-0 z-0"></canvas>
 
     <!-- ===== NAVBAR ===== -->
-    <nav class="fixed top-0 left-0 w-full bg-[#020617]/85 backdrop-blur-xl z-50 animate-nav border-b border-white/5">
-        <div class="absolute bottom-0 left-0 w-full h-[2px] laser-border opacity-60"></div>
-        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div class="flex justify-between items-center h-24">
+    <nav class="fixed top-0 left-0 w-full bg-[#020617]/90 backdrop-blur-xl z-50 border-b border-white/5 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+        <div class="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-brand-orange to-transparent opacity-60"></div>
+
+        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20 sm:h-24">
 
                 <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center cursor-pointer mr-8 group logo-breathing" onclick="location.href='index.html'">
+                <a href="index.html" class="flex-shrink-0 flex items-center cursor-pointer mr-6 group">
                     <div class="relative">
-                        <div class="absolute inset-0 bg-brand-orange blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-700 rounded-full"></div>
-                        <img src="images/logo.jpg" class="h-10 w-10 relative z-10 rounded-xl transition-all duration-700 ease-out group-hover:scale-125 group-hover:rotate-6 shadow-[0_0_15px_rgba(249,115,22,0.3)]" alt="Mazad Logo">
+                        <div class="absolute inset-0 bg-brand-orange blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 rounded-full"></div>
+                        <img src="images/logo.jpg" class="h-9 w-9 sm:h-10 sm:w-10 relative z-10 rounded-xl transition-all duration-500 group-hover:scale-110 shadow-[0_0_15px_rgba(249,115,22,0.3)]" alt="Mazad Logo">
                     </div>
-                    <span class="ml-3 text-white font-extrabold text-2xl tracking-wide transition-all duration-500 group-hover:tracking-[0.2em] group-hover:text-brand-orange">
+                    <span class="ml-3 text-white font-extrabold text-xl sm:text-2xl tracking-wide transition-all duration-500 group-hover:text-brand-orange">
                         MAZAD<span class="text-brand-orange group-hover:text-white transition-colors duration-500">GLOBAL</span>
                     </span>
-                </div>
+                </a>
 
-                <!-- Desktop Nav -->
-                <div class="hidden lg:flex flex-1 items-center justify-between">
-                    <div class="flex items-center space-x-2 xl:space-x-4">
-                        <a href="index.html" class="nav-item delay-1 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1">
-                            <span class="relative z-10 group-hover:drop-shadow-[0_0_12px_#f97316]">Home</span>
-                            <div class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100"></div>
-                            <span class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full group-hover:left-0 shadow-[0_0_10px_#ffffff]"></span>
-                        </a>
-                        <a href="about.html" class="nav-item delay-2 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1">
-                            <span class="relative z-10 group-hover:drop-shadow-[0_0_12px_#f97316]">About</span>
-                            <div class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100"></div>
-                            <span class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full group-hover:left-0 shadow-[0_0_10px_#ffffff]"></span>
-                        </a>
-                        <!-- Our Projects Dropdown Trigger -->
-                        <div class="nav-item delay-3 relative" id="projects-dropdown-wrapper">
-                            <button id="projects-dropdown-btn"
-                                class="relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1 flex items-center gap-1.5">
-                                <span class="relative z-10 group-hover:drop-shadow-[0_0_12px_#f97316]">Our Projects</span>
-                                <svg id="projects-chevron" class="w-3.5 h-3.5 text-white/50 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-                                </svg>
-                                <div class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100"></div>
-                                <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full shadow-[0_0_10px_#ffffff]"></span>
-                            </button>
-                            <!-- Dropdown Panel -->
-                            <div id="projects-dropdown"
-                                class="projects-dropdown-panel absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[520px] bg-[#020617]/95 backdrop-blur-2xl border border-white/10 rounded-[24px] shadow-[0_20px_60px_rgba(0,0,0,0.7),0_0_40px_rgba(249,115,22,0.08)] overflow-hidden pointer-events-none opacity-0 translate-y-2 z-[100]">
-                                <div class="h-[2px] w-full bg-gradient-to-r from-transparent via-brand-orange to-transparent opacity-60"></div>
-                                <div class="p-6">
-                                    <div class="flex items-center gap-2 mb-5">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse"></span>
-                                        <span class="text-brand-orange text-[10px] font-mono uppercase tracking-widest">Mazad Ecosystem</span>
-                                    </div>
-                                    <div class="grid grid-cols-2 gap-3">
-                                        <a href="https://mazad.market/en" id="proj-link-1" target="_blank" rel="noopener noreferrer" class="proj-link group/item flex items-center gap-3 p-4 rounded-[16px] bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 hover:bg-brand-orange/8 transition-all duration-300">
-                                            <div class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 group-hover/item:border-orange-500/60 group-hover/item:scale-110 flex items-center justify-center flex-shrink-0 transition-all duration-300">
-                                                <svg class="w-4.5 h-4.5 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                                            </div>
-                                            <div><div class="text-white font-semibold text-[13px] group-hover/item:text-brand-orange transition-colors duration-200">Mazad Market</div><div class="text-white/40 text-[11px] mt-0.5">E-Commerce & Auctions</div></div>
-                                            <svg class="w-3.5 h-3.5 text-white/20 group-hover/item:text-brand-orange group-hover/item:translate-x-1 transition-all duration-200 ml-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                                        </a>
-                                        <a href="https://mazad.one/" id="proj-link-2" target="_blank" rel="noopener noreferrer" class="proj-link group/item flex items-center gap-3 p-4 rounded-[16px] bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 hover:bg-brand-orange/8 transition-all duration-300">
-                                            <div class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 group-hover/item:border-orange-500/60 group-hover/item:scale-110 flex items-center justify-center flex-shrink-0 transition-all duration-300"><img src="images/logo.jpg" class="w-5 h-5 rounded-md" alt=""></div>
-                                            <div><div class="text-white font-semibold text-[13px] group-hover/item:text-brand-orange transition-colors duration-200">Mazad One</div><div class="text-white/40 text-[11px] mt-0.5">Unified Identity & SSO</div></div>
-                                            <svg class="w-3.5 h-3.5 text-white/20 group-hover/item:text-brand-orange group-hover/item:translate-x-1 transition-all duration-200 ml-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                                        </a>
-                                        <a href="https://mazad.cash/en" id="proj-link-3" target="_blank" rel="noopener noreferrer" class="proj-link group/item flex items-center gap-3 p-4 rounded-[16px] bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 hover:bg-brand-orange/8 transition-all duration-300">
-                                            <div class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 group-hover/item:border-orange-500/60 group-hover/item:scale-110 flex items-center justify-center flex-shrink-0 transition-all duration-300"><svg class="w-4.5 h-4.5 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg></div>
-                                            <div><div class="text-white font-semibold text-[13px] group-hover/item:text-brand-orange transition-colors duration-200">Mazad Cash</div><div class="text-white/40 text-[11px] mt-0.5">Digital Wallet & Fintech</div></div>
-                                            <svg class="w-3.5 h-3.5 text-white/20 group-hover/item:text-brand-orange group-hover/item:translate-x-1 transition-all duration-200 ml-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                                        </a>
-                                        <a href="https://mazad-ai.com/" id="proj-link-4" target="_blank" rel="noopener noreferrer" class="proj-link group/item flex items-center gap-3 p-4 rounded-[16px] bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 hover:bg-brand-orange/8 transition-all duration-300">
-                                            <div class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 group-hover/item:border-orange-500/60 group-hover/item:scale-110 flex items-center justify-center flex-shrink-0 transition-all duration-300"><svg class="w-4.5 h-4.5 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg></div>
-                                            <div><div class="text-white font-semibold text-[13px] group-hover/item:text-brand-orange transition-colors duration-200">Mazad AI</div><div class="text-white/40 text-[11px] mt-0.5">Yaman Copilot & Studio</div></div>
-                                            <svg class="w-3.5 h-3.5 text-white/20 group-hover/item:text-brand-orange group-hover/item:translate-x-1 transition-all duration-200 ml-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                                        </a>
-                                        <a href="https://mazad.studio/en" id="proj-link-5" target="_blank" rel="noopener noreferrer" class="proj-link group/item flex items-center gap-3 p-4 rounded-[16px] bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 hover:bg-brand-orange/8 transition-all duration-300">
-                                            <div class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 group-hover/item:border-orange-500/60 group-hover/item:scale-110 flex items-center justify-center flex-shrink-0 transition-all duration-300"><svg class="w-4.5 h-4.5 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></div>
-                                            <div><div class="text-white font-semibold text-[13px] group-hover/item:text-brand-orange transition-colors duration-200">Mazad Studio</div><div class="text-white/40 text-[11px] mt-0.5">Creative AI Suite</div></div>
-                                            <svg class="w-3.5 h-3.5 text-white/20 group-hover/item:text-brand-orange group-hover/item:translate-x-1 transition-all duration-200 ml-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                                        </a>
-                                        <a href="https://erp.mazad.global/login" id="proj-link-6" target="_blank" rel="noopener noreferrer" class="proj-link group/item flex items-center gap-3 p-4 rounded-[16px] bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 hover:bg-brand-orange/8 transition-all duration-300">
-                                            <div class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 group-hover/item:border-orange-500/60 group-hover/item:scale-110 flex items-center justify-center flex-shrink-0 transition-all duration-300"><svg class="w-4.5 h-4.5 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A1 1 0 013 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88v9z"/></svg></div>
-                                            <div><div class="text-white font-semibold text-[13px] group-hover/item:text-brand-orange transition-colors duration-200">Mazad ERP</div><div class="text-white/40 text-[11px] mt-0.5">Enterprise Resource Planning</div></div>
-                                            <svg class="w-3.5 h-3.5 text-white/20 group-hover/item:text-brand-orange group-hover/item:translate-x-1 transition-all duration-200 ml-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                                        </a>
-                                    </div>
+                <!-- Navigation Links (Desktop) -->
+                <div class="hidden lg:flex items-center space-x-6">
+                    <!-- 1. Home -->
+                    <a href="index.html" class="px-3 py-2 text-white/80 hover:text-white text-sm font-semibold uppercase tracking-wider transition-colors hover:text-brand-orange">
+                        Ana Sayfa
+                    </a>
+
+                    <!-- 2. Ekosistem & Çözümler Dropdown -->
+                    <div class="relative group/nav">
+                        <button class="px-3 py-2 text-brand-orange text-sm font-bold uppercase tracking-wider flex items-center gap-1.5 transition-colors">
+                            <span>Ekosistem & Çözümler</span>
+                            <svg class="w-3.5 h-3.5 text-brand-orange transition-transform duration-300 group-hover/nav:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+
+                        <div class="absolute top-full left-0 mt-2 w-72 bg-[#050a1c]/95 backdrop-blur-2xl border border-white/10 rounded-2xl p-3 shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_40px_rgba(249,115,22,0.1)] opacity-0 pointer-events-none group-hover/nav:opacity-100 group-hover/nav:pointer-events-auto transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50">
+                            <a href="ecosystem.html" class="flex items-center gap-3 p-3 rounded-xl bg-white/5 transition-colors group/item">
+                                <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange group-hover/item:scale-110 transition-transform">🌐</div>
+                                <div>
+                                    <div class="text-brand-orange text-xs font-bold">Eco System</div>
+                                    <div class="text-white/40 text-[10px]">Entegre Ticaret & Modüller</div>
                                 </div>
-                                <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
-                            </div>
+                            </a>
+                            <a href="fintech.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
+                                <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange group-hover/item:scale-110 transition-transform">💳</div>
+                                <div>
+                                    <div class="text-white text-xs font-bold group-hover/item:text-brand-orange transition-colors">Fintech & Cash</div>
+                                    <div class="text-white/40 text-[10px]">Escrow Güvenliği & Cüzdan</div>
+                                </div>
+                            </a>
+                            <a href="countries.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
+                                <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange group-hover/item:scale-110 transition-transform">🗺️</div>
+                                <div>
+                                    <div class="text-white text-xs font-bold group-hover/item:text-brand-orange transition-colors">Dijital Ticaret Köprüsü</div>
+                                    <div class="text-white/40 text-[10px]">10+ Faal Ülke & Ofisler</div>
+                                </div>
+                            </a>
+                            <div class="my-2 border-t border-white/5"></div>
+                            <div class="px-3 py-1 text-[9px] font-mono text-brand-orange uppercase tracking-wider font-bold">Harici Ekosistem</div>
+                            <a href="https://mazad.market/en" target="_blank" class="flex items-center justify-between px-3 py-2 text-xs text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-colors">
+                                <span>Mazad Market</span> <span class="text-[10px] text-brand-orange">➔</span>
+                            </a>
+                            <a href="https://mazad.cash/en" target="_blank" class="flex items-center justify-between px-3 py-2 text-xs text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-colors">
+                                <span>Mazad Cash</span> <span class="text-[10px] text-brand-orange">➔</span>
+                            </a>
                         </div>
-                        <a href="ecosystem.html" class="nav-item delay-4 relative px-3 py-2 text-brand-orange transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider">
-                            <span class="relative z-10 drop-shadow-[0_0_12px_#f97316]">Eco System</span>
-                            <div class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-60"></div>
-                            <span class="absolute bottom-0 left-0 w-full h-[2px] bg-brand-orange shadow-[0_0_10px_#f97316]"></span>
-                        </a>
-                        <a href="business-model.html" class="nav-item delay-5 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1">
-                            <span class="relative z-10 group-hover:drop-shadow-[0_0_12px_#f97316]">Business Model</span>
-                            <div class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100"></div>
-                            <span class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full group-hover:left-0 shadow-[0_0_10px_#ffffff]"></span>
-                        </a>
-                        <a href="fintech.html" class="nav-item delay-6 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1">
-                            <span class="relative z-10 group-hover:drop-shadow-[0_0_12px_#f97316]">Fintech</span>
-                            <div class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100"></div>
-                            <span class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full group-hover:left-0 shadow-[0_0_10px_#ffffff]"></span>
-                        </a>
-                        <a href="countries.html" class="nav-item delay-7 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1">
-                            <span class="relative z-10 group-hover:drop-shadow-[0_0_12px_#f97316]">Countries</span>
-                            <div class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100"></div>
-                            <span class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full group-hover:left-0 shadow-[0_0_10px_#ffffff]"></span>
-                        </a>
-                        <a href="contact.html" class="nav-item delay-8 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1">
-                            <span class="relative z-10 group-hover:drop-shadow-[0_0_12px_#f97316]">Contact</span>
-                            <div class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100"></div>
-                            <span class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full group-hover:left-0 shadow-[0_0_10px_#ffffff]"></span>
-                        </a>
                     </div>
 
-                    <!-- Language Selectors -->
-                    <div class="nav-item delay-9 ml-8 relative p-[2px] rounded-full overflow-hidden group cursor-pointer hover:scale-105 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-[conic-gradient(from_0deg,transparent_0_280deg,#f97316_360deg)] animate-spin-slow opacity-50 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <div class="relative bg-[#020617] rounded-full flex items-center px-4 py-2 h-full w-full">
-                            <button class="text-brand-orange font-black text-sm px-2 transition hover:drop-shadow-[0_0_8px_#f97316]">TR</button>
-                            <span class="text-white/20 text-xs mx-1">|</span>
-                            <button class="text-white/70 hover:text-white font-medium text-sm px-2 transition hover:drop-shadow-[0_0_8px_#ffffff]">AR</button>
-                            <span class="text-white/20 text-xs mx-1">|</span>
-                            <button class="text-white/70 hover:text-white font-medium text-sm px-2 transition hover:drop-shadow-[0_0_8px_#ffffff]">EN</button>
+                    <!-- 3. Kurumsal Dropdown -->
+                    <div class="relative group/nav">
+                        <button class="px-3 py-2 text-white/80 group-hover/nav:text-brand-orange text-sm font-semibold uppercase tracking-wider flex items-center gap-1.5 transition-colors">
+                            <span>Kurumsal</span>
+                            <svg class="w-3.5 h-3.5 text-white/50 group-hover/nav:text-brand-orange transition-transform duration-300 group-hover/nav:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+
+                        <div class="absolute top-full left-0 mt-2 w-64 bg-[#050a1c]/95 backdrop-blur-2xl border border-white/10 rounded-2xl p-3 shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_40px_rgba(249,115,22,0.1)] opacity-0 pointer-events-none group-hover/nav:opacity-100 group-hover/nav:pointer-events-auto transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50">
+                            <a href="about.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
+                                <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange group-hover/item:scale-110 transition-transform">🏢</div>
+                                <div>
+                                    <div class="text-white text-xs font-bold group-hover/item:text-brand-orange transition-colors">Hakkımızda</div>
+                                    <div class="text-white/40 text-[10px]">Vizyon, Misyon & Ekip</div>
+                                </div>
+                            </a>
+                            <a href="business-model.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
+                                <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange group-hover/item:scale-110 transition-transform">📊</div>
+                                <div>
+                                    <div class="text-white text-xs font-bold group-hover/item:text-brand-orange transition-colors">İş Modeli</div>
+                                    <div class="text-white/40 text-[10px]">Gelir Kanalları & Projeksiyon</div>
+                                </div>
+                            </a>
+                            <a href="careers.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
+                                <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange group-hover/item:scale-110 transition-transform">💼</div>
+                                <div>
+                                    <div class="text-white text-xs font-bold group-hover/item:text-brand-orange transition-colors">Kariyer</div>
+                                    <div class="text-white/40 text-[10px]">Açık İlanlar & Başvuru</div>
+                                </div>
+                            </a>
                         </div>
                     </div>
+
+                    <!-- 4. İletişim -->
+                    <a href="contact.html" class="px-3 py-2 text-white/80 hover:text-white text-sm font-semibold uppercase tracking-wider transition-colors hover:text-brand-orange">
+                        İletişim
+                    </a>
                 </div>
 
-                <!-- Mobile Menu Button -->
-                <div class="lg:hidden flex items-center">
-                    <button id="mobile-menu-button" class="text-white hover:text-brand-orange focus:outline-none transition-colors">
-                        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                <!-- Language Switcher & Mobile Button -->
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-1 bg-white/5 border border-white/10 rounded-full p-1 text-[11px] font-bold">
+                        <button class="px-2.5 py-1 rounded-full bg-brand-orange text-white shadow-sm">TR</button>
+                        <button class="px-2.5 py-1 rounded-full text-white/60 hover:text-white transition-colors">AR</button>
+                        <button class="px-2.5 py-1 rounded-full text-white/60 hover:text-white transition-colors">EN</button>
+                    </div>
+
+                    <button id="mobile-menu-button" class="lg:hidden p-2.5 rounded-xl bg-white/5 border border-white/10 text-white/80 hover:text-white">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
                 </div>
+
             </div>
         </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-[#020617] border-t border-brand-orange/20 shadow-2xl">
-            <div class="px-4 pt-2 pb-6 space-y-1">
-                <a href="index.html" class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:bg-white/5 transition-all duration-300">Home</a>
-                <a href="about.html" class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:bg-white/5 transition-all duration-300">About</a>
-                <a href="#" class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:bg-white/5 transition-all duration-300">Our Projects</a>
-                <a href="ecosystem.html" class="block px-3 py-3 rounded-md text-sm font-medium text-brand-orange bg-white/5 transition-all duration-300">Eco System</a>
-                <a href="business-model.html" class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:bg-white/5 transition-all duration-300">Business Model</a>
-                <a href="fintech.html" class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:bg-white/5 transition-all duration-300">Fintech</a>
-                <a href="countries.html" class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:bg-white/5 transition-all duration-300">Countries</a>
-                <a href="contact.html" class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:bg-white/5 transition-all duration-300">Contact</a>
+        <!-- Mobile Menu Container -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-[#020617]/98 border-b border-white/10 px-6 py-6 space-y-4 text-sm font-semibold">
+            <a href="index.html" class="block text-white hover:text-brand-orange">Ana Sayfa</a>
+            
+            <div class="space-y-2 pt-2 border-t border-white/5">
+                <div class="text-brand-orange text-xs uppercase tracking-wider font-mono">Ekosistem & Çözümler</div>
+                <a href="ecosystem.html" class="block text-brand-orange pl-3">🌐 Eco System</a>
+                <a href="fintech.html" class="block text-white/80 hover:text-white pl-3">💳 Fintech & Cash</a>
+                <a href="countries.html" class="block text-white/80 hover:text-white pl-3">🗺️ Dijital Ticaret Köprüsü</a>
+            </div>
 
-                <div class="mt-4 pt-4 border-t border-white/10 flex justify-center gap-4">
-                    <button class="text-brand-orange font-bold text-sm px-3 py-2 bg-white/5 rounded-lg border border-brand-orange/30">TR</button>
-                    <button class="text-white hover:text-brand-orange font-medium text-sm px-3 py-2 bg-white/5 rounded-lg border border-transparent transition">AR</button>
-                    <button class="text-white hover:text-brand-orange font-medium text-sm px-3 py-2 bg-white/5 rounded-lg border border-transparent transition">EN</button>
-                </div>
+            <div class="space-y-2 pt-2 border-t border-white/5">
+                <div class="text-brand-orange text-xs uppercase tracking-wider font-mono">Kurumsal</div>
+                <a href="about.html" class="block text-white/80 hover:text-white pl-3">🏢 Hakkımızda</a>
+                <a href="business-model.html" class="block text-white/80 hover:text-white pl-3">📊 İş Modeli</a>
+                <a href="careers.html" class="block text-white/80 hover:text-white pl-3">💼 Kariyer</a>
+            </div>
+
+            <div class="pt-2 border-t border-white/5">
+                <a href="contact.html" class="block text-white hover:text-brand-orange">İletişim</a>
             </div>
         </div>
     </nav>

@@ -134,37 +134,150 @@
     <div class="organism-bg"></div>
 
     <!-- ===== NAVBAR ===== -->
-    <nav class="fixed top-0 left-0 w-full bg-[#020617]/85 backdrop-blur-xl z-50 animate-nav border-b border-white/5">
-        <div class="absolute bottom-0 left-0 w-full h-[2px] laser-border opacity-60"></div>
-        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div class="flex justify-between items-center h-24">
+    <nav class="fixed top-0 left-0 w-full bg-[#020617]/90 backdrop-blur-xl z-50 border-b border-white/5 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+        <div class="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-brand-orange to-transparent opacity-60"></div>
+
+        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20 sm:h-24">
 
                 <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center cursor-pointer mr-8 group logo-breathing" onclick="location.href='index.html'">
+                <a href="index.html" class="flex-shrink-0 flex items-center cursor-pointer mr-6 group">
                     <div class="relative">
-                        <div class="absolute inset-0 bg-brand-orange blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-700 rounded-full"></div>
-                        <img src="images/logo.jpg" class="h-10 w-10 relative z-10 rounded-xl transition-all duration-700 ease-out group-hover:scale-125 group-hover:rotate-6 shadow-[0_0_15px_rgba(249,115,22,0.3)]" alt="Mazad Logo">
+                        <div class="absolute inset-0 bg-brand-orange blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 rounded-full"></div>
+                        <img src="images/logo.jpg" class="h-9 w-9 sm:h-10 sm:w-10 relative z-10 rounded-xl transition-all duration-500 group-hover:scale-110 shadow-[0_0_15px_rgba(249,115,22,0.3)]" alt="Mazad Logo">
                     </div>
-                    <span class="ml-3 text-white font-extrabold text-2xl tracking-wide transition-all duration-500 group-hover:tracking-[0.2em] group-hover:text-brand-orange">
+                    <span class="ml-3 text-white font-extrabold text-xl sm:text-2xl tracking-wide transition-all duration-500 group-hover:text-brand-orange">
                         MAZAD<span class="text-brand-orange group-hover:text-white transition-colors duration-500">GLOBAL</span>
                     </span>
+                </a>
+
+                <!-- Navigation Links (Desktop) -->
+                <div class="hidden lg:flex items-center space-x-6">
+                    <!-- 1. Home -->
+                    <a href="index.html" class="px-3 py-2 text-white/80 hover:text-white text-sm font-semibold uppercase tracking-wider transition-colors hover:text-brand-orange">
+                        Ana Sayfa
+                    </a>
+
+                    <!-- 2. Ekosistem & Çözümler Dropdown -->
+                    <div class="relative group/nav">
+                        <button class="px-3 py-2 text-white/80 group-hover/nav:text-brand-orange text-sm font-semibold uppercase tracking-wider flex items-center gap-1.5 transition-colors">
+                            <span>Ekosistem & Çözümler</span>
+                            <svg class="w-3.5 h-3.5 text-white/50 group-hover/nav:text-brand-orange transition-transform duration-300 group-hover/nav:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+
+                        <div class="absolute top-full left-0 mt-2 w-72 bg-[#050a1c]/95 backdrop-blur-2xl border border-white/10 rounded-2xl p-3 shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_40px_rgba(249,115,22,0.1)] opacity-0 pointer-events-none group-hover/nav:opacity-100 group-hover/nav:pointer-events-auto transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50">
+                            <a href="ecosystem.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
+                                <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange group-hover/item:scale-110 transition-transform">🌐</div>
+                                <div>
+                                    <div class="text-white text-xs font-bold group-hover/item:text-brand-orange transition-colors">Eco System</div>
+                                    <div class="text-white/40 text-[10px]">Entegre Ticaret & Modüller</div>
+                                </div>
+                            </a>
+                            <a href="fintech.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
+                                <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange group-hover/item:scale-110 transition-transform">💳</div>
+                                <div>
+                                    <div class="text-white text-xs font-bold group-hover/item:text-brand-orange transition-colors">Fintech & Cash</div>
+                                    <div class="text-white/40 text-[10px]">Escrow Güvenliği & Cüzdan</div>
+                                </div>
+                            </a>
+                            <a href="countries.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
+                                <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange group-hover/item:scale-110 transition-transform">🗺️</div>
+                                <div>
+                                    <div class="text-white text-xs font-bold group-hover/item:text-brand-orange transition-colors">Dijital Ticaret Köprüsü</div>
+                                    <div class="text-white/40 text-[10px]">10+ Faal Ülke & Ofisler</div>
+                                </div>
+                            </a>
+                            <div class="my-2 border-t border-white/5"></div>
+                            <div class="px-3 py-1 text-[9px] font-mono text-brand-orange uppercase tracking-wider font-bold">Harici Ekosistem</div>
+                            <a href="https://mazad.market/en" target="_blank" class="flex items-center justify-between px-3 py-2 text-xs text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-colors">
+                                <span>Mazad Market</span> <span class="text-[10px] text-brand-orange">➔</span>
+                            </a>
+                            <a href="https://mazad.cash/en" target="_blank" class="flex items-center justify-between px-3 py-2 text-xs text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-colors">
+                                <span>Mazad Cash</span> <span class="text-[10px] text-brand-orange">➔</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 3. Kurumsal Dropdown -->
+                    <div class="relative group/nav">
+                        <button class="px-3 py-2 text-brand-orange text-sm font-bold uppercase tracking-wider flex items-center gap-1.5 transition-colors">
+                            <span>Kurumsal</span>
+                            <svg class="w-3.5 h-3.5 text-brand-orange transition-transform duration-300 group-hover/nav:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+
+                        <div class="absolute top-full left-0 mt-2 w-64 bg-[#050a1c]/95 backdrop-blur-2xl border border-white/10 rounded-2xl p-3 shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_40px_rgba(249,115,22,0.1)] opacity-0 pointer-events-none group-hover/nav:opacity-100 group-hover/nav:pointer-events-auto transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50">
+                            <a href="about.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
+                                <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange group-hover/item:scale-110 transition-transform">🏢</div>
+                                <div>
+                                    <div class="text-white text-xs font-bold group-hover/item:text-brand-orange transition-colors">Hakkımızda</div>
+                                    <div class="text-white/40 text-[10px]">Vizyon, Misyon & Ekip</div>
+                                </div>
+                            </a>
+                            <a href="business-model.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
+                                <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange group-hover/item:scale-110 transition-transform">📊</div>
+                                <div>
+                                    <div class="text-white text-xs font-bold group-hover/item:text-brand-orange transition-colors">İş Modeli</div>
+                                    <div class="text-white/40 text-[10px]">Gelir Kanalları & Projeksiyon</div>
+                                </div>
+                            </a>
+                            <a href="careers.html" class="flex items-center gap-3 p-3 rounded-xl bg-white/5 transition-colors group/item">
+                                <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange group-hover/item:scale-110 transition-transform">💼</div>
+                                <div>
+                                    <div class="text-brand-orange text-xs font-bold">Kariyer</div>
+                                    <div class="text-white/40 text-[10px]">Açık İlanlar & Başvuru</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 4. İletişim -->
+                    <a href="contact.html" class="px-3 py-2 text-white/80 hover:text-white text-sm font-semibold uppercase tracking-wider transition-colors hover:text-brand-orange">
+                        İletişim
+                    </a>
                 </div>
 
-                <!-- Desktop Nav -->
-                <div class="hidden lg:flex flex-1 items-center justify-between">
-                    <div class="flex items-center space-x-2 xl:space-x-4">
-                        <a href="index.html" class="nav-item delay-1 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider">Home</a>
-                        <a href="about.html" class="nav-item delay-2 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider">About</a>
-                        <a href="ecosystem.html" class="nav-item delay-3 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider">Eco System</a>
-                        <a href="business-model.html" class="nav-item delay-4 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider">Business Model</a>
-                        <a href="fintech.html" class="nav-item delay-5 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider">Fintech</a>
-                        <a href="countries.html" class="nav-item delay-6 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider">Countries</a>
-                        <a href="careers.html" class="nav-item delay-7 relative px-3 py-2 text-brand-orange font-semibold text-[13px] xl:text-[15px] uppercase tracking-wider">
-                            <span class="drop-shadow-[0_0_12px_#f97316]">Careers</span>
-                        </a>
-                        <a href="contact.html" class="nav-item delay-8 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider">Contact</a>
+                <!-- Language Switcher & Mobile Button -->
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-1 bg-white/5 border border-white/10 rounded-full p-1 text-[11px] font-bold">
+                        <button class="px-2.5 py-1 rounded-full bg-brand-orange text-white shadow-sm">TR</button>
+                        <button class="px-2.5 py-1 rounded-full text-white/60 hover:text-white transition-colors">AR</button>
+                        <button class="px-2.5 py-1 rounded-full text-white/60 hover:text-white transition-colors">EN</button>
                     </div>
+
+                    <button id="mobile-menu-button" class="lg:hidden p-2.5 rounded-xl bg-white/5 border border-white/10 text-white/80 hover:text-white">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
                 </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Menu Container -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-[#020617]/98 border-b border-white/10 px-6 py-6 space-y-4 text-sm font-semibold">
+            <a href="index.html" class="block text-white hover:text-brand-orange">Ana Sayfa</a>
+            
+            <div class="space-y-2 pt-2 border-t border-white/5">
+                <div class="text-brand-orange text-xs uppercase tracking-wider font-mono">Ekosistem & Çözümler</div>
+                <a href="ecosystem.html" class="block text-white/80 hover:text-white pl-3">🌐 Eco System</a>
+                <a href="fintech.html" class="block text-white/80 hover:text-white pl-3">💳 Fintech & Cash</a>
+                <a href="countries.html" class="block text-white/80 hover:text-white pl-3">🗺️ Dijital Ticaret Köprüsü</a>
+            </div>
+
+            <div class="space-y-2 pt-2 border-t border-white/5">
+                <div class="text-brand-orange text-xs uppercase tracking-wider font-mono">Kurumsal</div>
+                <a href="about.html" class="block text-white/80 hover:text-white pl-3">🏢 Hakkımızda</a>
+                <a href="business-model.html" class="block text-white/80 hover:text-white pl-3">📊 İş Modeli</a>
+                <a href="careers.html" class="block text-brand-orange pl-3">💼 Kariyer</a>
+            </div>
+
+            <div class="pt-2 border-t border-white/5">
+                <a href="contact.html" class="block text-white hover:text-brand-orange">İletişim</a>
             </div>
         </div>
     </nav>
