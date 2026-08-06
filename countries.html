@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/jpeg" href="images/logo.jpg?v=mazad-global-icon-1">
+    <link rel="apple-touch-icon" href="images/logo.jpg?v=mazad-global-icon-1">
+    <meta name="theme-color" content="#242527">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Global Presence — MAZAD GLOBAL</title>
@@ -22,7 +25,7 @@
                     },
                     colors: {
                         brand: {
-                            orange: '#f97316',
+                            orange: '#FF841A',
                             dark: '#020617',
                             card: '#ffffff'
                         }
@@ -52,7 +55,7 @@
             position: fixed;
             top: 0; left: 0;
             width: 100vw; height: 100vh;
-            background: radial-gradient(circle at 50% 50%, #f97316 0%, #020617 80%);
+            background: radial-gradient(circle at 50% 50%, #FF841A 0%, #020617 80%);
             animation: breathe 15s ease-in-out infinite;
             z-index: 1;
         }
@@ -73,7 +76,7 @@
 
         /* Navbar Laser Border */
         .laser-border {
-            background: linear-gradient(90deg, transparent, rgba(249,115,22,0.8), #fff, rgba(249,115,22,0.8), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,132,26,0.8), #fff, rgba(255,132,26,0.8), transparent);
             background-size: 200% 100%;
             animation: sweep 2.5s linear infinite;
         }
@@ -104,8 +107,8 @@
         .delay-9 { animation-delay: 1.1s; }
 
         @keyframes levitatePulse {
-            0%, 100% { transform: translateY(0); filter: drop-shadow(0 0 8px rgba(249,115,22,0.4)); }
-            50% { transform: translateY(-3px); filter: drop-shadow(0 0 20px rgba(249,115,22,0.8)); }
+            0%, 100% { transform: translateY(0); filter: drop-shadow(0 0 8px rgba(255,132,26,0.4)); }
+            50% { transform: translateY(-3px); filter: drop-shadow(0 0 20px rgba(255,132,26,0.8)); }
         }
         .logo-breathing { animation: levitatePulse 3s ease-in-out infinite; }
 
@@ -121,14 +124,14 @@
         }
         #projects-chevron.open {
             transform: rotate(180deg);
-            color: #f97316;
+            color: #FF841A;
         }
         .proj-link { position: relative; overflow: hidden; }
         .proj-link::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(249,115,22,0.12), transparent 70%);
+            background: radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(255,132,26,0.12), transparent 70%);
             opacity: 0;
             transition: opacity 0.3s;
             pointer-events: none;
@@ -157,7 +160,7 @@
         }
 
         .hero-line {
-            background: linear-gradient(90deg, transparent, rgba(249,115,22,0.6), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,132,26,0.6), transparent);
             animation: lineSlide 3s ease-in-out infinite;
         }
         @keyframes lineSlide {
@@ -181,7 +184,7 @@
             height: 100%;
             background: radial-gradient(
                 400px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
-                rgba(249, 115, 22, 0.12),
+                rgba(255,132,26, 0.12),
                 transparent 50%
             );
             z-index: 1;
@@ -198,7 +201,7 @@
             inset: -1px;
             background: radial-gradient(
                 350px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
-                rgba(249, 115, 22, 0.4),
+                rgba(255,132,26, 0.4),
                 transparent 60%
             );
             z-index: 0;
@@ -216,7 +219,7 @@
         }
 
         .cta-border-glow {
-            box-shadow: 0 0 40px rgba(249,115,22,0.15), inset 0 0 40px rgba(249,115,22,0.02);
+            box-shadow: 0 0 40px rgba(255,132,26,0.15), inset 0 0 40px rgba(255,132,26,0.02);
         }
 
         /* Country Map Pins */
@@ -225,8 +228,8 @@
         }
         .map-pin.active {
             transform: translate(-50%, -50%) scale(1.25);
-            background: #f97316 !important;
-            box-shadow: 0 0 20px #f97316, 0 0 40px rgba(249,115,22,0.5);
+            background: #FF841A !important;
+            box-shadow: 0 0 20px #FF841A, 0 0 40px rgba(255,132,26,0.5);
             border-color: #fff !important;
         }
 
@@ -238,7 +241,209 @@
         @keyframes dash {
             to { stroke-dashoffset: -120; }
         }
+
+        /* ===== Interactive Mazad World ===== */
+        .world-command {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,132,26,.24);
+            border-radius: 40px;
+            background:
+                radial-gradient(circle at 34% 48%, rgba(255,132,26,.17), transparent 34%),
+                linear-gradient(135deg, rgba(7,11,28,.98), rgba(2,5,16,.99));
+            box-shadow: 0 40px 110px rgba(0,0,0,.44), inset 0 1px rgba(255,255,255,.05);
+        }
+        .world-command::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            opacity: .18;
+            background-image:
+                linear-gradient(rgba(255,132,26,.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,132,26,.1) 1px, transparent 1px);
+            background-size: 58px 58px;
+            mask-image: radial-gradient(circle at 35% 50%, black, transparent 65%);
+        }
+        .world-stage {
+            position: relative;
+            min-height: 590px;
+            display: grid;
+            place-items: center;
+            cursor: grab;
+            touch-action: none;
+            user-select: none;
+        }
+        .world-stage.is-dragging { cursor: grabbing; }
+        #mazad-world-canvas {
+            position: relative;
+            z-index: 3;
+            width: min(600px, 100%);
+            height: auto;
+            aspect-ratio: 1;
+            max-width: 100%;
+            filter: drop-shadow(0 0 40px rgba(255,132,26,.24));
+        }
+        .world-aura {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: min(540px,84vw);
+            aspect-ratio: 1;
+            transform: translate(-50%,-50%);
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,132,26,.18), rgba(255,132,26,.04) 42%, transparent 70%);
+            filter: blur(18px);
+            animation: world-aura-breathe 4s ease-in-out infinite;
+        }
+        @keyframes world-aura-breathe {
+            50% { opacity: .58; transform: translate(-50%,-50%) scale(1.08); }
+        }
+        .world-hint {
+            position: absolute;
+            z-index: 5;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 9px 13px;
+            border: 1px solid rgba(255,255,255,.1);
+            border-radius: 999px;
+            color: rgba(255,255,255,.48);
+            background: rgba(2,6,23,.58);
+            backdrop-filter: blur(12px);
+            font-size: 8px;
+            font-weight: 800;
+            letter-spacing: .16em;
+            white-space: nowrap;
+        }
+        .world-hint::before {
+            content: "↔";
+            color: #FF841A;
+            font-size: 13px;
+        }
+        .world-detail {
+            position: relative;
+            z-index: 4;
+            overflow: hidden;
+            min-height: 470px;
+            padding: 32px;
+            border: 1px solid rgba(255,255,255,.09);
+            border-radius: 32px;
+            background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
+            backdrop-filter: blur(18px);
+            transition: border-color .35s ease, box-shadow .35s ease;
+        }
+        .world-detail.is-changing {
+            border-color: rgba(255,132,26,.55);
+            box-shadow: 0 0 50px rgba(255,132,26,.14);
+        }
+        .world-detail::after {
+            content: "";
+            position: absolute;
+            inset: -60% -80%;
+            pointer-events: none;
+            opacity: 0;
+            background: linear-gradient(105deg, transparent 44%, rgba(255,132,26,.18) 50%, transparent 56%);
+            transform: translateX(-40%);
+        }
+        .world-detail.is-changing::after {
+            animation: world-detail-scan .9s cubic-bezier(.16,1,.3,1);
+        }
+        @keyframes world-detail-scan {
+            25% { opacity: 1; }
+            100% { opacity: 0; transform: translateX(40%); }
+        }
+        .world-flag {
+            width: 62px;
+            height: 62px;
+            display: grid;
+            place-items: center;
+            border: 1px solid rgba(255,132,26,.3);
+            border-radius: 20px;
+            background: rgba(255,132,26,.1);
+            font-size: 30px;
+            box-shadow: 0 0 26px rgba(255,132,26,.13);
+        }
+        .world-data-row {
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+            gap: 18px;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255,255,255,.07);
+        }
+        .world-data-row:last-child { border-bottom: 0; }
+        .world-country-chip {
+            padding: 11px 17px;
+            border: 1px solid rgba(255,255,255,.14);
+            border-radius: 999px;
+            color: rgba(255,255,255,.76);
+            background: rgba(255,255,255,.045);
+            font-size: 12px;
+            line-height: 1.2;
+            font-weight: 800;
+            letter-spacing: .045em;
+            transition: color .25s ease, border-color .25s ease, background .25s ease, transform .25s ease;
+        }
+        .world-country-chip:hover,
+        .world-country-chip.is-active {
+            color: white;
+            border-color: rgba(255,132,26,.55);
+            background: rgba(255,132,26,.13);
+            transform: translateY(-2px);
+        }
+        .world-network-card {
+            position: relative;
+            overflow: hidden;
+            padding: 26px;
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: 26px;
+            background: rgba(255,255,255,.025);
+            transition: transform .35s ease, border-color .35s ease;
+        }
+        .world-network-card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(255,132,26,.42);
+        }
+        @media (max-width: 1024px) {
+            .world-stage { min-height: 520px; }
+            .world-detail { min-height: auto; }
+        }
+        @media (max-width: 1339px) {
+            .mazad-desktop-nav { display: none !important; }
+            .mazad-mobile-trigger { display: flex !important; }
+            .mazad-mobile-menu.hidden { display: none !important; }
+            .mazad-mobile-menu:not(.hidden) { display: block !important; }
+        }
+        @media (max-width: 640px) {
+            .world-command { border-radius: 28px; }
+            .world-stage { min-height: 390px; }
+            .world-hint { bottom: 5px; }
+            .world-country-chip { padding: 9px 12px; font-size: 10.5px; letter-spacing: .025em; }
+        }
+        /* Readability pass for market descriptions and supporting details. */
+        .world-hint { font-size: 11px; color: rgba(255,255,255,.7); }
+        #world-country-status,
+        [data-i18n="world_selected_label"] { font-size: 11px !important; color: rgba(255,255,255,.68) !important; }
+        #world-country-role { font-size: 14px !important; }
+        .world-data-row > span { font-size: 11px !important; color: rgba(255,255,255,.62) !important; }
+        .world-data-row > strong { font-size: 14px !important; line-height: 1.5; }
+        .world-network-card p { font-size: 15px !important; line-height: 1.65; color: rgba(255,255,255,.7) !important; }
+        @media (prefers-reduced-motion: reduce) {
+            .world-aura, .world-detail::after { animation: none !important; }
+        }
     </style>
+    <!-- Multi-Language Engine -->
+    <script src="js/i18n.js?v=languagefix3-20260729"></script>
+    <script src="js/site-nav.js?v=brandnav2-20260731" defer></script>
+    <script src="js/ambient-cosmos.js?v=cosmos3-20260729" defer></script>
+    <link rel="stylesheet" href="css/mazad-global-brand.css?v=brand6-20260731">
+    <script src="js/premium-motion.js?v=motion3-20260731" defer></script>
+    <script src="js/site-footer.js?v=brandfooter1-20260731" defer></script>
+    <script src="js/word-content.js?v=brandcopy1-20260731" defer></script>
+    <script src="js/page-entry-effects.js?v=entryfx20260729" defer></script>
 </head>
 <body class="bg-[#020617] min-h-screen text-white relative">
 
@@ -249,174 +454,260 @@
     <canvas id="countries-sparks-canvas" class="sparks-container absolute inset-0 z-0"></canvas>
 
     <!-- ===== NAVBAR ===== -->
-    <nav class="fixed top-0 left-0 w-full bg-[#020617]/90 backdrop-blur-xl z-50 border-b border-white/5 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-        <div class="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-brand-orange to-transparent opacity-60"></div>
-
-        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20 sm:h-24">
+    <nav class="fixed top-0 left-0 w-full bg-[#020617]/85 backdrop-blur-xl z-50 animate-nav border-b border-white/5">
+        <div class="absolute bottom-0 left-0 w-full h-[2px] laser-border opacity-60"></div>
+        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="flex justify-between items-center h-24">
 
                 <!-- Logo -->
-                <a href="index.html" class="flex-shrink-0 flex items-center cursor-pointer mr-6 group">
+                <div class="flex-shrink-0 flex items-center cursor-pointer mr-8 group logo-breathing" onclick="location.href='index.html'">
                     <div class="relative">
-                        <div class="absolute inset-0 bg-brand-orange blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 rounded-full"></div>
-                        <img src="images/logo.jpg" class="h-9 w-9 sm:h-10 sm:w-10 relative z-10 rounded-xl transition-all duration-500 group-hover:scale-110 shadow-[0_0_15px_rgba(249,115,22,0.3)]" alt="Mazad Logo">
+                        <div class="absolute inset-0 bg-brand-orange blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-700 rounded-full"></div>
+                        <img src="images/logo.jpg" class="h-10 w-10 relative z-10 rounded-xl transition-all duration-700 ease-out group-hover:scale-125 group-hover:rotate-6 shadow-[0_0_15px_rgba(255,132,26,0.3)]" alt="Mazad Logo">
                     </div>
-                    <span class="ml-3 text-white font-extrabold text-xl sm:text-2xl tracking-wide transition-all duration-500 group-hover:text-brand-orange">
+                    <span class="ml-3 text-white font-extrabold text-2xl tracking-wide transition-all duration-500 group-hover:tracking-[0.2em] group-hover:text-brand-orange">
                         MAZAD<span class="text-brand-orange group-hover:text-white transition-colors duration-500">GLOBAL</span>
                     </span>
-                </a>
-
-                <!-- Navigation Links (Desktop) -->
-                <div class="hidden lg:flex items-center space-x-6">
-                    <!-- 1. Home -->
-                    <a href="index.html" class="px-3 py-2 text-white/80 hover:text-white text-sm font-semibold uppercase tracking-wider transition-colors hover:text-brand-orange">
-                        Ana Sayfa
-                    </a>
-
-                    <!-- 2. Ekosistem & Çözümler Dropdown -->
-                    <div class="relative group/nav">
-                        <button class="px-3 py-2 text-brand-orange text-sm font-bold uppercase tracking-wider flex items-center gap-1.5 transition-colors">
-                            <span>Ekosistem & Çözümler</span>
-                            <svg class="w-3.5 h-3.5 text-brand-orange transition-transform duration-300 group-hover/nav:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-
-                        <div class="absolute top-full left-0 mt-2 w-72 bg-[#050a1c]/95 backdrop-blur-2xl border border-white/10 rounded-2xl p-3 shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_40px_rgba(249,115,22,0.1)] opacity-0 pointer-events-none group-hover/nav:opacity-100 group-hover/nav:pointer-events-auto transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50">
-                            <a href="ecosystem.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
-                                <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange group-hover/item:scale-110 transition-transform">🌐</div>
-                                <div>
-                                    <div class="text-white text-xs font-bold group-hover/item:text-brand-orange transition-colors">Eco System</div>
-                                    <div class="text-white/40 text-[10px]">Entegre Ticaret & Modüller</div>
-                                </div>
-                            </a>
-                            <a href="fintech.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
-                                <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange group-hover/item:scale-110 transition-transform">💳</div>
-                                <div>
-                                    <div class="text-white text-xs font-bold group-hover/item:text-brand-orange transition-colors">Fintech & Cash</div>
-                                    <div class="text-white/40 text-[10px]">Escrow Güvenliği & Cüzdan</div>
-                                </div>
-                            </a>
-                            <a href="countries.html" class="flex items-center gap-3 p-3 rounded-xl bg-white/5 transition-colors group/item">
-                                <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange group-hover/item:scale-110 transition-transform">🗺️</div>
-                                <div>
-                                    <div class="text-brand-orange text-xs font-bold">Dijital Ticaret Köprüsü</div>
-                                    <div class="text-white/40 text-[10px]">10+ Faal Ülke & Ofisler</div>
-                                </div>
-                            </a>
-                            <div class="my-2 border-t border-white/5"></div>
-                            <div class="px-3 py-1 text-[9px] font-mono text-brand-orange uppercase tracking-wider font-bold">Harici Ekosistem</div>
-                            <a href="https://mazad.market/en" target="_blank" class="flex items-center justify-between px-3 py-2 text-xs text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-colors">
-                                <span>Mazad Market</span> <span class="text-[10px] text-brand-orange">➔</span>
-                            </a>
-                            <a href="https://mazad.cash/en" target="_blank" class="flex items-center justify-between px-3 py-2 text-xs text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-colors">
-                                <span>Mazad Cash</span> <span class="text-[10px] text-brand-orange">➔</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- 3. Kurumsal Dropdown -->
-                    <div class="relative group/nav">
-                        <button class="px-3 py-2 text-white/80 group-hover/nav:text-brand-orange text-sm font-semibold uppercase tracking-wider flex items-center gap-1.5 transition-colors">
-                            <span>Kurumsal</span>
-                            <svg class="w-3.5 h-3.5 text-white/50 group-hover/nav:text-brand-orange transition-transform duration-300 group-hover/nav:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-
-                        <div class="absolute top-full left-0 mt-2 w-64 bg-[#050a1c]/95 backdrop-blur-2xl border border-white/10 rounded-2xl p-3 shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_40px_rgba(249,115,22,0.1)] opacity-0 pointer-events-none group-hover/nav:opacity-100 group-hover/nav:pointer-events-auto transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50">
-                            <a href="about.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
-                                <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange group-hover/item:scale-110 transition-transform">🏢</div>
-                                <div>
-                                    <div class="text-white text-xs font-bold group-hover/item:text-brand-orange transition-colors">Hakkımızda</div>
-                                    <div class="text-white/40 text-[10px]">Vizyon, Misyon & Ekip</div>
-                                </div>
-                            </a>
-                            <a href="business-model.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
-                                <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange group-hover/item:scale-110 transition-transform">📊</div>
-                                <div>
-                                    <div class="text-white text-xs font-bold group-hover/item:text-brand-orange transition-colors">İş Modeli</div>
-                                    <div class="text-white/40 text-[10px]">Gelir Kanalları & Projeksiyon</div>
-                                </div>
-                            </a>
-                            <a href="careers.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
-                                <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange group-hover/item:scale-110 transition-transform">💼</div>
-                                <div>
-                                    <div class="text-white text-xs font-bold group-hover/item:text-brand-orange transition-colors">Kariyer</div>
-                                    <div class="text-white/40 text-[10px]">Açık İlanlar & Başvuru</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- 4. İletişim -->
-                    <a href="contact.html" class="px-3 py-2 text-white/80 hover:text-white text-sm font-semibold uppercase tracking-wider transition-colors hover:text-brand-orange">
-                        İletişim
-                    </a>
                 </div>
 
-                <!-- Language Switcher & Mobile Button -->
-                <div class="flex items-center gap-4">
-                    <div class="flex items-center gap-1 bg-white/5 border border-white/10 rounded-full p-1 text-[11px] font-bold">
-                        <button class="px-2.5 py-1 rounded-full bg-brand-orange text-white shadow-sm">TR</button>
-                        <button class="px-2.5 py-1 rounded-full text-white/60 hover:text-white transition-colors">AR</button>
-                        <button class="px-2.5 py-1 rounded-full text-white/60 hover:text-white transition-colors">EN</button>
+                <!-- Desktop Nav -->
+                <div class="mazad-desktop-nav hidden lg:flex flex-1 items-center justify-between">
+                    <div class="flex items-center space-x-2 xl:space-x-4">
+                        <a href="index.html" class="nav-item delay-1 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1">
+                            <span data-i18n="nav_home" class="relative z-10 group-hover:drop-shadow-[0_0_12px_#FF841A]">Home</span>
+                            <div class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100"></div>
+                            <span class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full group-hover:left-0 shadow-[0_0_10px_#ffffff]"></span>
+                        </a>
+                        <a href="about.html" class="nav-item delay-2 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1">
+                            <span data-i18n="nav_about" class="relative z-10 group-hover:drop-shadow-[0_0_12px_#FF841A]">About</span>
+                            <div class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100"></div>
+                            <span class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full group-hover:left-0 shadow-[0_0_10px_#ffffff]"></span>
+                        </a>
+                        <!-- Our Projects Dropdown Trigger -->
+                        <div class="nav-item delay-3 relative" id="projects-dropdown-wrapper">
+                            <button id="projects-dropdown-btn"
+                                class="relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1 flex items-center gap-1.5">
+                                <span data-i18n="nav_projects" class="relative z-10 group-hover:drop-shadow-[0_0_12px_#FF841A]">Our Projects</span>
+                                <svg id="projects-chevron" class="w-3.5 h-3.5 text-white/50 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                                <div class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100"></div>
+                                <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full shadow-[0_0_10px_#ffffff]"></span>
+                            </button>
+                            <!-- Dropdown Panel -->
+                            <div id="projects-dropdown"
+                                class="projects-dropdown-panel absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[520px] bg-[#020617]/95 backdrop-blur-2xl border border-white/10 rounded-[24px] shadow-[0_20px_60px_rgba(0,0,0,0.7),0_0_40px_rgba(255,132,26,0.08)] overflow-hidden pointer-events-none opacity-0 translate-y-2 z-[100]">
+                                <div class="h-[2px] w-full bg-gradient-to-r from-transparent via-brand-orange to-transparent opacity-60"></div>
+                                <div class="p-6">
+                                    <div class="flex items-center gap-2 mb-5">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse"></span>
+                                        <span class="text-brand-orange text-[10px] font-mono uppercase tracking-widest">Mazad Ecosystem</span>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <a href="https://mazad.market/en" id="proj-link-1" target="_blank" rel="noopener noreferrer" class="proj-link group/item flex items-center gap-3 p-4 rounded-[16px] bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 hover:bg-brand-orange/8 transition-all duration-300">
+                                            <div class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 group-hover/item:border-orange-500/60 group-hover/item:scale-110 flex items-center justify-center flex-shrink-0 transition-all duration-300">
+                                                <svg class="w-4.5 h-4.5 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                                            </div>
+                                            <div><div class="text-white font-semibold text-[13px] group-hover/item:text-brand-orange transition-colors duration-200">Mazad Market</div><div class="text-white/40 text-[11px] mt-0.5">E-Commerce & Auctions</div></div>
+                                            <svg class="w-3.5 h-3.5 text-white/20 group-hover/item:text-brand-orange group-hover/item:translate-x-1 transition-all duration-200 ml-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                        </a>
+                                        <a href="https://mazad.one/" id="proj-link-2" target="_blank" rel="noopener noreferrer" class="proj-link group/item flex items-center gap-3 p-4 rounded-[16px] bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 hover:bg-brand-orange/8 transition-all duration-300">
+                                            <div class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 group-hover/item:border-orange-500/60 group-hover/item:scale-110 flex items-center justify-center flex-shrink-0 transition-all duration-300"><img src="images/logo.jpg" class="w-5 h-5 rounded-md" alt=""></div>
+                                            <div><div class="text-white font-semibold text-[13px] group-hover/item:text-brand-orange transition-colors duration-200">Mazad One</div><div class="text-white/40 text-[11px] mt-0.5">Unified Identity & SSO</div></div>
+                                            <svg class="w-3.5 h-3.5 text-white/20 group-hover/item:text-brand-orange group-hover/item:translate-x-1 transition-all duration-200 ml-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                        </a>
+                                        <a href="https://mazad.cash/en" id="proj-link-3" target="_blank" rel="noopener noreferrer" class="proj-link group/item flex items-center gap-3 p-4 rounded-[16px] bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 hover:bg-brand-orange/8 transition-all duration-300">
+                                            <div class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 group-hover/item:border-orange-500/60 group-hover/item:scale-110 flex items-center justify-center flex-shrink-0 transition-all duration-300"><svg class="w-4.5 h-4.5 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg></div>
+                                            <div><div class="text-white font-semibold text-[13px] group-hover/item:text-brand-orange transition-colors duration-200">Mazad Cash</div><div class="text-white/40 text-[11px] mt-0.5">Digital Wallet & Fintech</div></div>
+                                            <svg class="w-3.5 h-3.5 text-white/20 group-hover/item:text-brand-orange group-hover/item:translate-x-1 transition-all duration-200 ml-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                        </a>
+                                        <a href="https://mazad-ai.com/" id="proj-link-4" target="_blank" rel="noopener noreferrer" class="proj-link group/item flex items-center gap-3 p-4 rounded-[16px] bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 hover:bg-brand-orange/8 transition-all duration-300">
+                                            <div class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 group-hover/item:border-orange-500/60 group-hover/item:scale-110 flex items-center justify-center flex-shrink-0 transition-all duration-300"><svg class="w-4.5 h-4.5 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg></div>
+                                            <div><div class="text-white font-semibold text-[13px] group-hover/item:text-brand-orange transition-colors duration-200">Mazad AI</div><div class="text-white/40 text-[11px] mt-0.5">Yaman Copilot & Studio</div></div>
+                                            <svg class="w-3.5 h-3.5 text-white/20 group-hover/item:text-brand-orange group-hover/item:translate-x-1 transition-all duration-200 ml-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                        </a>
+                                        <a href="https://mazad.studio/en" id="proj-link-5" target="_blank" rel="noopener noreferrer" class="proj-link group/item flex items-center gap-3 p-4 rounded-[16px] bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 hover:bg-brand-orange/8 transition-all duration-300">
+                                            <div class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 group-hover/item:border-orange-500/60 group-hover/item:scale-110 flex items-center justify-center flex-shrink-0 transition-all duration-300"><svg class="w-4.5 h-4.5 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></div>
+                                            <div><div class="text-white font-semibold text-[13px] group-hover/item:text-brand-orange transition-colors duration-200">Mazad Studio</div><div class="text-white/40 text-[11px] mt-0.5">Creative AI Suite</div></div>
+                                            <svg class="w-3.5 h-3.5 text-white/20 group-hover/item:text-brand-orange group-hover/item:translate-x-1 transition-all duration-200 ml-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                        </a>
+                                        <a href="https://erp.mazad.global/login" id="proj-link-6" target="_blank" rel="noopener noreferrer" class="proj-link group/item flex items-center gap-3 p-4 rounded-[16px] bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 hover:bg-brand-orange/8 transition-all duration-300">
+                                            <div class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 group-hover/item:border-orange-500/60 group-hover/item:scale-110 flex items-center justify-center flex-shrink-0 transition-all duration-300"><svg class="w-4.5 h-4.5 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A1 1 0 013 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88v9z"/></svg></div>
+                                            <div><div class="text-white font-semibold text-[13px] group-hover/item:text-brand-orange transition-colors duration-200">Mazad ERP</div><div class="text-white/40 text-[11px] mt-0.5">Enterprise Resource Planning</div></div>
+                                            <svg class="w-3.5 h-3.5 text-white/20 group-hover/item:text-brand-orange group-hover/item:translate-x-1 transition-all duration-200 ml-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+                            </div>
+                        </div>
+                        <a href="ecosystem.html" class="nav-item delay-4 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1">
+                            <span data-i18n="nav_ecosystem" class="relative z-10 group-hover:drop-shadow-[0_0_12px_#FF841A]">Eco System</span>
+                            <div class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100"></div>
+                            <span class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full group-hover:left-0 shadow-[0_0_10px_#ffffff]"></span>
+                        </a>
+                        <a href="business-model.html" class="nav-item delay-5 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1">
+                            <span data-i18n="nav_business" class="relative z-10 group-hover:drop-shadow-[0_0_12px_#FF841A]">Business Model</span>
+                            <div class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100"></div>
+                            <span class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full group-hover:left-0 shadow-[0_0_10px_#ffffff]"></span>
+                        </a>
+                        <a href="fintech.html" class="nav-item delay-6 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1">
+                            <span data-i18n="nav_fintech" class="relative z-10 group-hover:drop-shadow-[0_0_12px_#FF841A]">Fintech</span>
+                            <div class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100"></div>
+                            <span class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full group-hover:left-0 shadow-[0_0_10px_#ffffff]"></span>
+                        </a>
+                        <a href="countries.html" class="nav-item delay-7 relative px-3 py-2 text-brand-orange transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider">
+                            <span data-i18n="nav_countries" class="relative z-10 drop-shadow-[0_0_12px_#FF841A]">Countries</span>
+                            <div class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-60"></div>
+                            <span class="absolute bottom-0 left-0 w-full h-[2px] bg-brand-orange shadow-[0_0_10px_#FF841A]"></span>
+                        </a>
+                        <a href="contact.html" class="nav-item delay-8 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1">
+                            <span data-i18n="nav_contact" class="relative z-10 group-hover:drop-shadow-[0_0_12px_#FF841A]">Contact</span>
+                            <div class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100"></div>
+                            <span class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full group-hover:left-0 shadow-[0_0_10px_#ffffff]"></span>
+                        </a>
                     </div>
 
-                    <button id="mobile-menu-button" class="lg:hidden p-2.5 rounded-xl bg-white/5 border border-white/10 text-white/80 hover:text-white">
-                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    <!-- Language Selectors -->
+                    <div class="nav-item delay-9 ml-6 flex items-center gap-1.5">
+                        <button type="button" onclick="setLanguage('tr')" data-lang="tr" class="lang-btn text-white/70 hover:text-white font-medium text-xs xl:text-sm px-2.5 py-1 rounded-md bg-white/5 hover:bg-white/10 border border-white/10 transition">TR</button>
+                        <button type="button" onclick="setLanguage('ar')" data-lang="ar" class="lang-btn text-white/70 hover:text-white font-medium text-xs xl:text-sm px-2.5 py-1 rounded-md bg-white/5 hover:bg-white/10 border border-white/10 transition">AR</button>
+                        <button type="button" onclick="setLanguage('en')" data-lang="en" class="lang-btn text-brand-orange font-bold text-xs xl:text-sm px-2.5 py-1 rounded-md bg-brand-orange/10 border border-brand-orange/50 transition drop-shadow-[0_0_8px_#FF841A]">EN</button>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="mazad-mobile-trigger lg:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-white hover:text-brand-orange focus:outline-none transition-colors">
+                        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
                 </div>
-
             </div>
         </div>
 
-        <!-- Mobile Menu Container -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-[#020617]/98 border-b border-white/10 px-6 py-6 space-y-4 text-sm font-semibold">
-            <a href="index.html" class="block text-white hover:text-brand-orange">Ana Sayfa</a>
-            
-            <div class="space-y-2 pt-2 border-t border-white/5">
-                <div class="text-brand-orange text-xs uppercase tracking-wider font-mono">Ekosistem & Çözümler</div>
-                <a href="ecosystem.html" class="block text-white/80 hover:text-white pl-3">🌐 Eco System</a>
-                <a href="fintech.html" class="block text-white/80 hover:text-white pl-3">💳 Fintech & Cash</a>
-                <a href="countries.html" class="block text-brand-orange pl-3">🗺️ Dijital Ticaret Köprüsü</a>
-            </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mazad-mobile-menu hidden lg:hidden bg-[#020617] border-t border-brand-orange/20 shadow-2xl">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="index.html" class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:bg-white/5 transition-all duration-300">Home</a>
+                <a href="about.html" class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:bg-white/5 transition-all duration-300">About</a>
+                <a href="#" class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:bg-white/5 transition-all duration-300">Our Projects</a>
+                <a href="ecosystem.html" class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:bg-white/5 transition-all duration-300">Eco System</a>
+                <a href="business-model.html" class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:bg-white/5 transition-all duration-300">Business Model</a>
+                <a href="fintech.html" class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:bg-white/5 transition-all duration-300">Fintech</a>
+                <a href="countries.html" class="block px-3 py-3 rounded-md text-sm font-medium text-brand-orange bg-white/5 transition-all duration-300">Countries</a>
+                <a href="contact.html" class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:bg-white/5 transition-all duration-300">Contact</a>
 
-            <div class="space-y-2 pt-2 border-t border-white/5">
-                <div class="text-brand-orange text-xs uppercase tracking-wider font-mono">Kurumsal</div>
-                <a href="about.html" class="block text-white/80 hover:text-white pl-3">🏢 Hakkımızda</a>
-                <a href="business-model.html" class="block text-white/80 hover:text-white pl-3">📊 İş Modeli</a>
-                <a href="careers.html" class="block text-white/80 hover:text-white pl-3">💼 Kariyer</a>
-            </div>
-
-            <div class="pt-2 border-t border-white/5">
-                <a href="contact.html" class="block text-white hover:text-brand-orange">İletişim</a>
+                <div class="mt-4 pt-4 border-t border-white/10 flex justify-center gap-4">
+                    <button onclick="setLanguage('tr')" data-lang="tr" class="lang-btn text-white/70 hover:text-white font-medium text-sm px-3 py-2 bg-white/5 rounded-lg border border-transparent transition">TR</button>
+                    <button onclick="setLanguage('ar')" data-lang="ar" class="lang-btn text-white/70 hover:text-white font-medium text-sm px-3 py-2 bg-white/5 rounded-lg border border-transparent transition">AR</button>
+                    <button onclick="setLanguage('en')" data-lang="en" class="lang-btn text-brand-orange font-bold text-sm px-3 py-2 bg-white/5 rounded-lg border border-brand-orange/30 transition">EN</button>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Main Content Wrapper -->
     <div class="relative z-10 pt-28">        <!-- ===== HERO ===== -->
-        <section class="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-24 pt-16 pb-20 relative z-10 fade-in-up">
+        <section class="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-24 pt-14 pb-28 relative z-10" id="interactive-world-section">
+            <div class="text-center max-w-4xl mx-auto mb-12 fade-in-up">
+                <div class="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-orange-500/30 bg-orange-500/10 text-orange-400 text-[10px] font-bold tracking-[.18em] uppercase">
+                    <span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-ping"></span>
+                    <span data-i18n="world_badge">Explore the Mazad World</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-6" data-i18n="world_title">Turn the world. Discover the network.</h1>
+                <p class="text-white/56 max-w-2xl mx-auto text-base md:text-lg leading-relaxed" data-i18n="world_desc">A living view of the markets, gateways and regional connections shaping the Mazad journey across MENA.</p>
+            </div>
+
+            <div class="world-command p-5 sm:p-8 lg:p-10 mb-8">
+                <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 world-stage" id="world-stage">
+                        <div class="world-aura"></div>
+                        <canvas id="mazad-world-canvas" width="600" height="600" aria-label="Interactive Mazad world"></canvas>
+                        <div class="world-hint" data-i18n="world_hint">DRAG TO ROTATE • SELECT A GLOWING POINT</div>
+                    </div>
+
+                    <aside class="lg:col-span-5 world-detail" id="world-detail-panel">
+                        <div class="relative z-10">
+                            <div class="flex items-start justify-between gap-5 mb-7">
+                                <div class="world-flag" id="world-country-flag">🇹🇷</div>
+                                <span class="px-3 py-1.5 rounded-full border border-orange-500/30 bg-orange-500/10 text-orange-400 text-[9px] font-bold tracking-[.14em]" id="world-country-status">HEADQUARTERS</span>
+                            </div>
+                            <span class="text-white/38 text-[9px] font-bold tracking-[.18em] uppercase" data-i18n="world_selected_label">Selected network point</span>
+                            <h2 class="text-3xl sm:text-4xl font-black mt-3 mb-3" id="world-country-name">Türkiye</h2>
+                            <p class="text-orange-400 text-xs font-bold tracking-[.08em] mb-6" id="world-country-role">Product & Regional Coordination</p>
+                            <p class="text-white/56 text-sm leading-relaxed mb-7" id="world-country-description">Coordinates Mazad product development, technology and regional partnership connections from Istanbul.</p>
+
+                            <div class="mb-7">
+                                <div class="world-data-row">
+                                    <span class="text-white/35 text-[9px] font-bold tracking-[.14em] uppercase" data-i18n="world_region_label">Region</span>
+                                    <strong class="text-white text-xs text-right" id="world-country-region">Türkiye & Regional Network</strong>
+                                </div>
+                                <div class="world-data-row">
+                                    <span class="text-white/35 text-[9px] font-bold tracking-[.14em] uppercase" data-i18n="world_focus_label">Network focus</span>
+                                    <strong class="text-white text-xs text-right" id="world-country-focus">Technology • Products • Partnerships</strong>
+                                </div>
+                            </div>
+
+                            <a href="contact.html" class="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-orange-500 hover:bg-orange-400 text-white font-bold text-xs transition-all hover:-translate-y-1 hover:shadow-[0_0_28px_rgba(255,132,26,.45)]">
+                                <span data-i18n="world_contact_button">Connect with this market</span><span>→</span>
+                            </a>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-2 mb-16" id="world-country-chips">
+                <button class="world-country-chip is-active" data-country="turkey">TÜRKİYE</button>
+                <button class="world-country-chip" data-country="iraq">IRAQ</button>
+                <button class="world-country-chip" data-country="saudi">SAUDI ARABIA</button>
+                <button class="world-country-chip" data-country="uae">UAE</button>
+                <button class="world-country-chip" data-country="egypt">EGYPT</button>
+                <button class="world-country-chip" data-country="qatar">QATAR</button>
+                <button class="world-country-chip" data-country="kuwait">KUWAIT</button>
+                <button class="world-country-chip" data-country="bahrain">BAHRAIN</button>
+                <button class="world-country-chip" data-country="algeria">ALGERIA</button>
+                <button class="world-country-chip" data-country="libya">LIBYA</button>
+                <button class="world-country-chip" data-country="syria">SYRIA</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <div class="world-network-card reveal">
+                    <span class="text-orange-400 text-[10px] font-black">01</span>
+                    <h3 class="text-lg font-black mt-4 mb-2" data-i18n="world_card_1_title">A world you can explore</h3>
+                    <p class="text-white/48 text-xs leading-relaxed" data-i18n="world_card_1_desc">Rotate the globe freely and bring any Mazad market into view.</p>
+                </div>
+                <div class="world-network-card reveal">
+                    <span class="text-orange-400 text-[10px] font-black">02</span>
+                    <h3 class="text-lg font-black mt-4 mb-2" data-i18n="world_card_2_title">Markets connected by one experience</h3>
+                    <p class="text-white/48 text-xs leading-relaxed" data-i18n="world_card_2_desc">Each point introduces its role inside the wider commerce network.</p>
+                </div>
+                <div class="world-network-card reveal">
+                    <span class="text-orange-400 text-[10px] font-black">03</span>
+                    <h3 class="text-lg font-black mt-4 mb-2" data-i18n="world_card_3_title">A regional story in motion</h3>
+                    <p class="text-white/48 text-xs leading-relaxed" data-i18n="world_card_3_desc">The globe keeps moving to reflect a network designed to keep evolving.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="hidden max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-24 pt-16 pb-20 relative z-10 fade-in-up">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 <!-- Left: Hero Content -->
                 <div class="col-span-1 lg:col-span-6 flex flex-col gap-6 text-left">
                     <div class="inline-flex self-start items-center gap-2 px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-500/10 text-orange-400 text-xs font-semibold tracking-wider uppercase">
-                        Global Reach
+                        <span data-i18n="countries_badge">Regional Footprint</span>
                     </div>
-                    <h1 class="text-4xl md:text-5xl font-black text-white leading-tight">
-                        From Türkiye to MENA, <br>
-                        <span class="text-brand-orange">Localized in Every Market</span>
+                    <h1 class="text-4xl md:text-5xl font-black text-white leading-tight" data-i18n="countries_hero_title">
+                        Connecting 22+ Markets Across MENA
                     </h1>
-                    <p class="text-white/60 text-sm md:text-base leading-relaxed">
-                        Mazad Türkiye HQ sets the standards, R&D, governance, and treasury.
+                    <p class="text-white/60 text-sm md:text-base leading-relaxed" data-i18n="countries_hero_desc">
+                        From our headquarters in Istanbul to key operational hubs in Baghdad, Erbil, Riyadh, Dubai, and Cairo.
                     </p>
                     <p class="text-white/60 text-sm md:text-base leading-relaxed -mt-3">
                         Our local entities operate under shared playbooks, ensuring a consistent yet localized experience across the region.
                     </p>
-                    <a href="contact.html" class="inline-flex self-start items-center gap-2 px-6 py-3.5 rounded-full border border-brand-orange/30 hover:border-brand-orange bg-brand-orange/10 hover:bg-brand-orange text-white font-bold text-xs tracking-wide transition-all duration-300 hover:shadow-[0_0_20px_rgba(249,115,22,0.3)]">
+                    <a href="contact.html" class="inline-flex self-start items-center gap-2 px-6 py-3.5 rounded-full border border-brand-orange/30 hover:border-brand-orange bg-brand-orange/10 hover:bg-brand-orange text-white font-bold text-xs tracking-wide transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,132,26,0.3)]" data-i18n="countries_partner_btn">
                         Partner with Mazad in your country
                     </a>
                 </div>
@@ -489,30 +780,30 @@
         </section>
 
         <!-- ===== SİNİRÖTESİ DİJİTAL TİCARET KÖPRÜSÜ SECTION ===== -->
-        <section class="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-24 py-16 relative z-10 reveal" id="trade-bridge-section">
+        <section class="hidden max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-24 py-16 relative z-10 reveal" id="trade-bridge-section">
             
             <!-- Section Header -->
             <div class="text-center mb-16">
-                <div class="inline-flex items-center gap-2 mb-4 px-5 py-2 rounded-full border border-orange-500/40 bg-gradient-to-r from-orange-500/20 to-amber-500/10 text-orange-400 text-xs font-mono uppercase tracking-widest shadow-[0_0_20px_rgba(249,115,22,0.3)]">
+                <div class="inline-flex items-center gap-2 mb-4 px-5 py-2 rounded-full border border-orange-500/40 bg-gradient-to-r from-orange-500/20 to-amber-500/10 text-orange-400 text-xs font-mono uppercase tracking-widest shadow-[0_0_20px_rgba(255,132,26,0.3)]">
                     <span class="w-2.5 h-2.5 rounded-full bg-brand-orange animate-ping"></span>
-                    Küresel Ticaret Koridoru
+                    <span data-i18n="countries_trade_badge">Global Trade Corridor</span>
                 </div>
-                <h2 class="text-3xl sm:text-5xl font-black mb-6 text-white leading-tight">
-                    Sınırları Aşan <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-amber-300 to-orange-500">Dijital Ticaret Köprüsü</span>
+                <h2 class="text-3xl sm:text-5xl font-black mb-6 text-white leading-tight" data-i18n="countries_trade_title">
+                    Borderless Digital Trade Bridge
                 </h2>
-                <p class="text-white/70 max-w-3xl mx-auto text-sm sm:text-base leading-relaxed">
-                    Mazad yalnızca farklı ülkelerde faaliyet gösteren bir şirket değildir; <strong class="text-white">Türkiye, Irak, Körfez ve Kuzey Afrika</strong> arasındaki ticareti, lojistiği, finansal ödeme hatlarını, üreticileri ve tüketicileri <strong class="text-brand-orange">tek bir ortak çatı altında birleştiren canlı bir köprüdür.</strong>
+                <p class="text-white/70 max-w-3xl mx-auto text-sm sm:text-base leading-relaxed" data-i18n="countries_trade_desc">
+                    Mazad is not merely an operational entity in different countries; it is a living bridge unifying trade, logistics, escrow payment corridors, manufacturers, and buyers across Türkiye, Iraq, the GCC, and North Africa under a single roof.
                 </p>
             </div>
 
             <!-- Visual Holographic Bridge Interactive Stage -->
-            <div class="relative w-full rounded-[40px] bg-gradient-to-b from-[#070c22]/95 via-[#030617] to-[#080d24] border-2 border-brand-orange/50 p-6 sm:p-12 shadow-[0_0_120px_rgba(249,115,22,0.25)] overflow-hidden backdrop-blur-2xl">
+            <div class="relative w-full rounded-[40px] bg-gradient-to-b from-[#070c22]/95 via-[#030617] to-[#080d24] border-2 border-brand-orange/50 p-6 sm:p-12 shadow-[0_0_120px_rgba(255,132,26,0.25)] overflow-hidden backdrop-blur-2xl">
                 <!-- Ambient Glow Background Orbs -->
                 <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-brand-orange/20 rounded-full blur-[120px] pointer-events-none animate-pulse"></div>
 
                 <!-- Central Glowing Mazad Umbrella Roof Emblem -->
                 <div class="relative z-20 flex flex-col items-center text-center mb-10">
-                    <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-tr from-brand-orange to-amber-400 p-1 flex items-center justify-center mb-4 shadow-[0_0_80px_rgba(249,115,22,0.9)] animate-bounce">
+                    <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-tr from-brand-orange to-amber-400 p-1 flex items-center justify-center mb-4 shadow-[0_0_80px_rgba(255,132,26,0.9)] animate-bounce">
                         <span class="absolute inset-[-14px] rounded-3xl border border-brand-orange/40 animate-ping"></span>
                         <div class="w-full h-full bg-[#020617] rounded-[24px] flex items-center justify-center p-3">
                             <svg class="w-14 h-14 fill-white drop-shadow-[0_0_15px_rgba(255,255,255,0.8)]" viewBox="0 0 100 100">
@@ -520,19 +811,19 @@
                             </svg>
                         </div>
                     </div>
-                    <span class="px-4 py-1.5 rounded-full bg-brand-orange/20 border border-brand-orange/50 text-white font-mono font-extrabold text-xs tracking-[0.2em] uppercase">
-                        MAZAD UNIFIED ROOF & KÖPRÜ ÇEKİRDEĞİ
+                    <span class="px-4 py-1.5 rounded-full bg-brand-orange/20 border border-brand-orange/50 text-white font-mono font-extrabold text-xs tracking-[0.2em] uppercase" data-i18n="countries_roof_tag">
+                        MAZAD UNIFIED ROOF & BRIDGE CORE
                     </span>
                 </div>
 
                 <!-- SVG Interactive Laser Arc Bridge Graphic -->
                 <div class="relative w-full aspect-[21/9] min-h-[360px] max-h-[480px] flex items-center justify-center mb-10 overflow-hidden rounded-3xl bg-[#020617]/80 border border-white/10">
-                    <svg id="interactive-bridge-svg" class="w-full h-full object-contain filter drop-shadow-[0_0_25px_rgba(249,115,22,0.4)]" viewBox="0 0 1200 480" xmlns="http://www.w3.org/2000/svg">
+                    <svg id="interactive-bridge-svg" class="w-full h-full object-contain filter drop-shadow-[0_0_25px_rgba(255,132,26,0.4)]" viewBox="0 0 1200 480" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                             <linearGradient id="bridgeArcGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stop-color="#f97316" stop-opacity="0.2" />
+                                <stop offset="0%" stop-color="#FF841A" stop-opacity="0.2" />
                                 <stop offset="50%" stop-color="#fbbf24" stop-opacity="1" />
-                                <stop offset="100%" stop-color="#f97316" stop-opacity="0.2" />
+                                <stop offset="100%" stop-color="#FF841A" stop-opacity="0.2" />
                             </linearGradient>
                             <filter id="bridgeGlow">
                                 <feGaussianBlur stdDeviation="8" result="blur" />
@@ -545,32 +836,32 @@
                         <path d="M 50,380 Q 600,120 1150,380" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="10 15" class="ping-connection" />
 
                         <!-- Arch Suspension Cables radiating down to country pillars -->
-                        <path d="M 600,140 L 150,380 M 600,140 L 375,380 M 600,140 L 600,380 M 600,140 L 825,380 M 600,140 L 1050,380" stroke="#f97316" stroke-dasharray="4" opacity="0.4" stroke-width="1.5" />
+                        <path d="M 600,140 L 150,380 M 600,140 L 375,380 M 600,140 L 600,380 M 600,140 L 825,380 M 600,140 L 1050,380" stroke="#FF841A" stroke-dasharray="4" opacity="0.4" stroke-width="1.5" />
 
                         <!-- Country Bridge Pillars -->
                         <!-- Pillar 1: Türkiye HQ -->
                         <g class="cursor-pointer group/node" onclick="openCountryPreview('turkey')" transform="translate(150, 380)">
-                            <circle r="20" fill="#f97316" opacity="0.3" class="animate-ping" />
-                            <circle r="12" fill="#f97316" filter="url(#bridgeGlow)" />
+                            <circle r="20" fill="#FF841A" opacity="0.3" class="animate-ping" />
+                            <circle r="12" fill="#FF841A" filter="url(#bridgeGlow)" />
                             <circle r="6" fill="#ffffff" />
-                            <rect x="-60" y="25" width="120" height="40" rx="10" fill="#090d1e" stroke="#f97316" stroke-width="1.5" />
+                            <rect x="-60" y="25" width="120" height="40" rx="10" fill="#090d1e" stroke="#FF841A" stroke-width="1.5" />
                             <text y="42" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="800">🇹🇷 Türkiye (HQ)</text>
-                            <text y="58" text-anchor="middle" fill="#f97316" font-size="9" font-weight="600">Üretim & Ar-Ge</text>
+                            <text y="58" text-anchor="middle" fill="#FF841A" font-size="9" font-weight="600">Üretim & Ar-Ge</text>
                         </g>
 
                         <!-- Pillar 2: Irak Hub -->
                         <g class="cursor-pointer group/node" onclick="openCountryPreview('iraq')" transform="translate(375, 380)">
-                            <circle r="18" fill="#f97316" opacity="0.3" class="animate-ping" />
-                            <circle r="10" fill="#f97316" filter="url(#bridgeGlow)" />
+                            <circle r="18" fill="#FF841A" opacity="0.3" class="animate-ping" />
+                            <circle r="10" fill="#FF841A" filter="url(#bridgeGlow)" />
                             <circle r="5" fill="#ffffff" />
-                            <rect x="-60" y="25" width="120" height="40" rx="10" fill="#090d1e" stroke="#f97316" stroke-width="1.5" />
+                            <rect x="-60" y="25" width="120" height="40" rx="10" fill="#090d1e" stroke="#FF841A" stroke-width="1.5" />
                             <text y="42" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="800">🇮🇶 Irak Hub</text>
                             <text y="58" text-anchor="middle" fill="#fbbf24" font-size="9" font-weight="600">Lojistik & Müzayede</text>
                         </g>
 
                         <!-- Pillar 3: Central Mazad Roof Apex -->
                         <g transform="translate(600, 140)">
-                            <circle r="26" fill="#f97316" opacity="0.4" class="animate-ping" />
+                            <circle r="26" fill="#FF841A" opacity="0.4" class="animate-ping" />
                             <circle r="16" fill="#fbbf24" filter="url(#bridgeGlow)" />
                             <circle r="8" fill="#ffffff" />
                             <text y="-25" text-anchor="middle" fill="#fbbf24" font-size="13" font-weight="900">🌐 MAZAD KÖPRÜ ÇATISI</text>
@@ -578,30 +869,30 @@
 
                         <!-- Pillar 4: Suudi Arabistan (KSA) -->
                         <g class="cursor-pointer group/node" onclick="openCountryPreview('saudi')" transform="translate(600, 380)">
-                            <circle r="18" fill="#f97316" opacity="0.3" class="animate-ping" />
-                            <circle r="10" fill="#f97316" filter="url(#bridgeGlow)" />
+                            <circle r="18" fill="#FF841A" opacity="0.3" class="animate-ping" />
+                            <circle r="10" fill="#FF841A" filter="url(#bridgeGlow)" />
                             <circle r="5" fill="#ffffff" />
-                            <rect x="-60" y="25" width="120" height="40" rx="10" fill="#090d1e" stroke="#f97316" stroke-width="1.5" />
+                            <rect x="-60" y="25" width="120" height="40" rx="10" fill="#090d1e" stroke="#FF841A" stroke-width="1.5" />
                             <text y="42" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="800">🇸🇦 Suudi Arabistan</text>
                             <text y="58" text-anchor="middle" fill="#fbbf24" font-size="9" font-weight="600">GCC Dağıtım</text>
                         </g>
 
                         <!-- Pillar 5: BAE & Körfez -->
                         <g class="cursor-pointer group/node" onclick="openCountryPreview('uae')" transform="translate(825, 380)">
-                            <circle r="18" fill="#f97316" opacity="0.3" class="animate-ping" />
-                            <circle r="10" fill="#f97316" filter="url(#bridgeGlow)" />
+                            <circle r="18" fill="#FF841A" opacity="0.3" class="animate-ping" />
+                            <circle r="10" fill="#FF841A" filter="url(#bridgeGlow)" />
                             <circle r="5" fill="#ffffff" />
-                            <rect x="-60" y="25" width="120" height="40" rx="10" fill="#090d1e" stroke="#f97316" stroke-width="1.5" />
+                            <rect x="-60" y="25" width="120" height="40" rx="10" fill="#090d1e" stroke="#FF841A" stroke-width="1.5" />
                             <text y="42" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="800">🇦🇪 BAE & Körfez</text>
                             <text y="58" text-anchor="middle" fill="#34d399" font-size="9" font-weight="600">Finans & Aktarma</text>
                         </g>
 
                         <!-- Pillar 6: Mısır & Kuzey Afrika -->
                         <g class="cursor-pointer group/node" onclick="openCountryPreview('egypt')" transform="translate(1050, 380)">
-                            <circle r="18" fill="#f97316" opacity="0.3" class="animate-ping" />
-                            <circle r="10" fill="#f97316" filter="url(#bridgeGlow)" />
+                            <circle r="18" fill="#FF841A" opacity="0.3" class="animate-ping" />
+                            <circle r="10" fill="#FF841A" filter="url(#bridgeGlow)" />
                             <circle r="5" fill="#ffffff" />
-                            <rect x="-60" y="25" width="120" height="40" rx="10" fill="#090d1e" stroke="#f97316" stroke-width="1.5" />
+                            <rect x="-60" y="25" width="120" height="40" rx="10" fill="#090d1e" stroke="#FF841A" stroke-width="1.5" />
                             <text y="42" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="800">🇪🇬 Mısır & K. Afrika</text>
                             <text y="58" text-anchor="middle" fill="#fbbf24" font-size="9" font-weight="600">Ticaret Koridoru</text>
                         </g>
@@ -663,7 +954,7 @@
 
         <!-- ===== COUNTRY PREVIEW MODAL / DRAWER (ÜLKE DETAY ÖN İZLEME PANELİ) ===== -->
         <div id="country-preview-modal" class="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-500">
-            <div class="relative w-full max-w-2xl bg-[#090d1e] border-2 border-brand-orange/60 rounded-[36px] p-6 sm:p-10 shadow-[0_0_120px_rgba(249,115,22,0.4)] transition-all transform scale-95" id="preview-modal-box">
+            <div class="relative w-full max-w-2xl bg-[#090d1e] border-2 border-brand-orange/60 rounded-[36px] p-6 sm:p-10 shadow-[0_0_120px_rgba(255,132,26,0.4)] transition-all transform scale-95" id="preview-modal-box">
                 <!-- Close Button -->
                 <button onclick="closeCountryPreview()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-brand-orange text-white flex items-center justify-center transition-all">
                     ✕
@@ -742,7 +1033,7 @@
 
                 <!-- Footer Action Buttons -->
                 <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t border-white/10">
-                    <button id="modal-country-landing-btn" onclick="openDedicatedLandingPage()" class="flex-1 py-4 rounded-2xl bg-gradient-to-r from-brand-orange to-amber-500 text-white font-extrabold text-xs uppercase tracking-wider shadow-[0_0_30px_rgba(249,115,22,0.6)] flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95 transition-all">
+                    <button id="modal-country-landing-btn" onclick="openDedicatedLandingPage()" class="flex-1 py-4 rounded-2xl bg-gradient-to-r from-brand-orange to-amber-500 text-white font-extrabold text-xs uppercase tracking-wider shadow-[0_0_30px_rgba(255,132,26,0.6)] flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95 transition-all">
                         <span>Özel Ülke Landing Page'ini Gör</span>
                         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
@@ -774,7 +1065,7 @@
                 </div>
 
                 <!-- Hero Section for Selected Country Landing Page -->
-                <div class="relative rounded-[40px] bg-gradient-to-r from-[#0d0905] via-[#1c0d02] to-[#0d0905] border border-brand-orange/30 p-8 sm:p-14 mb-12 shadow-[0_0_80px_rgba(249,115,22,0.2)] overflow-hidden">
+                <div class="relative rounded-[40px] bg-gradient-to-r from-[#0d0905] via-[#1c0d02] to-[#0d0905] border border-brand-orange/30 p-8 sm:p-14 mb-12 shadow-[0_0_80px_rgba(255,132,26,0.2)] overflow-hidden">
                     <div class="absolute top-0 right-0 w-96 h-96 bg-brand-orange/15 rounded-full blur-[100px] pointer-events-none"></div>
                     <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                         <div class="lg:col-span-8 space-y-6">
@@ -789,7 +1080,7 @@
                                 İstanbul Maslak HQ merkezimiz, Türkiye'deki tüm üretici ve fabrikaları doğrudan Irak, Suudi Arabistan, BAE ve tüm MENA pazarlarına entegre eder.
                             </p>
                             <div class="flex flex-wrap gap-4 pt-4">
-                                <a href="contact.html" class="px-8 py-4 rounded-full bg-gradient-to-r from-brand-orange to-amber-500 text-white font-extrabold text-xs uppercase tracking-wider shadow-[0_0_30px_rgba(249,115,22,0.5)] hover:scale-105 transition-all">
+                                <a href="contact.html" class="px-8 py-4 rounded-full bg-gradient-to-r from-brand-orange to-amber-500 text-white font-extrabold text-xs uppercase tracking-wider shadow-[0_0_30px_rgba(255,132,26,0.5)] hover:scale-105 transition-all">
                                     Türkiye Satıcısı / Tedarikçisi Ol
                                 </a>
                                 <button onclick="closeDedicatedLandingPage()" class="px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider border border-white/20 transition-all">
@@ -823,10 +1114,11 @@
             </div>
         </div>
 
+        <section class="hidden">
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                 <!-- Card 1: Iraq -->
                 <div class="reveal spotlight-card p-6 rounded-[32px] text-center transition-all duration-300 hover:border-brand-orange/50 flex flex-col items-center gap-4 cursor-pointer" onclick="openCountryPreview('iraq')">
-                    <svg class="w-24 h-24 text-brand-orange fill-current opacity-90 transition duration-300 hover:scale-110 drop-shadow-[0_0_15px_rgba(249,115,22,0.3)]" viewBox="0 0 120 120">
+                    <svg class="w-24 h-24 text-brand-orange fill-current opacity-90 transition duration-300 hover:scale-110 drop-shadow-[0_0_15px_rgba(255,132,26,0.3)]" viewBox="0 0 120 120">
                         <path d="M 32,25 C 42,20 52,22 62,28 C 72,32 78,28 85,35 C 92,42 90,52 82,62 C 78,68 75,78 68,82 C 60,88 48,92 38,88 C 28,82 25,68 28,58 C 30,48 25,35 32,25 Z" />
                     </svg>
                     <div>
@@ -837,7 +1129,7 @@
 
                 <!-- Card 2: Saudi Arabia -->
                 <div class="reveal spotlight-card p-6 rounded-[32px] text-center transition-all duration-300 hover:border-brand-orange/50 flex flex-col items-center gap-4 cursor-pointer" onclick="openCountryPreview('saudi')">
-                    <svg class="w-24 h-24 text-brand-orange fill-current opacity-90 transition duration-300 hover:scale-110 drop-shadow-[0_0_15px_rgba(249,115,22,0.3)]" viewBox="0 0 120 120">
+                    <svg class="w-24 h-24 text-brand-orange fill-current opacity-90 transition duration-300 hover:scale-110 drop-shadow-[0_0_15px_rgba(255,132,26,0.3)]" viewBox="0 0 120 120">
                         <path d="M 20,35 C 38,25 58,30 78,28 C 88,32 98,38 95,52 C 92,62 82,75 72,85 C 58,95 42,92 32,85 C 22,78 18,65 18,52 C 18,42 15,38 20,35 Z" />
                     </svg>
                     <div>
@@ -848,7 +1140,7 @@
 
                 <!-- Card 3: UAE -->
                 <div class="reveal spotlight-card p-6 rounded-[32px] text-center transition-all duration-300 hover:border-brand-orange/50 flex flex-col items-center gap-4 cursor-pointer" onclick="openCountryPreview('uae')">
-                    <svg class="w-24 h-24 text-brand-orange fill-current opacity-90 transition duration-300 hover:scale-110 drop-shadow-[0_0_15px_rgba(249,115,22,0.3)]" viewBox="0 0 120 120">
+                    <svg class="w-24 h-24 text-brand-orange fill-current opacity-90 transition duration-300 hover:scale-110 drop-shadow-[0_0_15px_rgba(255,132,26,0.3)]" viewBox="0 0 120 120">
                         <path d="M 25,72 C 38,62 55,58 72,52 C 85,48 95,45 92,55 C 88,68 72,80 58,85 C 42,88 28,82 25,72 Z" />
                     </svg>
                     <div>
@@ -859,7 +1151,7 @@
 
                 <!-- Card 4: Egypt -->
                 <div class="reveal spotlight-card p-6 rounded-[32px] text-center transition-all duration-300 hover:border-brand-orange/50 flex flex-col items-center gap-4 cursor-pointer" onclick="openCountryPreview('egypt')">
-                    <svg class="w-24 h-24 text-brand-orange fill-current opacity-90 transition duration-300 hover:scale-110 drop-shadow-[0_0_15px_rgba(249,115,22,0.3)]" viewBox="0 0 120 120">
+                    <svg class="w-24 h-24 text-brand-orange fill-current opacity-90 transition duration-300 hover:scale-110 drop-shadow-[0_0_15px_rgba(255,132,26,0.3)]" viewBox="0 0 120 120">
                         <path d="M 22,22 L 78,22 C 82,32 88,30 92,22 C 95,38 88,58 92,82 L 22,82 Z" />
                     </svg>
                     <div>
@@ -870,7 +1162,7 @@
 
                 <!-- Card 5: Kuwait -->
                 <div class="reveal spotlight-card p-6 rounded-[32px] text-center transition-all duration-300 hover:border-brand-orange/50 flex flex-col items-center gap-4 cursor-pointer" onclick="openCountryPreview('kuwait')">
-                    <svg class="w-24 h-24 text-brand-orange fill-current opacity-90 transition duration-300 hover:scale-110 drop-shadow-[0_0_15px_rgba(249,115,22,0.3)]" viewBox="0 0 120 120">
+                    <svg class="w-24 h-24 text-brand-orange fill-current opacity-90 transition duration-300 hover:scale-110 drop-shadow-[0_0_15px_rgba(255,132,26,0.3)]" viewBox="0 0 120 120">
                         <path d="M 35,48 C 50,42 68,48 72,58 C 68,68 55,75 42,68 C 32,62 30,55 35,48 Z" />
                     </svg>
                     <div>
@@ -881,7 +1173,7 @@
 
                 <!-- Card 6: Qatar -->
                 <div class="reveal spotlight-card p-6 rounded-[32px] text-center transition-all duration-300 hover:border-brand-orange/50 flex flex-col items-center gap-4 cursor-pointer" onclick="openCountryPreview('qatar')">
-                    <svg class="w-24 h-24 text-brand-orange fill-current opacity-90 transition duration-300 hover:scale-110 drop-shadow-[0_0_15px_rgba(249,115,22,0.3)]" viewBox="0 0 120 120">
+                    <svg class="w-24 h-24 text-brand-orange fill-current opacity-90 transition duration-300 hover:scale-110 drop-shadow-[0_0_15px_rgba(255,132,26,0.3)]" viewBox="0 0 120 120">
                         <path d="M 45,30 C 58,32 62,45 58,62 C 55,78 45,82 42,68 C 38,55 40,38 45,30 Z" />
                     </svg>
                     <div>
@@ -892,7 +1184,7 @@
 
                 <!-- Card 7: Bahrain -->
                 <div class="reveal spotlight-card p-6 rounded-[32px] text-center transition-all duration-300 hover:border-brand-orange/50 flex flex-col items-center gap-4 cursor-pointer" onclick="openCountryPreview('bahrain')">
-                    <svg class="w-24 h-24 text-brand-orange fill-current opacity-90 transition duration-300 hover:scale-110 drop-shadow-[0_0_15px_rgba(249,115,22,0.3)]" viewBox="0 0 120 120">
+                    <svg class="w-24 h-24 text-brand-orange fill-current opacity-90 transition duration-300 hover:scale-110 drop-shadow-[0_0_15px_rgba(255,132,26,0.3)]" viewBox="0 0 120 120">
                         <path d="M 52,38 C 58,38 65,48 62,62 C 58,72 52,82 50,82 C 48,82 42,72 38,62 C 35,48 45,38 52,38 Z" />
                     </svg>
                     <div>
@@ -903,7 +1195,7 @@
 
                 <!-- Card 8: Algeria -->
                 <div class="reveal spotlight-card p-6 rounded-[32px] text-center transition-all duration-300 hover:border-brand-orange/50 flex flex-col items-center gap-4 cursor-pointer" onclick="openCountryPreview('algeria')">
-                    <svg class="w-24 h-24 text-brand-orange fill-current opacity-90 transition duration-300 hover:scale-110 drop-shadow-[0_0_15px_rgba(249,115,22,0.3)]" viewBox="0 0 120 120">
+                    <svg class="w-24 h-24 text-brand-orange fill-current opacity-90 transition duration-300 hover:scale-110 drop-shadow-[0_0_15px_rgba(255,132,26,0.3)]" viewBox="0 0 120 120">
                         <path d="M 22,25 C 45,18 72,25 82,35 C 88,52 75,78 62,88 C 50,92 38,82 25,68 C 18,52 18,35 22,25 Z" />
                     </svg>
                     <div>
@@ -914,7 +1206,7 @@
 
                 <!-- Card 9: Libya -->
                 <div class="reveal spotlight-card p-6 rounded-[32px] text-center transition-all duration-300 hover:border-brand-orange/50 flex flex-col items-center gap-4 cursor-pointer" onclick="openCountryPreview('libya')">
-                    <svg class="w-24 h-24 text-brand-orange fill-current opacity-90 transition duration-300 hover:scale-110 drop-shadow-[0_0_15px_rgba(249,115,22,0.3)]" viewBox="0 0 120 120">
+                    <svg class="w-24 h-24 text-brand-orange fill-current opacity-90 transition duration-300 hover:scale-110 drop-shadow-[0_0_15px_rgba(255,132,26,0.3)]" viewBox="0 0 120 120">
                         <path d="M 22,30 L 45,30 C 52,38 65,30 78,30 C 85,45 82,68 85,82 L 22,82 Z" />
                     </svg>
                     <div>
@@ -925,7 +1217,7 @@
 
                 <!-- Card 10: Syria -->
                 <div class="reveal spotlight-card p-6 rounded-[32px] text-center transition-all duration-300 hover:border-brand-orange/50 flex flex-col items-center gap-4 cursor-pointer" onclick="openCountryPreview('syria')">
-                    <svg class="w-24 h-24 text-brand-orange fill-current opacity-90 transition duration-300 hover:scale-110 drop-shadow-[0_0_15px_rgba(249,115,22,0.3)]" viewBox="0 0 120 120">
+                    <svg class="w-24 h-24 text-brand-orange fill-current opacity-90 transition duration-300 hover:scale-110 drop-shadow-[0_0_15px_rgba(255,132,26,0.3)]" viewBox="0 0 120 120">
                         <path d="M 25,42 C 45,32 68,35 82,48 C 75,65 62,75 50,78 C 38,72 28,58 25,42 Z" />
                     </svg>
                     <div>
@@ -937,7 +1229,7 @@
         </section>
 
         <!-- ===== GLOBAL OFFICE NETWORK DIRECTORY ===== -->
-        <section class="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-24 py-20" id="office-directory">
+        <section class="hidden max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-24 py-20" id="office-directory">
             <div class="text-center mb-16 reveal">
                 <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">Global Network Directory</h2>
                 <p class="text-white/40 max-w-xl mx-auto text-sm">
@@ -1164,38 +1456,6 @@
             </div>
         </section>
 
-        <!-- ===== CTA BANNER ===== -->
-        <section class="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-24 pb-32 reveal">
-            <div class="relative overflow-hidden rounded-[32px] bg-gradient-to-r from-[#0d0905] via-[#1a0c02] to-[#0d0905] border border-brand-orange/20 p-10 md:p-16 text-center cta-border-glow">
-                <div class="absolute -top-20 left-1/4 w-72 h-72 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none animate-pulse"></div>
-                <div class="absolute -bottom-20 right-1/4 w-72 h-72 bg-amber-500/8 rounded-full blur-3xl pointer-events-none animate-pulse" style="animation-delay: 1s;"></div>
-                <div class="relative z-10">
-                    <div class="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-500/10 text-orange-400 text-xs font-semibold tracking-wider uppercase">
-                        <span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-ping"></span>
-                        Join the Movement
-                    </div>
-                    <h2 class="text-2xl md:text-4xl font-black text-white mb-4">
-                        Ready to Build the Future <br class="hidden md:block">
-                        with <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-amber-400">Mazad Global?</span>
-                    </h2>
-                    <p class="text-white/60 max-w-xl mx-auto mb-10 leading-relaxed">
-                        Whether you are a merchant, investor, or technology partner — the Mazad ecosystem has a place for you. Let's shape the future of digital commerce together.
-                    </p>
-                    <div class="flex flex-wrap items-center justify-center gap-4">
-                        <a href="#" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-orange hover:bg-orange-400 text-white font-bold text-sm tracking-wide transition-all duration-300 hover:shadow-[0_0_30px_rgba(249,115,22,0.5)] hover:-translate-y-0.5">
-                            Get in Touch
-                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                            </svg>
-                        </a>
-                        <a href="index.html" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/5 border border-white/15 hover:border-brand-orange/50 text-white font-bold text-sm tracking-wide transition-all duration-300 hover:bg-brand-orange/10 hover:-translate-y-0.5">
-                            Back to Home
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- ===== FOOTER ===== -->
         <footer class="w-full bg-[#030712] border-t border-white/5 py-16 relative z-20">
             <div class="max-w-[1440px] mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12">
@@ -1229,6 +1489,372 @@
             </div>
         </footer>
     </div>
+
+    <script>
+        (() => {
+            const canvas = document.getElementById('mazad-world-canvas');
+            const stage = document.getElementById('world-stage');
+            const detailPanel = document.getElementById('world-detail-panel');
+            if (!canvas || !stage || !detailPanel) return;
+
+            const context = canvas.getContext('2d');
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const localized = (en, tr, ar) => ({ en, tr, ar });
+            const worldCountries = {
+                turkey: {
+                    lat: 39, lon: 35, flag: '🇹🇷',
+                    name: localized('Türkiye', 'Türkiye', 'تركيا'),
+                    status: localized('HEADQUARTERS', 'GENEL MERKEZ', 'المقر الرئيسي'),
+                    role: localized('Product & Regional Coordination', 'Ürün ve Bölgesel Koordinasyon', 'تنسيق المنتجات والمنطقة'),
+                    description: localized('Coordinates Mazad product development, technology and regional partnership connections from Istanbul.', 'Mazad ürün geliştirme, teknoloji ve bölgesel iş ortaklığı bağlantılarını İstanbul’dan koordine eder.', 'ينسق تطوير منتجات مزاد والتكنولوجيا والشراكات الإقليمية من إسطنبول.'),
+                    region: localized('Türkiye & Regional Network', 'Türkiye ve Bölgesel Ağ', 'تركيا والشبكة الإقليمية'),
+                    focus: localized('Technology • Products • Partnerships', 'Teknoloji • Ürünler • İş Ortaklıkları', 'التكنولوجيا • المنتجات • الشراكات')
+                },
+                iraq: {
+                    lat: 33, lon: 44, flag: '🇮🇶',
+                    name: localized('Iraq', 'Irak', 'العراق'),
+                    status: localized('MARKET CONNECTION', 'PAZAR BAĞLANTISI', 'اتصال السوق'),
+                    role: localized('Local Commerce Experience', 'Yerel Ticaret Deneyimi', 'تجربة التجارة المحلية'),
+                    description: localized('Introduces Mazad commerce experiences for merchants, buyers and local market connections in Iraq.', 'Irak’taki satıcılar, alıcılar ve yerel pazar bağlantıları için Mazad ticaret deneyimlerini tanıtır.', 'يقدم تجارب مزاد التجارية للتجار والمشترين واتصالات السوق المحلي في العراق.'),
+                    region: localized('Iraq Market Network', 'Irak Pazar Ağı', 'شبكة سوق العراق'),
+                    focus: localized('Commerce • Buyers • Merchant Network', 'Ticaret • Alıcılar • Satıcı Ağı', 'التجارة • المشترون • شبكة التجار')
+                },
+                saudi: {
+                    lat: 24, lon: 45, flag: '🇸🇦',
+                    name: localized('Saudi Arabia', 'Suudi Arabistan', 'السعودية'),
+                    status: localized('REGIONAL MARKET', 'BÖLGESEL PAZAR', 'سوق إقليمي'),
+                    role: localized('Gulf Commerce Connection', 'Körfez Ticaret Bağlantısı', 'اتصال تجارة الخليج'),
+                    description: localized('Presents Mazad’s connected commerce journey for the Saudi market and wider Gulf relationships.', 'Mazad’ın bağlantılı ticaret yolculuğunu Suudi pazarı ve daha geniş Körfez ilişkileri için sunar.', 'يقدم رحلة مزاد التجارية المتصلة للسوق السعودي وعلاقات الخليج الأوسع.'),
+                    region: localized('Gulf Network', 'Körfez Ağı', 'شبكة الخليج'),
+                    focus: localized('Market • Payments • Partnerships', 'Pazar • Ödemeler • İş Ortaklıkları', 'السوق • المدفوعات • الشراكات')
+                },
+                uae: {
+                    lat: 24, lon: 54, flag: '🇦🇪',
+                    name: localized('United Arab Emirates', 'Birleşik Arap Emirlikleri', 'الإمارات العربية المتحدة'),
+                    status: localized('GULF GATEWAY', 'KÖRFEZ GEÇİDİ', 'بوابة الخليج'),
+                    role: localized('Regional Business Gateway', 'Bölgesel İş Ağı Geçidi', 'بوابة الأعمال الإقليمية'),
+                    description: localized('A connection point for regional business, technology and logistics relationships across the Gulf.', 'Körfez genelindeki iş, teknoloji ve lojistik ilişkileri için bölgesel bir bağlantı noktasıdır.', 'نقطة اتصال لعلاقات الأعمال والتكنولوجيا والخدمات اللوجستية عبر الخليج.'),
+                    region: localized('GCC Network', 'KİK Ağı', 'شبكة دول الخليج'),
+                    focus: localized('Business • Technology • Logistics', 'İş • Teknoloji • Lojistik', 'الأعمال • التكنولوجيا • الخدمات اللوجستية')
+                },
+                egypt: {
+                    lat: 27, lon: 30, flag: '🇪🇬',
+                    name: localized('Egypt', 'Mısır', 'مصر'),
+                    status: localized('NORTH AFRICA GATEWAY', 'KUZEY AFRİKA GEÇİDİ', 'بوابة شمال أفريقيا'),
+                    role: localized('Regional Market Connection', 'Bölgesel Pazar Bağlantısı', 'اتصال السوق الإقليمي'),
+                    description: localized('Introduces the Mazad network across a key connection point between North Africa and the wider MENA region.', 'Mazad ağını Kuzey Afrika ile daha geniş MENA bölgesi arasındaki önemli bir bağlantı noktasında tanıtır.', 'يقدم شبكة مزاد عبر نقطة اتصال رئيسية بين شمال أفريقيا ومنطقة الشرق الأوسط الأوسع.'),
+                    region: localized('North Africa', 'Kuzey Afrika', 'شمال أفريقيا'),
+                    focus: localized('Market • Content • Partnerships', 'Pazar • İçerik • İş Ortaklıkları', 'السوق • المحتوى • الشراكات')
+                },
+                qatar: {
+                    lat: 25.3, lon: 51.2, flag: '🇶🇦',
+                    name: localized('Qatar', 'Katar', 'قطر'),
+                    status: localized('NETWORK POINT', 'AĞ NOKTASI', 'نقطة شبكة'),
+                    role: localized('Gulf Market Connection', 'Körfez Pazar Bağlantısı', 'اتصال سوق الخليج'),
+                    description: localized('A Mazad network point connecting the commerce story with Gulf market and logistics relationships.', 'Mazad ticaret hikâyesini Körfez pazarı ve lojistik ilişkileriyle buluşturan bir ağ noktasıdır.', 'نقطة في شبكة مزاد تربط قصة التجارة بعلاقات السوق والخدمات اللوجستية الخليجية.'),
+                    region: localized('Gulf Network', 'Körfez Ağı', 'شبكة الخليج'),
+                    focus: localized('Commerce • Logistics • Network', 'Ticaret • Lojistik • Ağ', 'التجارة • الخدمات اللوجستية • الشبكة')
+                },
+                kuwait: {
+                    lat: 29.3, lon: 47.5, flag: '🇰🇼', name: localized('Kuwait', 'Kuveyt', 'الكويت'),
+                    status: localized('NETWORK POINT', 'AĞ NOKTASI', 'نقطة شبكة'), role: localized('Gulf Commerce Network', 'Körfez Ticaret Ağı', 'شبكة تجارة الخليج'),
+                    description: localized('Part of the Mazad market story across the connected Gulf commerce network.', 'Bağlantılı Körfez ticaret ağı içindeki Mazad pazar hikâyesinin bir parçasıdır.', 'جزء من قصة سوق مزاد ضمن شبكة تجارة الخليج المتصلة.'),
+                    region: localized('Gulf Network', 'Körfez Ağı', 'شبكة الخليج'), focus: localized('Market • Commerce • Connections', 'Pazar • Ticaret • Bağlantılar', 'السوق • التجارة • الاتصالات')
+                },
+                bahrain: {
+                    lat: 26, lon: 50.5, flag: '🇧🇭', name: localized('Bahrain', 'Bahreyn', 'البحرين'),
+                    status: localized('NETWORK POINT', 'AĞ NOKTASI', 'نقطة شبكة'), role: localized('Regional Finance Connection', 'Bölgesel Finans Bağlantısı', 'اتصال مالي إقليمي'),
+                    description: localized('A regional point in the Mazad story linking commerce and financial experience across the Gulf.', 'Mazad hikâyesinde Körfez genelinde ticaret ile finansal deneyimi bağlayan bölgesel bir noktadır.', 'نقطة إقليمية في قصة مزاد تربط التجارة بالتجربة المالية عبر الخليج.'),
+                    region: localized('Gulf Network', 'Körfez Ağı', 'شبكة الخليج'), focus: localized('Fintech • Commerce • Network', 'Fintech • Ticaret • Ağ', 'التكنولوجيا المالية • التجارة • الشبكة')
+                },
+                algeria: {
+                    lat: 28, lon: 2, flag: '🇩🇿', name: localized('Algeria', 'Cezayir', 'الجزائر'),
+                    status: localized('NORTH AFRICA NETWORK', 'KUZEY AFRİKA AĞI', 'شبكة شمال أفريقيا'), role: localized('West MENA Connection', 'Batı MENA Bağlantısı', 'اتصال غرب المنطقة'),
+                    description: localized('Extends the Mazad market story toward North Africa and the western edge of the MENA network.', 'Mazad pazar hikâyesini Kuzey Afrika’ya ve MENA ağının batı ucuna taşır.', 'يوسع قصة سوق مزاد نحو شمال أفريقيا والطرف الغربي من شبكة المنطقة.'),
+                    region: localized('North Africa', 'Kuzey Afrika', 'شمال أفريقيا'), focus: localized('Market • Community • Growth', 'Pazar • Topluluk • Büyüme', 'السوق • المجتمع • النمو')
+                },
+                libya: {
+                    lat: 27, lon: 17, flag: '🇱🇾', name: localized('Libya', 'Libya', 'ليبيا'),
+                    status: localized('NORTH AFRICA NETWORK', 'KUZEY AFRİKA AĞI', 'شبكة شمال أفريقيا'), role: localized('Regional Commerce Connection', 'Bölgesel Ticaret Bağlantısı', 'اتصال تجاري إقليمي'),
+                    description: localized('Connects the Mazad regional story with commerce relationships across North Africa.', 'Mazad’ın bölgesel hikâyesini Kuzey Afrika’daki ticaret ilişkileriyle buluşturur.', 'يربط قصة مزاد الإقليمية بعلاقات التجارة عبر شمال أفريقيا.'),
+                    region: localized('North Africa', 'Kuzey Afrika', 'شمال أفريقيا'), focus: localized('Commerce • Market • Network', 'Ticaret • Pazar • Ağ', 'التجارة • السوق • الشبكة')
+                },
+                syria: {
+                    lat: 35, lon: 38.5, flag: '🇸🇾', name: localized('Syria', 'Suriye', 'سوريا'),
+                    status: localized('REGIONAL NETWORK', 'BÖLGESEL AĞ', 'شبكة إقليمية'), role: localized('Levant Market Connection', 'Levant Pazar Bağlantısı', 'اتصال سوق بلاد الشام'),
+                    description: localized('A point in Mazad’s evolving regional network and connected commerce vision.', 'Mazad’ın gelişen bölgesel ağı ve bağlantılı ticaret vizyonundaki bir noktadır.', 'نقطة في شبكة مزاد الإقليمية المتطورة ورؤيتها للتجارة المتصلة.'),
+                    region: localized('Levant', 'Levant', 'بلاد الشام'), focus: localized('Market • Community • Connections', 'Pazar • Topluluk • Bağlantılar', 'السوق • المجتمع • الاتصالات')
+                }
+            };
+
+            const polygons = [
+                [[-17,37],[10,37],[34,31],[51,12],[44,-12],[20,-35],[8,-34],[-9,-5],[-17,18]],
+                [[-10,36],[-8,60],[20,72],[42,68],[60,52],[45,38],[24,35]],
+                [[30,5],[38,38],[55,60],[95,72],[160,58],[150,10],[108,-8],[75,8]],
+                [[-168,15],[-145,62],[-60,72],[-52,45],[-83,8],[-110,12]],
+                [[-82,12],[-70,-55],[-35,-25],[-50,8]],
+                [[112,-10],[154,-12],[150,-44],[115,-38]]
+            ];
+            const pointInPolygon = (lon, lat, polygon) => {
+                let inside = false;
+                for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+                    const [xi, yi] = polygon[i];
+                    const [xj, yj] = polygon[j];
+                    if (((yi > lat) !== (yj > lat)) && (lon < (xj - xi) * (lat - yi) / ((yj - yi) || .00001) + xi)) inside = !inside;
+                }
+                return inside;
+            };
+            const landPoints = [];
+            for (let lat = -55; lat <= 75; lat += 4) {
+                for (let lon = -176; lon <= 176; lon += 4) {
+                    if (polygons.some((polygon) => pointInPolygon(lon, lat, polygon))) landPoints.push({ lat, lon });
+                }
+            }
+
+            let rotation = -35 * Math.PI / 180;
+            let tilt = 20 * Math.PI / 180;
+            let targetRotation = null;
+            let targetTilt = null;
+            let hovering = false;
+            let dragging = false;
+            let moved = false;
+            let startX = 0;
+            let startY = 0;
+            let startRotation = rotation;
+            let startTilt = tilt;
+            let markerScreens = [];
+            let hoveredKey = null;
+            let selectedKey = 'turkey';
+            let cssSize = 600;
+
+            const project = (latDegrees, lonDegrees, radius, center) => {
+                const lat = latDegrees * Math.PI / 180;
+                const lon = lonDegrees * Math.PI / 180 + rotation;
+                const x = Math.cos(lat) * Math.sin(lon);
+                const y = Math.sin(lat);
+                const z = Math.cos(lat) * Math.cos(lon);
+                const y2 = y * Math.cos(tilt) - z * Math.sin(tilt);
+                const z2 = y * Math.sin(tilt) + z * Math.cos(tilt);
+                return { x: center + radius * x, y: center - radius * y2, z: z2 };
+            };
+
+            const drawLine = (points, radius, center, color) => {
+                context.beginPath();
+                let drawing = false;
+                points.forEach(({ lat, lon }) => {
+                    const point = project(lat, lon, radius, center);
+                    if (point.z > 0) {
+                        drawing ? context.lineTo(point.x, point.y) : context.moveTo(point.x, point.y);
+                        drawing = true;
+                    } else {
+                        drawing = false;
+                    }
+                });
+                context.strokeStyle = color;
+                context.lineWidth = 1;
+                context.stroke();
+            };
+
+            const resizeWorld = () => {
+                const rect = canvas.getBoundingClientRect();
+                cssSize = Math.max(280, Math.min(rect.width, rect.height));
+                const ratio = Math.min(window.devicePixelRatio || 1, 2);
+                canvas.width = Math.round(cssSize * ratio);
+                canvas.height = Math.round(cssSize * ratio);
+                context.setTransform(ratio, 0, 0, ratio, 0, 0);
+            };
+            window.addEventListener('resize', resizeWorld);
+            resizeWorld();
+
+            const drawWorld = (time) => {
+                if (!dragging && targetRotation !== null) {
+                    let difference = targetRotation - rotation;
+                    while (difference > Math.PI) difference -= Math.PI * 2;
+                    while (difference < -Math.PI) difference += Math.PI * 2;
+                    rotation += difference * .075;
+                    tilt += (targetTilt - tilt) * .075;
+                    if (Math.abs(difference) < .002 && Math.abs(targetTilt - tilt) < .002) {
+                        targetRotation = null;
+                        targetTilt = null;
+                    }
+                } else if (!dragging && !hovering && !reducedMotion) {
+                    rotation += .0017;
+                }
+
+                const size = cssSize;
+                const center = size / 2;
+                const radius = size * .39;
+                context.clearRect(0, 0, size, size);
+
+                const sphereGradient = context.createRadialGradient(center - radius * .32, center - radius * .38, radius * .08, center, center, radius);
+                sphereGradient.addColorStop(0, 'rgba(255,151,55,.22)');
+                sphereGradient.addColorStop(.42, 'rgba(15,24,50,.98)');
+                sphereGradient.addColorStop(1, 'rgba(1,5,18,1)');
+                context.beginPath();
+                context.arc(center, center, radius, 0, Math.PI * 2);
+                context.fillStyle = sphereGradient;
+                context.fill();
+                context.strokeStyle = 'rgba(255,132,26,.5)';
+                context.lineWidth = 1.5;
+                context.shadowColor = '#FF841A';
+                context.shadowBlur = 22;
+                context.stroke();
+                context.shadowBlur = 0;
+
+                context.save();
+                context.beginPath();
+                context.arc(center, center, radius - 1, 0, Math.PI * 2);
+                context.clip();
+
+                [-60,-30,0,30,60].forEach((lat) => {
+                    const points = [];
+                    for (let lon = -180; lon <= 180; lon += 4) points.push({ lat, lon });
+                    drawLine(points, radius, center, 'rgba(255,132,26,.13)');
+                });
+                for (let lon = -180; lon < 180; lon += 30) {
+                    const points = [];
+                    for (let lat = -88; lat <= 88; lat += 3) points.push({ lat, lon });
+                    drawLine(points, radius, center, 'rgba(255,132,26,.11)');
+                }
+
+                landPoints.forEach((land) => {
+                    const point = project(land.lat, land.lon, radius, center);
+                    if (point.z <= 0) return;
+                    context.beginPath();
+                    context.arc(point.x, point.y, 1 + point.z * .8, 0, Math.PI * 2);
+                    context.fillStyle = `rgba(255,132,26,${.1 + point.z * .28})`;
+                    context.fill();
+                });
+                context.restore();
+
+                markerScreens = [];
+                Object.entries(worldCountries)
+                    .map(([key, country]) => ({ key, country, point: project(country.lat, country.lon, radius, center) }))
+                    .filter((item) => item.point.z > .04)
+                    .sort((a, b) => a.point.z - b.point.z)
+                    .forEach(({ key, country, point }) => {
+                        const active = key === selectedKey;
+                        const pulse = 1 + Math.sin(time / 420 + country.lon) * .18;
+                        const markerRadius = (active ? 8 : 5.5) * pulse;
+                        context.beginPath();
+                        context.arc(point.x, point.y, markerRadius * 2.2, 0, Math.PI * 2);
+                        context.fillStyle = `rgba(255,132,26,${active ? .18 : .08})`;
+                        context.fill();
+                        context.beginPath();
+                        context.arc(point.x, point.y, markerRadius, 0, Math.PI * 2);
+                        context.fillStyle = active ? '#ffffff' : '#FF841A';
+                        context.shadowColor = active ? '#ffffff' : '#FF841A';
+                        context.shadowBlur = active ? 22 : 14;
+                        context.fill();
+                        context.shadowBlur = 0;
+
+                        if (point.z > .34 && (active || key === hoveredKey)) {
+                            const lang = document.documentElement.lang || 'en';
+                            const label = country.name[lang] || country.name.en;
+                            context.font = `${active ? 800 : 700} ${active ? 11 : 9}px Inter, sans-serif`;
+                            context.textAlign = 'center';
+                            context.fillStyle = active ? '#ffffff' : 'rgba(255,255,255,.65)';
+                            context.fillText(label.toUpperCase(), point.x, point.y - markerRadius - 11);
+                        }
+                        markerScreens.push({ key, x: point.x, y: point.y, z: point.z });
+                    });
+
+                requestAnimationFrame(drawWorld);
+            };
+            requestAnimationFrame(drawWorld);
+
+            const language = () => {
+                const lang = document.documentElement.lang || 'en';
+                return ['en','tr','ar'].includes(lang) ? lang : 'en';
+            };
+            const updateDetail = (key, rotate = true) => {
+                const country = worldCountries[key];
+                if (!country) return;
+                selectedKey = key;
+                const lang = language();
+                document.getElementById('world-country-flag').textContent = country.flag;
+                document.getElementById('world-country-status').textContent = country.status[lang];
+                document.getElementById('world-country-name').textContent = country.name[lang];
+                document.getElementById('world-country-role').textContent = country.role[lang];
+                document.getElementById('world-country-description').textContent = country.description[lang];
+                document.getElementById('world-country-region').textContent = country.region[lang];
+                document.getElementById('world-country-focus').textContent = country.focus[lang];
+                document.querySelectorAll('.world-country-chip').forEach((chip) => {
+                    chip.classList.toggle('is-active', chip.dataset.country === key);
+                    const chipCountry = worldCountries[chip.dataset.country];
+                    if (chipCountry) chip.textContent = chipCountry.name[lang];
+                });
+                detailPanel.classList.remove('is-changing');
+                requestAnimationFrame(() => detailPanel.classList.add('is-changing'));
+                window.setTimeout(() => detailPanel.classList.remove('is-changing'), 950);
+                if (rotate) {
+                    targetRotation = -country.lon * Math.PI / 180;
+                    targetTilt = Math.max(-.65, Math.min(.65, country.lat * Math.PI / 180));
+                }
+            };
+
+            stage.addEventListener('pointerenter', () => { hovering = true; });
+            stage.addEventListener('pointerleave', () => {
+                hovering = false;
+                hoveredKey = null;
+                stage.style.cursor = 'grab';
+            });
+            stage.addEventListener('pointerdown', (event) => {
+                dragging = true;
+                moved = false;
+                startX = event.clientX;
+                startY = event.clientY;
+                startRotation = rotation;
+                startTilt = tilt;
+                targetRotation = null;
+                targetTilt = null;
+                stage.classList.add('is-dragging');
+                stage.setPointerCapture(event.pointerId);
+            });
+            stage.addEventListener('pointermove', (event) => {
+                if (!dragging) {
+                    const rect = canvas.getBoundingClientRect();
+                    const x = (event.clientX - rect.left) * (cssSize / rect.width);
+                    const y = (event.clientY - rect.top) * (cssSize / rect.height);
+                    const nearest = markerScreens
+                        .filter((marker) => marker.z > .08)
+                        .map((marker) => ({ ...marker, distance: Math.hypot(marker.x - x, marker.y - y) }))
+                        .sort((a, b) => a.distance - b.distance)[0];
+                    hoveredKey = nearest && nearest.distance < 30 ? nearest.key : null;
+                    stage.style.cursor = hoveredKey ? 'pointer' : 'grab';
+                    return;
+                }
+                const dx = event.clientX - startX;
+                const dy = event.clientY - startY;
+                if (Math.hypot(dx, dy) > 5) moved = true;
+                rotation = startRotation + dx * .008;
+                tilt = Math.max(-1.05, Math.min(1.05, startTilt - dy * .006));
+            });
+            const releaseWorld = (event) => {
+                if (!dragging) return;
+                dragging = false;
+                stage.classList.remove('is-dragging');
+                if (stage.hasPointerCapture(event.pointerId)) stage.releasePointerCapture(event.pointerId);
+                if (moved) return;
+                const rect = canvas.getBoundingClientRect();
+                const x = (event.clientX - rect.left) * (cssSize / rect.width);
+                const y = (event.clientY - rect.top) * (cssSize / rect.height);
+                const nearest = markerScreens
+                    .filter((marker) => marker.z > .08)
+                    .map((marker) => ({ ...marker, distance: Math.hypot(marker.x - x, marker.y - y) }))
+                    .sort((a, b) => a.distance - b.distance)[0];
+                if (nearest && nearest.distance < 30) updateDetail(nearest.key, false);
+            };
+            stage.addEventListener('pointerup', releaseWorld);
+            stage.addEventListener('pointercancel', releaseWorld);
+
+            document.querySelectorAll('.world-country-chip').forEach((chip) => {
+                chip.addEventListener('click', () => updateDetail(chip.dataset.country, true));
+            });
+            updateDetail(selectedKey, false);
+            new MutationObserver(() => updateDetail(selectedKey, false)).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+        })();
+    </script>
 
     <!-- Interactive Scripting -->
     <script>
@@ -1265,8 +1891,8 @@
                 ctx.save();
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(249, 115, 22, ${this.alpha * (this.life / 250)})`;
-                ctx.shadowColor = '#f97316';
+                ctx.fillStyle = `rgba(255,132,26, ${this.alpha * (this.life / 250)})`;
+                ctx.shadowColor = '#FF841A';
                 ctx.shadowBlur = 4;
                 ctx.fill();
                 ctx.restore();
@@ -1321,7 +1947,7 @@
             function openDropdown() { panel.classList.add('open'); chevron.classList.add('open'); }
             function closeDropdown() { panel.classList.remove('open'); chevron.classList.remove('open'); }
             btn.addEventListener('click', (e) => { e.stopPropagation(); panel.classList.contains('open') ? closeDropdown() : openDropdown(); });
-            document.addEventListener('click', (e) => { if (!document.getElementById('projects-dropdown-wrapper').contains(e.target)) closeDropdown(); });
+            document.addEventListener('click', (e) => { const wrapper = document.getElementById('projects-dropdown-wrapper'); if (wrapper && !wrapper.contains(e.target)) closeDropdown(); });
             document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDropdown(); });
             document.querySelectorAll('.proj-link').forEach(link => {
                 link.addEventListener('mousemove', (e) => {
@@ -1551,7 +2177,7 @@
     <div id="yaman-ai-widget-wrapper" class="fixed bottom-6 right-6 z-[9999]">
 
         <!-- Floating Trigger Button with Rotating Hologram Aura -->
-        <button id="yaman-ai-trigger-btn" onclick="toggleYamanAIChat()" class="relative group flex items-center gap-3 px-5 py-3.5 rounded-full bg-[#050a1c]/90 border-2 border-brand-orange/60 shadow-[0_0_35px_rgba(249,115,22,0.55)] hover:scale-105 active:scale-95 transition-all duration-300 backdrop-blur-xl">
+        <button id="yaman-ai-trigger-btn" onclick="toggleYamanAIChat()" class="relative group flex items-center gap-3 px-5 py-3.5 rounded-full bg-[#050a1c]/90 border-2 border-brand-orange/60 shadow-[0_0_35px_rgba(255,132,26,0.55)] hover:scale-105 active:scale-95 transition-all duration-300 backdrop-blur-xl">
             <!-- Ambient Breathing Aura -->
             <span class="absolute inset-[-4px] rounded-full bg-brand-orange/40 blur-md opacity-70 group-hover:opacity-100 transition-opacity animate-pulse"></span>
             
@@ -1574,7 +2200,7 @@
         </button>
 
         <!-- Floating Yaman AI Chat Drawer Window -->
-        <div id="yaman-ai-chat-drawer" class="absolute bottom-16 right-0 w-[92vw] sm:w-[380px] bg-[#050a1c]/95 border-2 border-brand-orange/50 rounded-[32px] p-5 shadow-[0_0_90px_rgba(249,115,22,0.4)] backdrop-blur-2xl opacity-0 pointer-events-none transform translate-y-6 scale-95 transition-all duration-300 overflow-hidden">
+        <div id="yaman-ai-chat-drawer" class="absolute bottom-16 right-0 w-[92vw] sm:w-[380px] bg-[#050a1c]/95 border-2 border-brand-orange/50 rounded-[32px] p-5 shadow-[0_0_90px_rgba(255,132,26,0.4)] backdrop-blur-2xl opacity-0 pointer-events-none transform translate-y-6 scale-95 transition-all duration-300 overflow-hidden">
             
             <!-- Ambient Glow Orb -->
             <div class="absolute -top-20 -right-20 w-48 h-48 bg-brand-orange/20 rounded-full blur-3xl pointer-events-none"></div>
@@ -1582,7 +2208,7 @@
             <!-- Chat Drawer Header -->
             <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
                 <div class="flex items-center gap-3">
-                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-orange to-amber-400 p-0.5 shadow-[0_0_15px_rgba(249,115,22,0.5)]">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-orange to-amber-400 p-0.5 shadow-[0_0_15px_rgba(255,132,26,0.5)]">
                         <div class="w-full h-full bg-[#020617] rounded-[14px] overflow-hidden flex items-center justify-center">
                             <img src="images/ai_character.png" class="w-full h-full object-cover" alt="Yaman AI">
                         </div>
@@ -1630,7 +2256,7 @@
             <!-- Chat Input Form -->
             <form onsubmit="handleYamanSubmit(event)" class="relative flex items-center gap-2">
                 <input type="text" id="yaman-chat-input" placeholder="Yaman AI'a sorun..." class="w-full bg-[#020617] border border-white/15 rounded-2xl px-4 py-2.5 text-xs text-white placeholder-white/40 focus:border-brand-orange outline-none transition-all">
-                <button type="submit" class="w-9 h-9 rounded-2xl bg-brand-orange hover:bg-orange-400 text-white flex items-center justify-center font-bold text-xs flex-shrink-0 transition-transform active:scale-95 shadow-[0_0_15px_rgba(249,115,22,0.5)]">
+                <button type="submit" class="w-9 h-9 rounded-2xl bg-brand-orange hover:bg-orange-400 text-white flex items-center justify-center font-bold text-xs flex-shrink-0 transition-transform active:scale-95 shadow-[0_0_15px_rgba(255,132,26,0.5)]">
                     ➔
                 </button>
             </form>

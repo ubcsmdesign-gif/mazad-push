@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" type="image/jpeg" href="images/logo.jpg?v=mazad-global-icon-1">
+    <link rel="apple-touch-icon" href="images/logo.jpg?v=mazad-global-icon-1">
+    <meta name="theme-color" content="#242527">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MAZAD GLOBAL</title>
@@ -23,7 +26,7 @@
                     },
                     colors: {
                         brand: {
-                            orange: '#f97316',
+                            orange: '#FF841A',
                             dark: '#020617',
                             card: '#ffffff'
                         }
@@ -65,7 +68,7 @@
 
         #projects-chevron.open {
             transform: rotate(180deg);
-            color: #f97316;
+            color: #FF841A;
         }
 
         .proj-link {
@@ -77,7 +80,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(249, 115, 22, 0.12), transparent 70%);
+            background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255,132,26, 0.12), transparent 70%);
             opacity: 0;
             transition: opacity 0.3s;
             pointer-events: none;
@@ -94,7 +97,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: radial-gradient(circle at 50% 50%, #f97316 0%, #020617 80%);
+            background: radial-gradient(circle at 50% 50%, #FF841A 0%, #020617 80%);
             animation: breathe 15s ease-in-out infinite;
             z-index: 1;
         }
@@ -153,6 +156,24 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
+        /* Scroll Reveal Transitions for Why Choose Mazad Cards */
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
         .visual-item img {
             width: 100%;
             height: 100%;
@@ -161,7 +182,7 @@
 
         /* Navbar Laser Border */
         .laser-border {
-            background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.8), #fff, rgba(249, 115, 22, 0.8), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,132,26, 0.8), #fff, rgba(255,132,26, 0.8), transparent);
             background-size: 200% 100%;
             animation: sweep 2.5s linear infinite;
         }
@@ -187,7 +208,7 @@
 
             20% {
                 transform: translate(-2px, 1px);
-                color: #f97316;
+                color: #FF841A;
             }
 
             100% {
@@ -208,12 +229,12 @@
             0%,
             100% {
                 transform: scale(1);
-                box-shadow: 0 0 20px rgba(249, 115, 22, 0.1);
+                box-shadow: 0 0 20px rgba(255,132,26, 0.1);
             }
 
             50% {
                 transform: scale(1.02);
-                box-shadow: 0 0 40px rgba(249, 115, 22, 0.25);
+                box-shadow: 0 0 40px rgba(255,132,26, 0.25);
             }
         }
 
@@ -347,12 +368,12 @@
             0%,
             100% {
                 transform: translateY(0);
-                filter: drop-shadow(0 0 8px rgba(249, 115, 22, 0.4));
+                filter: drop-shadow(0 0 8px rgba(255,132,26, 0.4));
             }
 
             50% {
                 transform: translateY(-3px);
-                filter: drop-shadow(0 0 20px rgba(249, 115, 22, 0.8));
+                filter: drop-shadow(0 0 20px rgba(255,132,26, 0.8));
             }
         }
 
@@ -365,12 +386,12 @@
 
             0%,
             100% {
-                text-shadow: 0 0 20px rgba(249, 115, 22, 0.5), 0 0 40px rgba(249, 115, 22, 0.3);
+                text-shadow: 0 0 20px rgba(255,132,26, 0.5), 0 0 40px rgba(255,132,26, 0.3);
                 opacity: 0.8;
             }
 
             50% {
-                text-shadow: 0 0 30px rgba(249, 115, 22, 0.9), 0 0 60px rgba(249, 115, 22, 0.6);
+                text-shadow: 0 0 30px rgba(255,132,26, 0.9), 0 0 60px rgba(255,132,26, 0.6);
                 opacity: 1;
             }
         }
@@ -408,11 +429,11 @@
 
             0%,
             100% {
-                filter: drop-shadow(0 0 5px rgba(249, 115, 22, 0.5));
+                filter: drop-shadow(0 0 5px rgba(255,132,26, 0.5));
             }
 
             50% {
-                filter: drop-shadow(0 0 15px rgba(249, 115, 22, 0.8));
+                filter: drop-shadow(0 0 15px rgba(255,132,26, 0.8));
             }
         }
 
@@ -425,6 +446,78 @@
             padding: 2rem 0;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Compact trust rail below the hero */
+        .benefits-ribbon {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 50% 0%, rgba(255,132,26, 0.12), transparent 48%),
+                rgba(2, 6, 23, 0.82);
+        }
+
+        .benefits-ribbon::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(90deg, transparent, rgba(255,132,26, 0.06), transparent);
+        }
+
+        .benefit-card {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            min-height: 76px;
+            padding: 1rem 1.1rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.025);
+            color: rgba(255, 255, 255, 0.76);
+            transition: transform 300ms ease, border-color 300ms ease, background 300ms ease, color 300ms ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255,132,26, 0.42);
+            background: rgba(255,132,26, 0.08);
+            color: #fff;
+        }
+
+        .benefit-icon {
+            width: 40px;
+            height: 40px;
+            flex: 0 0 40px;
+            display: grid;
+            place-items: center;
+            border-radius: 13px;
+            color: #fb923c;
+            border: 1px solid rgba(255,132,26, 0.26);
+            background: rgba(255,132,26, 0.1);
+            box-shadow: 0 0 22px rgba(255,132,26, 0.08);
+        }
+
+        .footer-projects-ticker {
+            margin: 0;
+            padding: 1.35rem 0;
+            background:
+                linear-gradient(90deg, rgba(2, 6, 23, 0.98), rgba(68, 25, 10, 0.72), rgba(2, 6, 23, 0.98));
+            border-top: 1px solid rgba(255,132,26, 0.3);
+            border-bottom: 1px solid rgba(255,132,26, 0.16);
+            position: relative;
+            z-index: 20;
+        }
+
+        .footer-projects-ticker .animate-scroll:hover {
+            animation-play-state: paused;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .footer-projects-ticker .animate-scroll {
+                animation-play-state: paused;
+            }
         }
 
         /* Entrance fade-in and slide-up animations */
@@ -496,7 +589,7 @@
             width: 100%;
             height: 100%;
             background: radial-gradient(400px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
-                    rgba(249, 115, 22, 0.12),
+                    rgba(255,132,26, 0.12),
                     transparent 50%);
             z-index: 1;
             pointer-events: none;
@@ -513,7 +606,7 @@
             position: absolute;
             inset: -1px;
             background: radial-gradient(350px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
-                    rgba(249, 115, 22, 0.4),
+                    rgba(255,132,26, 0.4),
                     transparent 60%);
             z-index: 0;
             pointer-events: none;
@@ -599,7 +692,7 @@
         /* Hologram scanner line overlay */
         .hologram-effect {
             position: relative;
-            filter: drop-shadow(0 0 25px rgba(249, 115, 22, 0.4));
+            filter: drop-shadow(0 0 25px rgba(255,132,26, 0.4));
             animation: hologram-float 4s ease-in-out infinite;
         }
 
@@ -610,7 +703,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(249, 115, 22, 0.1) 50%,
+            background: linear-gradient(rgba(255,132,26, 0.1) 50%,
                     rgba(255, 255, 255, 0.15) 50%);
             background-size: 100% 6px;
             z-index: 2;
@@ -633,7 +726,7 @@
 
         /* Pedestal glow */
         .pedestal {
-            background: radial-gradient(ellipse at center, rgba(249, 115, 22, 0.6) 0%, transparent 70%);
+            background: radial-gradient(ellipse at center, rgba(255,132,26, 0.6) 0%, transparent 70%);
             height: 30px;
             width: 320px;
             border-radius: 50%;
@@ -658,7 +751,7 @@
         /* 3D orbits rotating around robot */
         .orbit-ring {
             position: absolute;
-            border: 2px dashed rgba(249, 115, 22, 0.4);
+            border: 2px dashed rgba(255,132,26, 0.4);
             border-radius: 50%;
             pointer-events: none;
             transform-style: preserve-3d;
@@ -701,8 +794,8 @@
         /* Speech bubble formatting */
         .speech-bubble {
             background: rgba(2, 6, 23, 0.85);
-            border: 1px solid rgba(249, 115, 22, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(249, 115, 22, 0.1);
+            border: 1px solid rgba(255,132,26, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255,132,26, 0.1);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
@@ -715,9 +808,234 @@
             width: 16px;
             height: 16px;
             background: #020617;
-            border-left: 1px solid rgba(249, 115, 22, 0.3);
-            border-bottom: 1px solid rgba(249, 115, 22, 0.3);
+            border-left: 1px solid rgba(255,132,26, 0.3);
+            border-bottom: 1px solid rgba(255,132,26, 0.3);
             transform: rotate(45deg);
+        }
+
+        /* Yaman cinematic effect layer — animation only, no layout or palette changes */
+        .speech-bubble::after {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            border-radius: inherit;
+            padding: 1px;
+            pointer-events: none;
+            background: linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.7) 48%, transparent 76%);
+            background-size: 240% 100%;
+            opacity: 0;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        .yaman-in-view .speech-bubble::after {
+            animation: yaman-border-scan 3.8s ease-in-out infinite;
+        }
+
+        .hologram-effect::before {
+            content: "";
+            position: absolute;
+            z-index: 4;
+            left: -8%;
+            width: 116%;
+            height: 3px;
+            top: 8%;
+            pointer-events: none;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95), transparent);
+            box-shadow: 0 0 14px rgba(255,132,26, 0.95), 0 0 28px rgba(255,132,26, 0.5);
+            opacity: 0;
+        }
+
+        .yaman-in-view .hologram-effect::before {
+            animation: yaman-holo-scan 3.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+
+        .yaman-avatar-image {
+            will-change: transform, clip-path;
+        }
+
+        .yaman-in-view .yaman-avatar-image {
+            animation: yaman-signal-glitch 8s linear infinite;
+        }
+
+        .yaman-ambient-grid {
+            position: absolute;
+            inset: 8% 4%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0;
+            background-image:
+                linear-gradient(rgba(255,132,26, 0.12) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,132,26, 0.12) 1px, transparent 1px);
+            background-size: 38px 38px;
+            -webkit-mask-image: radial-gradient(circle at 70% 50%, black 0%, transparent 68%);
+            mask-image: radial-gradient(circle at 70% 50%, black 0%, transparent 68%);
+            transform: perspective(700px) rotateX(62deg) translateY(18%);
+            transform-origin: center bottom;
+        }
+
+        .yaman-in-view .yaman-ambient-grid {
+            animation: yaman-grid-arrival 1.25s ease-out forwards, yaman-grid-drift 12s linear 1.25s infinite;
+        }
+
+        .yaman-energy-field {
+            position: absolute;
+            inset: 0;
+            z-index: 8;
+            pointer-events: none;
+        }
+
+        .yaman-energy-wave {
+            position: absolute;
+            left: 50%;
+            top: 52%;
+            width: 240px;
+            height: 110px;
+            border: 1px solid rgba(255,132,26, 0.65);
+            border-radius: 50%;
+            opacity: 0;
+            transform: translate(-50%, -50%) rotateX(67deg) scale(0.35);
+            box-shadow: 0 0 20px rgba(255,132,26, 0.18);
+        }
+
+        .yaman-in-view .yaman-energy-wave {
+            animation: yaman-energy-pulse 3.2s ease-out infinite;
+        }
+
+        .yaman-in-view .yaman-energy-wave:nth-child(2) {
+            animation-delay: 1.05s;
+        }
+
+        .yaman-in-view .yaman-energy-wave:nth-child(3) {
+            animation-delay: 2.1s;
+        }
+
+        .yaman-spark {
+            --spark-x: 0px;
+            --spark-y: 0px;
+            --spark-delay: 0s;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 4px;
+            height: 4px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.92);
+            box-shadow: 0 0 12px rgba(255,132,26, 1);
+            opacity: 0;
+        }
+
+        .yaman-in-view .yaman-spark {
+            animation: yaman-spark-flight 2.8s ease-out var(--spark-delay) infinite;
+        }
+
+        .ai-feature-card {
+            overflow: hidden;
+        }
+
+        .ai-feature-card::before {
+            content: "";
+            position: absolute;
+            z-index: 0;
+            inset: -40% -80%;
+            pointer-events: none;
+            background: linear-gradient(100deg, transparent 42%, rgba(255, 255, 255, 0.12) 50%, transparent 58%);
+            transform: translateX(-45%) rotate(4deg);
+            opacity: 0;
+        }
+
+        .ai-feature-card h3,
+        .ai-feature-card p {
+            position: relative;
+            z-index: 1;
+        }
+
+        .ai-feature-card.active-glow::before {
+            animation: yaman-card-sweep 2.9s ease-in-out infinite;
+        }
+
+        .yaman-in-view .ai-feature-card h3,
+        .yaman-in-view .ai-feature-card p {
+            animation: yaman-content-materialize 800ms cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        .yaman-in-view #feat-card-2 h3,
+        .yaman-in-view #feat-card-2 p {
+            animation-delay: 130ms;
+        }
+
+        .yaman-in-view #feat-card-3 h3,
+        .yaman-in-view #feat-card-3 p {
+            animation-delay: 260ms;
+        }
+
+        @keyframes yaman-border-scan {
+            0%, 18% { background-position: 180% 0; opacity: 0; }
+            34%, 62% { opacity: 0.75; }
+            82%, 100% { background-position: -80% 0; opacity: 0; }
+        }
+
+        @keyframes yaman-holo-scan {
+            0% { top: 7%; opacity: 0; }
+            12% { opacity: 0.8; }
+            70% { opacity: 0.65; }
+            88%, 100% { top: 92%; opacity: 0; }
+        }
+
+        @keyframes yaman-signal-glitch {
+            0%, 91%, 94%, 100% { transform: translateX(0); clip-path: inset(0 0 0 0); }
+            92% { transform: translateX(-3px); clip-path: inset(16% 0 56% 0); }
+            92.5% { transform: translateX(3px); clip-path: inset(58% 0 18% 0); }
+            93% { transform: translateX(-1px); clip-path: inset(34% 0 36% 0); }
+        }
+
+        @keyframes yaman-grid-arrival {
+            from { opacity: 0; transform: perspective(700px) rotateX(62deg) translateY(32%) scale(0.88); }
+            to { opacity: 0.34; transform: perspective(700px) rotateX(62deg) translateY(18%) scale(1); }
+        }
+
+        @keyframes yaman-grid-drift {
+            from { background-position: 0 0, 0 0; }
+            to { background-position: 38px 38px, 38px 38px; }
+        }
+
+        @keyframes yaman-energy-pulse {
+            0% { opacity: 0; transform: translate(-50%, -50%) rotateX(67deg) scale(0.35); }
+            18% { opacity: 0.72; }
+            82%, 100% { opacity: 0; transform: translate(-50%, -50%) rotateX(67deg) scale(2.15); }
+        }
+
+        @keyframes yaman-spark-flight {
+            0% { opacity: 0; transform: translate(0, 0) scale(0.4); }
+            18% { opacity: 1; }
+            75% { opacity: 0.8; }
+            100% { opacity: 0; transform: translate(var(--spark-x), var(--spark-y)) scale(1.45); }
+        }
+
+        @keyframes yaman-card-sweep {
+            0%, 28% { opacity: 0; transform: translateX(-48%) rotate(4deg); }
+            44% { opacity: 1; }
+            72%, 100% { opacity: 0; transform: translateX(48%) rotate(4deg); }
+        }
+
+        @keyframes yaman-content-materialize {
+            from { opacity: 0; filter: blur(7px); transform: translateY(16px); }
+            to { opacity: 1; filter: blur(0); transform: translateY(0); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .yaman-in-view .speech-bubble::after,
+            .yaman-in-view .hologram-effect::before,
+            .yaman-in-view .yaman-avatar-image,
+            .yaman-in-view .yaman-ambient-grid,
+            .yaman-in-view .yaman-energy-wave,
+            .yaman-in-view .yaman-spark,
+            .ai-feature-card.active-glow::before,
+            .yaman-in-view .ai-feature-card h3,
+            .yaman-in-view .ai-feature-card p {
+                animation: none !important;
+            }
         }
 
         /* Scroll Pinning AI Container dimensions */
@@ -741,16 +1059,16 @@
         }
 
         .ai-feature-card.active-glow {
-            box-shadow: 0 0 35px rgba(249, 115, 22, 0.3);
-            border-color: rgba(249, 115, 22, 0.5) !important;
+            box-shadow: 0 0 35px rgba(255,132,26, 0.3);
+            border-color: rgba(255,132,26, 0.5) !important;
             transform: translateX(12px) scale(1.025);
-            background: rgba(249, 115, 22, 0.06) !important;
+            background: rgba(255,132,26, 0.06) !important;
         }
 
         .ai-feature-card.active-glow.feat-color-1 {
-            box-shadow: 0 0 35px rgba(249, 115, 22, 0.3);
-            border-color: rgba(249, 115, 22, 0.5) !important;
-            background: rgba(249, 115, 22, 0.06) !important;
+            box-shadow: 0 0 35px rgba(255,132,26, 0.3);
+            border-color: rgba(255,132,26, 0.5) !important;
+            background: rgba(255,132,26, 0.06) !important;
         }
 
         .ai-feature-card.active-glow.feat-color-2 {
@@ -772,10 +1090,10 @@
 
         /* Hover-Zone Interactive Styles */
         .ai-feature-card.active-glow.zone-blaze {
-            box-shadow: 0 0 65px rgba(249, 115, 22, 0.75), 0 0 130px rgba(249, 115, 22, 0.35);
+            box-shadow: 0 0 65px rgba(255,132,26, 0.75), 0 0 130px rgba(255,132,26, 0.35);
             border-color: rgba(255, 255, 255, 0.9) !important;
             transform: translateX(18px) scale(1.05);
-            background: rgba(249, 115, 22, 0.12) !important;
+            background: rgba(255,132,26, 0.12) !important;
         }
 
         .ai-feature-card.zone-dim {
@@ -789,10 +1107,10 @@
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .ecosystem-card.active-module {
-            background: rgba(249, 115, 22, 0.08) !important;
-            border-color: rgba(249, 115, 22, 0.4) !important;
+            background: rgba(255,132,26, 0.08) !important;
+            border-color: rgba(255,132,26, 0.4) !important;
             transform: translateX(8px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(249, 115, 22, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255,132,26, 0.1);
         }
         .ecosystem-card:hover {
             background: rgba(255, 255, 255, 0.06);
@@ -831,16 +1149,420 @@
 
         /* Interactive Map Nodes */
         .map-node.active {
-            border-color: rgba(249, 115, 22, 0.8) !important;
-            box-shadow: 0 0 25px rgba(249, 115, 22, 0.5);
-            background: rgba(249, 115, 22, 0.1) !important;
+            border-color: rgba(255,132,26, 0.8) !important;
+            box-shadow: 0 0 25px rgba(255,132,26, 0.5);
+            background: rgba(255,132,26, 0.1) !important;
             transform: scale(1.15) translateY(-5px);
         }
         .map-node.active svg {
-            color: #f97316 !important;
-            filter: drop-shadow(0 0 8px rgba(249, 115, 22, 0.8));
+            color: #FF841A !important;
+            filter: drop-shadow(0 0 8px rgba(255,132,26, 0.8));
+        }
+
+        /* ===== Cinematic Mazad Welcome Sequence ===== */
+        #welcome-portal {
+            isolation: isolate;
+            background:
+                radial-gradient(circle at 50% 48%, rgba(255,132,26, 0.12), transparent 34%),
+                linear-gradient(145deg, #010411 0%, #020617 55%, #050819 100%);
+        }
+
+        .intro-nebula {
+            position: absolute;
+            width: 62vw;
+            height: 62vw;
+            min-width: 620px;
+            min-height: 620px;
+            border-radius: 42%;
+            pointer-events: none;
+            opacity: 0;
+            mix-blend-mode: screen;
+            will-change: transform, opacity;
+        }
+
+        .intro-nebula--amber {
+            left: -19vw;
+            top: -26vw;
+            background:
+                radial-gradient(ellipse at 62% 58%, rgba(255,132,26, 0.34), transparent 29%),
+                radial-gradient(ellipse at 44% 42%, rgba(255, 178, 92, 0.17), transparent 50%);
+            filter: blur(58px);
+            animation: intro-nebula-amber 7s ease-in-out infinite alternate;
+        }
+
+        .intro-nebula--blue {
+            right: -22vw;
+            bottom: -30vw;
+            background:
+                radial-gradient(ellipse at 38% 38%, rgba(54, 99, 190, 0.28), transparent 33%),
+                radial-gradient(ellipse at 58% 54%, rgba(118, 79, 170, 0.18), transparent 51%);
+            filter: blur(68px);
+            animation: intro-nebula-blue 8.5s ease-in-out infinite alternate;
+        }
+
+        #portal-intro-stage.is-active .intro-nebula {
+            opacity: 0.72;
+        }
+
+        #portal-intro-stage.is-launching .intro-nebula {
+            opacity: 0;
+            transition: opacity 0.45s ease;
+        }
+
+        @keyframes intro-nebula-amber {
+            from { transform: translate3d(var(--nebula-amber-x, 0), var(--nebula-amber-y, 0), 0) rotate(-8deg) scale(0.94); }
+            to { transform: translate3d(var(--nebula-amber-x, 0), var(--nebula-amber-y, 0), 0) rotate(4deg) scale(1.08); }
+        }
+
+        @keyframes intro-nebula-blue {
+            from { transform: translate3d(var(--nebula-blue-x, 0), var(--nebula-blue-y, 0), 0) rotate(7deg) scale(1.04); }
+            to { transform: translate3d(var(--nebula-blue-x, 0), var(--nebula-blue-y, 0), 0) rotate(-5deg) scale(0.92); }
+        }
+
+        .intro-aurora {
+            position: absolute;
+            top: -34%;
+            width: 34vw;
+            min-width: 420px;
+            height: 145%;
+            opacity: 0;
+            pointer-events: none;
+            filter: blur(48px);
+            mix-blend-mode: screen;
+            transform-origin: top center;
+            will-change: transform, opacity;
+        }
+
+        .intro-aurora--left {
+            left: 3%;
+            background: linear-gradient(108deg, transparent 20%, rgba(255,132,26, 0.15) 45%, rgba(255, 187, 102, 0.24) 52%, transparent 76%);
+            animation: intro-aurora-left 5.5s ease-in-out infinite alternate;
+        }
+
+        .intro-aurora--right {
+            right: 1%;
+            background: linear-gradient(72deg, transparent 21%, rgba(84, 118, 214, 0.15) 45%, rgba(141, 101, 193, 0.23) 53%, transparent 77%);
+            animation: intro-aurora-right 6.4s ease-in-out infinite alternate;
+        }
+
+        #portal-intro-stage.is-active .intro-aurora {
+            opacity: 0.7;
+        }
+
+        #portal-intro-stage.is-launching .intro-aurora {
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+
+        @keyframes intro-aurora-left {
+            from { transform: translate3d(-6%, -2%, 0) skewX(-10deg) rotate(-5deg); }
+            to { transform: translate3d(13%, 4%, 0) skewX(5deg) rotate(4deg); }
+        }
+
+        @keyframes intro-aurora-right {
+            from { transform: translate3d(8%, 3%, 0) skewX(9deg) rotate(5deg); }
+            to { transform: translate3d(-12%, -3%, 0) skewX(-5deg) rotate(-4deg); }
+        }
+
+        .intro-grid {
+            position: absolute;
+            inset: -20%;
+            background-image:
+                linear-gradient(rgba(255,132,26, 0.045) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,132,26, 0.045) 1px, transparent 1px);
+            background-size: 58px 58px;
+            transform: perspective(700px) rotateX(64deg) translateY(40%);
+            transform-origin: center bottom;
+            mask-image: radial-gradient(circle at center, black 0%, transparent 68%);
+            opacity: 0;
+            transition: opacity 1.4s ease;
+        }
+
+        #portal-intro-stage.is-active .intro-grid {
+            opacity: 0.75;
+        }
+
+        .intro-vignette {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, transparent 24%, rgba(1, 4, 17, 0.28) 58%, #010411 100%);
+            pointer-events: none;
+        }
+
+        #intro-particles {
+            opacity: 0;
+            transform: translate3d(var(--stars-x, 0), var(--stars-y, 0), 0) scale(1.06);
+            transform-origin: center;
+            transition: opacity 1.2s ease, transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity;
+        }
+
+        #portal-intro-stage.is-active #intro-particles {
+            opacity: 0.88;
+            transform: translate3d(var(--stars-x, 0), var(--stars-y, 0), 0) scale(1);
+        }
+
+        #portal-intro-stage.is-launching #intro-particles {
+            opacity: 0;
+            transition-duration: 0.45s;
+            transform: translate3d(0, 0, 0) scale(0.76);
+        }
+
+        .intro-particle {
+            position: absolute;
+            left: var(--x);
+            top: var(--y);
+            width: var(--size);
+            height: var(--size);
+            border-radius: 999px;
+            background: var(--star-color);
+            box-shadow:
+                0 0 3px 1px var(--star-color),
+                0 0 var(--star-halo) 2px var(--star-glow);
+            filter: blur(var(--star-blur)) brightness(var(--star-brightness));
+            opacity: 0;
+            animation: intro-particle-drift var(--duration) ease-in-out var(--delay) infinite;
+        }
+
+        .intro-particle.is-hero-star::before,
+        .intro-particle.is-hero-star::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.88);
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px rgba(255,255,255,0.65);
+        }
+
+        .intro-particle.is-hero-star::before {
+            width: 1px;
+            height: 15px;
+        }
+
+        .intro-particle.is-hero-star::after {
+            width: 15px;
+            height: 1px;
+        }
+
+        #intro-comets {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 0.8s ease 0.35s;
+            pointer-events: none;
+        }
+
+        #portal-intro-stage.is-active #intro-comets {
+            opacity: 0.76;
+        }
+
+        #portal-intro-stage.is-launching #intro-comets {
+            opacity: 0;
+            transition-delay: 0s;
+            transition-duration: 0.25s;
+        }
+
+        .intro-comet {
+            position: absolute;
+            left: var(--comet-x);
+            top: var(--comet-y);
+            width: var(--comet-length);
+            height: 2px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, transparent, rgba(172, 204, 255, 0.25) 40%, #fff 92%);
+            box-shadow: 7px 0 12px rgba(255,255,255,0.8), 14px 0 28px rgba(255,132,26,0.45);
+            opacity: 0;
+            transform: rotate(var(--comet-angle)) translate3d(-28vw, 0, 0);
+            animation: intro-comet-flight var(--comet-duration) cubic-bezier(0.2, 0.75, 0.35, 1) var(--comet-delay) infinite;
+        }
+
+        @keyframes intro-comet-flight {
+            0%, 62% { opacity: 0; transform: rotate(var(--comet-angle)) translate3d(-28vw, 0, 0) scaleX(0.25); }
+            68% { opacity: 0.95; }
+            83% { opacity: 0.72; transform: rotate(var(--comet-angle)) translate3d(42vw, 0, 0) scaleX(1); }
+            89%, 100% { opacity: 0; transform: rotate(var(--comet-angle)) translate3d(72vw, 0, 0) scaleX(0.55); }
+        }
+
+        @keyframes intro-particle-drift {
+            0%, 100% { opacity: 0.18; transform: translate3d(0, 10px, 0) scale(var(--star-scale-low)); }
+            42% { opacity: var(--star-opacity); transform: translate3d(var(--drift), -8px, 0) scale(var(--star-scale)); }
+            72% { opacity: 0.42; transform: translate3d(var(--drift-wide), -20px, 0) scale(var(--star-scale-mid)); }
+        }
+
+        #glowing-device-emblem {
+            opacity: 0;
+            transform: translate3d(0, 20px, 0) scale(0.74);
+            filter: blur(14px);
+            transition:
+                opacity 0.8s ease,
+                transform 1.25s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 0.85s ease;
+            will-change: transform, opacity, filter;
+        }
+
+        #portal-intro-stage.is-active #glowing-device-emblem {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) scale(1);
+            filter: blur(0);
+        }
+
+        .intro-device-card {
+            position: relative;
+            width: clamp(220px, 17vw, 276px);
+            height: clamp(390px, 52vh, 474px);
+            overflow: hidden;
+            border-radius: 42px;
+            border: 1px solid rgba(255, 214, 160, 0.48);
+            background:
+                radial-gradient(circle at 30% 12%, rgba(255,255,255,0.22), transparent 28%),
+                linear-gradient(155deg, #ff961e 0%, #FF841A 50%, #c9570b 100%);
+            box-shadow:
+                0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+                0 28px 90px rgba(0, 0, 0, 0.42),
+                0 0 90px rgba(255,132,26, 0.58);
+            animation: intro-card-cosmic-pulse 2.25s ease-in-out infinite alternate;
+        }
+
+        @keyframes intro-card-cosmic-pulse {
+            from {
+                box-shadow:
+                    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+                    0 28px 90px rgba(0, 0, 0, 0.42),
+                    0 0 88px rgba(255,132,26, 0.58);
+            }
+            to {
+                box-shadow:
+                    0 0 0 1px rgba(255, 231, 201, 0.2) inset,
+                    0 34px 110px rgba(0, 0, 0, 0.5),
+                    0 0 138px rgba(255,132,26, 0.82),
+                    0 0 210px rgba(255, 156, 56, 0.2);
+            }
+        }
+
+        .intro-device-card::before {
+            content: "";
+            position: absolute;
+            inset: -70% -35%;
+            background: linear-gradient(105deg, transparent 42%, rgba(255,255,255,0.42) 49%, transparent 56%);
+            transform: translateX(-45%);
+            animation: card-light-scan 2.5s ease-in-out 0.7s both;
+        }
+
+        .intro-device-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            opacity: 0.32;
+            background-image: radial-gradient(rgba(255,255,255,0.55) 0.7px, transparent 0.7px);
+            background-size: 18px 18px;
+            mask-image: linear-gradient(to bottom, transparent, black 30%, transparent);
+        }
+
+        @keyframes card-light-scan {
+            0% { transform: translateX(-55%); opacity: 0; }
+            30% { opacity: 1; }
+            75%, 100% { transform: translateX(55%); opacity: 0; }
+        }
+
+        .intro-logo-symbol {
+            clip-path: inset(100% 0 0 0);
+            transform: scale(0.86) rotate(-8deg);
+            transition: clip-path 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.65s, transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s;
+        }
+
+        #portal-intro-stage.is-active .intro-logo-symbol {
+            clip-path: inset(0 0 0 0);
+            transform: scale(1) rotate(0);
+        }
+
+        .intro-brand-word {
+            opacity: 0;
+            letter-spacing: 0.48em;
+            transform: translateX(0.24em) translateY(8px);
+            transition: opacity 0.6s ease 1.05s, letter-spacing 0.9s ease 1.05s, transform 0.75s ease 1.05s;
+        }
+
+        #portal-intro-stage.is-active .intro-brand-word {
+            opacity: 1;
+            letter-spacing: 0.25em;
+            transform: translateX(0.125em) translateY(0);
+        }
+
+        .intro-tagline {
+            position: absolute;
+            left: 50%;
+            bottom: max(28px, 5vh);
+            transform: translate(-50%, 12px);
+            opacity: 0;
+            color: rgba(255,255,255,0.48);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.42em;
+            white-space: nowrap;
+            transition: opacity 0.7s ease 1.35s, transform 0.7s ease 1.35s;
+        }
+
+        #portal-intro-stage.is-active .intro-tagline {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+
+        .intro-skip {
+            position: absolute;
+            top: 24px;
+            right: 26px;
+            z-index: 50;
+            padding: 9px 13px;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 999px;
+            background: rgba(2, 6, 23, 0.48);
+            color: rgba(255,255,255,0.5);
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            backdrop-filter: blur(12px);
+            transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+        }
+
+        .intro-skip:hover {
+            color: white;
+            border-color: rgba(255,132,26,0.55);
+            background: rgba(255,132,26,0.12);
+        }
+
+        #portal-intro-stage.is-launching .intro-grid,
+        #portal-intro-stage.is-launching .intro-tagline,
+        #portal-intro-stage.is-launching .intro-skip {
+            opacity: 0;
+            transition-delay: 0s;
+            transition-duration: 0.35s;
+        }
+
+        @media (max-width: 640px) {
+            .intro-tagline { font-size: 8px; letter-spacing: 0.25em; }
+            .intro-skip { top: 16px; right: 16px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .intro-particle, .intro-device-card, .intro-device-card::before, .intro-nebula, .intro-aurora, .intro-comet {
+                animation: none !important;
+            }
+            #glowing-device-emblem, .intro-logo-symbol, .intro-brand-word {
+                transition-duration: 0.15s !important;
+                transition-delay: 0s !important;
+            }
         }
     </style>
+    <!-- Multi-Language Engine -->
+    <script src="js/i18n.js?v=languagefix3-20260729"></script>
+    <script src="js/site-nav.js?v=brandnav2-20260731" defer></script>
+    <link rel="stylesheet" href="css/mazad-global-brand.css?v=brand6-20260731">
+    <script src="js/premium-motion.js?v=motion3-20260731" defer></script>
+    <script src="js/site-footer.js?v=brandfooter1-20260731" defer></script>
+    <script src="js/word-content.js?v=brandcopy1-20260731" defer></script>
 </head>
 
 <body class="bg-[#020617] min-h-screen text-white relative">
@@ -848,49 +1570,33 @@
     <!-- Full-Screen Two-Stage Welcome Portal -->
     <div id="welcome-portal" class="fixed inset-0 w-full h-full bg-[#020617] z-[9999] transition-all duration-1000 overflow-hidden">
         
-        <!-- ================= STAGE 1: Clean Single Glowing Orange Card (No Text, 2s Reveal) ================= -->
+        <!-- ================= STAGE 1: Cinematic Mazad Ecosystem Reveal ================= -->
         <div id="portal-intro-stage" class="absolute inset-0 z-20 flex flex-col items-center justify-center p-6 text-center transition-all duration-700">
-            <!-- Background Radial Aura -->
-            <div id="intro-aura" class="absolute w-[750px] h-[750px] bg-brand-orange/25 rounded-full blur-[160px] pointer-events-none transition-all duration-1000 opacity-0"></div>
+            <div class="intro-nebula intro-nebula--amber"></div>
+            <div class="intro-nebula intro-nebula--blue"></div>
+            <div class="intro-aurora intro-aurora--left"></div>
+            <div class="intro-aurora intro-aurora--right"></div>
+            <div class="intro-grid"></div>
+            <div class="intro-vignette"></div>
+            <div id="intro-comets"></div>
+            <div id="intro-particles" class="absolute inset-0 pointer-events-none"></div>
+            <div id="intro-aura" class="absolute w-[720px] h-[720px] bg-brand-orange/20 rounded-full blur-[150px] pointer-events-none transition-all duration-1000 opacity-0"></div>
 
-            <!-- Single Glowing Orange Device Card (Sadece Görseldeki Kart - Yazısız) -->
-            <div id="glowing-device-emblem" class="relative cursor-pointer group opacity-0 scale-90 transition-all duration-[2000ms] ease-out">
-                <!-- Pulsating Outer Glow Ring -->
-                <div class="absolute inset-[-30px] bg-brand-orange blur-[70px] opacity-70 rounded-[50px] animate-pulse"></div>
+            <button id="intro-skip-btn" class="intro-skip" type="button" aria-label="Açılışı geç">GEÇ</button>
 
-                <!-- The Solid Glowing Orange Card (Görseldeki Tam Kart Tasarımı) -->
-                <div class="relative w-64 h-[440px] sm:w-72 sm:h-[480px] bg-gradient-to-b from-[#ff8c00] via-[#f97316] to-[#d97706] rounded-[42px] p-6 shadow-[0_0_100px_rgba(249,115,22,0.8)] border border-amber-300/40 flex flex-col items-center justify-center transition-all duration-700 group-hover:scale-105 group-hover:shadow-[0_0_150px_rgba(249,115,22,1)] z-10">
-                    
-                    <!-- Clean White Mazad Logo Emblem (Çerçevesiz, Doğrudan Beyaz Vektör Emblem) -->
-                    <div class="flex flex-col items-center justify-center gap-4">
-                        <svg class="w-28 h-28 sm:w-32 sm:h-32 fill-white drop-shadow-[0_10px_20px_rgba(0,0,0,0.25)] group-hover:scale-110 transition-transform duration-500" viewBox="0 0 100 100">
-                            <!-- Pure White Mazad Emblem Symbol -->
+            <div id="glowing-device-emblem" class="relative cursor-pointer group z-20">
+                <div class="absolute inset-[-32px] bg-brand-orange blur-[74px] opacity-55 rounded-[50px] animate-pulse"></div>
+
+                <div class="intro-device-card flex flex-col items-center justify-center transition-all duration-700 group-hover:scale-[1.025] z-10">
+                    <div class="relative z-10 flex flex-col items-center justify-center gap-4">
+                        <svg class="intro-logo-symbol w-28 h-28 sm:w-32 sm:h-32 fill-white drop-shadow-[0_12px_24px_rgba(0,0,0,0.25)]" viewBox="0 0 100 100">
                             <path d="M50 12 C28 12 12 28 12 50 C12 72 28 88 50 88 L78 88 C83 88 88 83 88 78 L88 50 C88 28 72 12 50 12 Z M50 32 C62 32 68 40 68 50 L68 68 L50 68 C38 68 32 58 32 50 C32 40 38 32 50 32 Z" fill="#ffffff" />
                         </svg>
-                        <span class="text-white font-black tracking-[0.25em] text-3xl uppercase drop-shadow-md">MAZAD</span>
+                        <span class="intro-brand-word text-white font-black text-3xl uppercase drop-shadow-md">MAZAD</span>
                     </div>
                 </div>
-
-                <!-- Click Prompt Indicator Cue (Kullanıcıların Basması Gerektiğini Gösteren İşaret) -->
-                <div class="mt-8 inline-flex items-center gap-3 px-6 py-3 rounded-full bg-black/40 border border-amber-400/40 text-white text-xs font-mono tracking-widest uppercase backdrop-blur-xl shadow-[0_0_30px_rgba(249,115,22,0.4)] animate-bounce">
-                    <span class="w-2.5 h-2.5 rounded-full bg-brand-orange animate-ping"></span>
-                    <span>Başlamak İçin Tıklayın</span>
-                    <svg class="w-4 h-4 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5"/>
-                    </svg>
-                </div>
             </div>
-        </div>
 
-
-        <!-- ================= LASER EXPLOSION TRANSITION OVERLAY ================= -->
-        <div id="laser-transition-overlay" class="pointer-events-none absolute inset-0 z-30 opacity-0 flex items-center justify-center overflow-hidden">
-            <!-- 1. Horizontal Laser Beam (0'dan Sağa Doğru Çizgi) -->
-            <div id="laser-beam" class="absolute h-[3px] bg-gradient-to-r from-transparent via-brand-orange to-amber-300 shadow-[0_0_30px_#f97316] w-0 transition-all duration-700 ease-out"></div>
-            <!-- 2. Circular Rotating Vortex Ring (Dolanan Lazer Dalgaları) -->
-            <div id="laser-vortex" class="absolute w-[300px] h-[300px] rounded-full border-2 border-brand-orange/60 shadow-[0_0_80px_#f97316] opacity-0 scale-50 transition-all duration-500"></div>
-            <!-- 3. Shockwave Flash (Patlama Efekti) -->
-            <div id="shockwave-flash" class="absolute w-[800px] h-[800px] rounded-full bg-gradient-to-r from-brand-orange via-amber-500 to-white blur-2xl opacity-0 scale-0 transition-all duration-700"></div>
         </div>
 
 
@@ -899,7 +1605,7 @@
             
             <!-- Ambient Living Background behind Stage 2 (Ana Site Atmosferi) -->
             <div class="absolute inset-0 bg-[#020617] pointer-events-none z-0">
-                <div class="absolute inset-0 bg-[radial-gradient(#f97316_1px,transparent_1px)] [background-size:36px_36px] opacity-20"></div>
+                <div class="absolute inset-0 bg-[radial-gradient(#FF841A_1px,transparent_1px)] [background-size:36px_36px] opacity-20"></div>
                 <div class="absolute w-[750px] h-[750px] bg-brand-orange/20 rounded-full blur-[160px] top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/2 animate-pulse"></div>
                 <div class="absolute w-[600px] h-[600px] bg-amber-500/15 rounded-full blur-[140px] top-1/2 right-1/4 -translate-y-1/2 translate-x-1/2 animate-pulse" style="animation-delay: 2.5s;"></div>
             </div>
@@ -908,10 +1614,10 @@
             <div id="portal-cards-container" class="w-full max-w-4xl flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 relative z-10 transition-all duration-700">
                 
                 <!-- LEFT CARD: Edge-to-Edge Video Demo Player (No Spin Effects, Full Video View) -->
-                <div id="portal-left-half" class="w-full md:w-1/2 group relative overflow-hidden bg-[#020617] border-2 border-brand-orange/60 rounded-[42px] min-h-[620px] sm:min-h-[700px] h-[75vh] max-h-[760px] flex flex-col justify-between cursor-pointer transition-all duration-500 hover:scale-[1.02] hover:border-brand-orange hover:shadow-[0_0_90px_rgba(249,115,22,0.55)]">
+                <div id="portal-left-half" class="w-full md:w-1/2 group relative overflow-hidden bg-[#020617] border-2 border-brand-orange/60 rounded-[42px] min-h-[620px] sm:min-h-[700px] h-[75vh] max-h-[760px] flex flex-col justify-between cursor-pointer transition-all duration-500 hover:scale-[1.02] hover:border-brand-orange hover:shadow-[0_0_90px_rgba(255,132,26,0.55)]">
                     
                     <!-- Floating Corner "Siteye Geç" Button (Only Shows While Video Plays) -->
-                    <button id="video-top-site-btn" class="absolute top-5 right-5 z-30 px-5 py-2.5 rounded-full bg-gradient-to-r from-brand-orange to-amber-500 text-white font-bold text-xs tracking-wider uppercase shadow-[0_0_25px_rgba(249,115,22,0.6)] backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-500 hover:scale-105 active:scale-95 flex items-center gap-2 border border-white/20">
+                    <button id="video-top-site-btn" class="absolute top-5 right-5 z-30 px-5 py-2.5 rounded-full bg-gradient-to-r from-brand-orange to-amber-500 text-white font-bold text-xs tracking-wider uppercase shadow-[0_0_25px_rgba(255,132,26,0.6)] backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-500 hover:scale-105 active:scale-95 flex items-center gap-2 border border-white/20">
                         <span>Siteye Geç</span>
                         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
@@ -927,7 +1633,7 @@
 
                     <!-- Center Initial Play Overlay (Oynatıldığında Otomatik Kaybolur) -->
                     <div id="left-center-overlay" class="relative z-10 flex flex-col items-center text-center my-auto py-10 transition-all duration-700 pointer-events-none">
-                        <div id="left-play-btn" class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-gradient-to-tr from-brand-orange to-amber-500 flex items-center justify-center text-white mb-8 shadow-[0_0_60px_rgba(249,115,22,0.8)] group-hover:scale-110 transition-transform">
+                        <div id="left-play-btn" class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-gradient-to-tr from-brand-orange to-amber-500 flex items-center justify-center text-white mb-8 shadow-[0_0_60px_rgba(255,132,26,0.8)] group-hover:scale-110 transition-transform">
                             <span class="absolute inset-[-15px] rounded-full border border-brand-orange/50 animate-ping"></span>
                             <svg class="w-14 h-14 fill-current ml-1" viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
@@ -956,14 +1662,14 @@
                             </svg>
                             Tekrar İzle
                         </button>
-                        <button id="btn-left-to-site" class="w-1/2 py-4 rounded-2xl bg-gradient-to-r from-brand-orange to-amber-500 text-white font-bold text-xs uppercase tracking-wider shadow-[0_0_25px_rgba(249,115,22,0.55)] flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-95 border border-white/20">
-                            Siteye Geç →
+                        <button id="btn-left-to-site" class="w-1/2 py-4 rounded-2xl bg-gradient-to-r from-brand-orange to-amber-500 text-white font-bold text-xs uppercase tracking-wider shadow-[0_0_25px_rgba(255,132,26,0.55)] flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-95 border border-white/20">
+                            Go To The Website
                         </button>
                     </div>
                 </div>
 
                 <!-- RIGHT CARD: Direct Site Entry Section (Solid Glowing Orange Phone Card Design - Exact Match of Entrance Emblem) -->
-                <div id="portal-right-half" class="w-full md:w-1/2 group relative overflow-hidden bg-gradient-to-b from-[#ff8c00] via-[#f97316] to-[#d97706] border border-amber-300/40 rounded-[42px] min-h-[620px] sm:min-h-[700px] h-[75vh] max-h-[760px] flex flex-col justify-between cursor-pointer transition-all duration-500 hover:scale-[1.03] shadow-[0_0_90px_rgba(249,115,22,0.85)] hover:shadow-[0_0_140px_rgba(249,115,22,1)] p-6 sm:p-9">
+                <div id="portal-right-half" class="w-full md:w-1/2 group relative overflow-hidden bg-gradient-to-b from-[#ff8c00] via-[#FF841A] to-[#d97706] border border-amber-300/40 rounded-[42px] min-h-[620px] sm:min-h-[700px] h-[75vh] max-h-[760px] flex flex-col justify-between cursor-pointer transition-all duration-500 hover:scale-[1.03] shadow-[0_0_90px_rgba(255,132,26,0.85)] hover:shadow-[0_0_140px_rgba(255,132,26,1)] p-6 sm:p-9">
                     
                     <!-- Dynamic Outer Pulsating Glow Aura -->
                     <div class="absolute inset-[-30px] bg-brand-orange blur-[80px] opacity-70 rounded-[50px] animate-pulse pointer-events-none"></div>
@@ -1006,153 +1712,341 @@
     <div class="organism-bg"></div>
 
     <!-- Fixed Header / Navigation -->
-    <nav class="fixed top-0 left-0 w-full bg-[#020617]/90 backdrop-blur-xl z-50 border-b border-white/5 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+    <nav class="fixed top-0 left-0 w-full bg-[#020617]/85 backdrop-blur-xl z-50 animate-nav border-b border-white/5">
         <!-- Laser Accent Line -->
-        <div class="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-brand-orange to-transparent opacity-60"></div>
+        <div class="absolute bottom-0 left-0 w-full h-[2px] laser-border opacity-60"></div>
 
-        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20 sm:h-24">
+        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="flex justify-between items-center h-24">
 
                 <!-- Logo -->
-                <a href="index.html" class="flex-shrink-0 flex items-center cursor-pointer mr-6 group">
+                <div class="flex-shrink-0 flex items-center cursor-pointer mr-8 group logo-breathing">
                     <div class="relative">
-                        <div class="absolute inset-0 bg-brand-orange blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 rounded-full"></div>
-                        <img src="images/logo.jpg" class="h-9 w-9 sm:h-10 sm:w-10 relative z-10 rounded-xl transition-all duration-500 group-hover:scale-110 shadow-[0_0_15px_rgba(249,115,22,0.3)]" alt="Mazad Logo">
+                        <!-- Neon Glow Backing -->
+                        <div
+                            class="absolute inset-0 bg-brand-orange blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-700 rounded-full">
+                        </div>
+                        <img src="images/logo.jpg"
+                            class="h-10 w-10 relative z-10 rounded-xl transition-all duration-700 ease-out group-hover:scale-125 group-hover:rotate-6 shadow-[0_0_15px_rgba(255,132,26,0.3)]"
+                            alt="Mazad Logo">
                     </div>
-                    <span class="ml-3 text-white font-extrabold text-xl sm:text-2xl tracking-wide transition-all duration-500 group-hover:text-brand-orange">
-                        MAZAD<span class="text-brand-orange group-hover:text-white transition-colors duration-500">GLOBAL</span>
+                    <span
+                        class="ml-3 text-white font-extrabold text-2xl tracking-wide transition-all duration-500 group-hover:tracking-[0.2em] group-hover:text-brand-orange">
+                        MAZAD<span
+                            class="text-brand-orange group-hover:text-white transition-colors duration-500">GLOBAL</span>
                     </span>
-                </a>
-
-                <!-- Navigation Links (Desktop) -->
-                <div class="hidden lg:flex items-center space-x-6">
-                    <!-- 1. Home -->
-                    <a href="index.html" class="px-3 py-2 text-brand-orange font-bold text-sm uppercase tracking-wider transition-colors">
-                        Ana Sayfa
-                    </a>
-
-                    <!-- 2. Ekosistem & Çözümler Dropdown -->
-                    <div class="relative group/nav">
-                        <button class="px-3 py-2 text-white/80 group-hover/nav:text-brand-orange text-sm font-semibold uppercase tracking-wider flex items-center gap-1.5 transition-colors">
-                            <span>Ekosistem & Çözümler</span>
-                            <svg class="w-3.5 h-3.5 text-white/50 group-hover/nav:text-brand-orange transition-transform duration-300 group-hover/nav:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-
-                        <div class="absolute top-full left-0 mt-2 w-72 bg-[#050a1c]/95 backdrop-blur-2xl border border-white/10 rounded-2xl p-3 shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_40px_rgba(249,115,22,0.1)] opacity-0 pointer-events-none group-hover/nav:opacity-100 group-hover/nav:pointer-events-auto transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50">
-                            <a href="ecosystem.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
-                                <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange group-hover/item:scale-110 transition-transform">🌐</div>
-                                <div>
-                                    <div class="text-white text-xs font-bold group-hover/item:text-brand-orange transition-colors">Eco System</div>
-                                    <div class="text-white/40 text-[10px]">Entegre Ticaret & Modüller</div>
-                                </div>
-                            </a>
-                            <a href="fintech.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
-                                <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange group-hover/item:scale-110 transition-transform">💳</div>
-                                <div>
-                                    <div class="text-white text-xs font-bold group-hover/item:text-brand-orange transition-colors">Fintech & Cash</div>
-                                    <div class="text-white/40 text-[10px]">Escrow Güvenliği & Cüzdan</div>
-                                </div>
-                            </a>
-                            <a href="countries.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
-                                <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange group-hover/item:scale-110 transition-transform">🗺️</div>
-                                <div>
-                                    <div class="text-white text-xs font-bold group-hover/item:text-brand-orange transition-colors">Dijital Ticaret Köprüsü</div>
-                                    <div class="text-white/40 text-[10px]">10+ Faal Ülke & Ofisler</div>
-                                </div>
-                            </a>
-                            <div class="my-2 border-t border-white/5"></div>
-                            <div class="px-3 py-1 text-[9px] font-mono text-brand-orange uppercase tracking-wider font-bold">Harici Ekosistem</div>
-                            <a href="https://mazad.market/en" target="_blank" class="flex items-center justify-between px-3 py-2 text-xs text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-colors">
-                                <span>Mazad Market</span> <span class="text-[10px] text-brand-orange">➔</span>
-                            </a>
-                            <a href="https://mazad.cash/en" target="_blank" class="flex items-center justify-between px-3 py-2 text-xs text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-colors">
-                                <span>Mazad Cash</span> <span class="text-[10px] text-brand-orange">➔</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- 3. Kurumsal Dropdown -->
-                    <div class="relative group/nav">
-                        <button class="px-3 py-2 text-white/80 group-hover/nav:text-brand-orange text-sm font-semibold uppercase tracking-wider flex items-center gap-1.5 transition-colors">
-                            <span>Kurumsal</span>
-                            <svg class="w-3.5 h-3.5 text-white/50 group-hover/nav:text-brand-orange transition-transform duration-300 group-hover/nav:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-
-                        <div class="absolute top-full left-0 mt-2 w-64 bg-[#050a1c]/95 backdrop-blur-2xl border border-white/10 rounded-2xl p-3 shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_40px_rgba(249,115,22,0.1)] opacity-0 pointer-events-none group-hover/nav:opacity-100 group-hover/nav:pointer-events-auto transition-all duration-300 transform translate-y-2 group-hover/nav:translate-y-0 z-50">
-                            <a href="about.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
-                                <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange group-hover/item:scale-110 transition-transform">🏢</div>
-                                <div>
-                                    <div class="text-white text-xs font-bold group-hover/item:text-brand-orange transition-colors">Hakkımızda</div>
-                                    <div class="text-white/40 text-[10px]">Vizyon, Misyon & Ekip</div>
-                                </div>
-                            </a>
-                            <a href="business-model.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
-                                <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange group-hover/item:scale-110 transition-transform">📊</div>
-                                <div>
-                                    <div class="text-white text-xs font-bold group-hover/item:text-brand-orange transition-colors">İş Modeli</div>
-                                    <div class="text-white/40 text-[10px]">Gelir Kanalları & Projeksiyon</div>
-                                </div>
-                            </a>
-                            <a href="careers.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
-                                <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-brand-orange group-hover/item:scale-110 transition-transform">💼</div>
-                                <div>
-                                    <div class="text-white text-xs font-bold group-hover/item:text-brand-orange transition-colors">Kariyer</div>
-                                    <div class="text-white/40 text-[10px]">Açık İlanlar & Başvuru</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- 4. İletişim -->
-                    <a href="contact.html" class="px-3 py-2 text-white/80 hover:text-white text-sm font-semibold uppercase tracking-wider transition-colors hover:text-brand-orange">
-                        İletişim
-                    </a>
                 </div>
 
-                <!-- Language Switcher & Mobile Button -->
-                <div class="flex items-center gap-4">
-                    <!-- Language Selector -->
-                    <div class="flex items-center gap-1 bg-white/5 border border-white/10 rounded-full p-1 text-[11px] font-bold">
-                        <button class="px-2.5 py-1 rounded-full bg-brand-orange text-white shadow-sm">TR</button>
-                        <button class="px-2.5 py-1 rounded-full text-white/60 hover:text-white transition-colors">AR</button>
-                        <button class="px-2.5 py-1 rounded-full text-white/60 hover:text-white transition-colors">EN</button>
+                <!-- Navigation Links (Desktop) -->
+                <div class="hidden lg:flex flex-1 items-center justify-between">
+                    <div class="flex items-center space-x-2 xl:space-x-4">
+                        <a href="index.html"
+                            class="nav-item delay-1 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1">
+                            <span data-i18n="nav_home" class="relative z-10 group-hover:drop-shadow-[0_0_12px_#FF841A]">Home</span>
+                            <div
+                                class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100">
+                            </div>
+                            <span
+                                class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full group-hover:left-0 shadow-[0_0_10px_#ffffff]"></span>
+                        </a>
+                        <a href="about.html"
+                            class="nav-item delay-2 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1">
+                            <span data-i18n="nav_about" class="relative z-10 group-hover:drop-shadow-[0_0_12px_#FF841A]">About</span>
+                            <div
+                                class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100">
+                            </div>
+                            <span
+                                class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full group-hover:left-0 shadow-[0_0_10px_#ffffff]"></span>
+                        </a>
+                        <!-- Our Projects Dropdown Trigger -->
+                        <div class="nav-item delay-3 relative" id="projects-dropdown-wrapper">
+                            <button id="projects-dropdown-btn"
+                                class="relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1 flex items-center gap-1.5">
+                                <span data-i18n="nav_projects" class="relative z-10 group-hover:drop-shadow-[0_0_12px_#FF841A]">Our Projects</span>
+                                <!-- Chevron arrow -->
+                                <svg id="projects-chevron"
+                                    class="w-3.5 h-3.5 text-white/50 transition-transform duration-300" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                </svg>
+                                <div
+                                    class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100">
+                                </div>
+                                <span
+                                    class="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full shadow-[0_0_10px_#ffffff]"></span>
+                            </button>
+
+                            <!-- Dropdown Panel -->
+                            <div id="projects-dropdown"
+                                class="projects-dropdown-panel absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[520px] bg-[#020617]/95 backdrop-blur-2xl border border-white/10 rounded-[24px] shadow-[0_20px_60px_rgba(0,0,0,0.7),0_0_40px_rgba(255,132,26,0.08)] overflow-hidden pointer-events-none opacity-0 translate-y-2 z-[100]">
+
+                                <!-- Top accent line -->
+                                <div
+                                    class="h-[2px] w-full bg-gradient-to-r from-transparent via-brand-orange to-transparent opacity-60">
+                                </div>
+
+                                <div class="p-6">
+                                    <!-- Header -->
+                                    <div class="flex items-center gap-2 mb-5">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse"></span>
+                                        <span
+                                            class="text-brand-orange text-[10px] font-mono uppercase tracking-widest">Mazad
+                                            Ecosystem</span>
+                                    </div>
+
+                                    <!-- Project Links Grid -->
+                                    <div class="grid grid-cols-2 gap-3" id="projects-links-grid">
+
+                                        <a href="https://mazad.market/en" id="proj-link-1" target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="proj-link group/item flex items-center gap-3 p-4 rounded-[16px] bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 hover:bg-brand-orange/8 transition-all duration-300">
+                                            <div
+                                                class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 group-hover/item:border-orange-500/60 group-hover/item:scale-110 flex items-center justify-center flex-shrink-0 transition-all duration-300">
+                                                <svg class="w-4.5 h-4.5 text-brand-orange" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <div
+                                                    class="text-white font-semibold text-[13px] group-hover/item:text-brand-orange transition-colors duration-200">
+                                                    Mazad Market</div>
+                                                <div class="text-white/40 text-[11px] mt-0.5">E-Commerce & Auctions
+                                                </div>
+                                            </div>
+                                            <svg class="w-3.5 h-3.5 text-white/20 group-hover/item:text-brand-orange group-hover/item:translate-x-1 transition-all duration-200 ml-auto"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                stroke-width="2.5">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </a>
+
+                                        <a href="https://mazad.one/" id="proj-link-2" target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="proj-link group/item flex items-center gap-3 p-4 rounded-[16px] bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 hover:bg-brand-orange/8 transition-all duration-300">
+                                            <div
+                                                class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 group-hover/item:border-orange-500/60 group-hover/item:scale-110 flex items-center justify-center flex-shrink-0 transition-all duration-300">
+                                                <img src="images/logo.jpg" class="w-5 h-5 rounded-md" alt="Mazad One">
+                                            </div>
+                                            <div>
+                                                <div
+                                                    class="text-white font-semibold text-[13px] group-hover/item:text-brand-orange transition-colors duration-200">
+                                                    Mazad One</div>
+                                                <div class="text-white/40 text-[11px] mt-0.5">Unified Identity & SSO
+                                                </div>
+                                            </div>
+                                            <svg class="w-3.5 h-3.5 text-white/20 group-hover/item:text-brand-orange group-hover/item:translate-x-1 transition-all duration-200 ml-auto"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                stroke-width="2.5">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </a>
+
+                                        <a href="https://mazad.cash/en" id="proj-link-3" target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="proj-link group/item flex items-center gap-3 p-4 rounded-[16px] bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 hover:bg-brand-orange/8 transition-all duration-300">
+                                            <div
+                                                class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 group-hover/item:border-orange-500/60 group-hover/item:scale-110 flex items-center justify-center flex-shrink-0 transition-all duration-300">
+                                                <svg class="w-4.5 h-4.5 text-brand-orange" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <div
+                                                    class="text-white font-semibold text-[13px] group-hover/item:text-brand-orange transition-colors duration-200">
+                                                    Mazad Cash</div>
+                                                <div class="text-white/40 text-[11px] mt-0.5">Digital Wallet & Fintech
+                                                </div>
+                                            </div>
+                                            <svg class="w-3.5 h-3.5 text-white/20 group-hover/item:text-brand-orange group-hover/item:translate-x-1 transition-all duration-200 ml-auto"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                stroke-width="2.5">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </a>
+
+                                        <a href="https://mazad-ai.com/" id="proj-link-4" target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="proj-link group/item flex items-center gap-3 p-4 rounded-[16px] bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 hover:bg-brand-orange/8 transition-all duration-300">
+                                            <div
+                                                class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 group-hover/item:border-orange-500/60 group-hover/item:scale-110 flex items-center justify-center flex-shrink-0 transition-all duration-300">
+                                                <svg class="w-4.5 h-4.5 text-brand-orange" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <div
+                                                    class="text-white font-semibold text-[13px] group-hover/item:text-brand-orange transition-colors duration-200">
+                                                    Mazad AI</div>
+                                                <div class="text-white/40 text-[11px] mt-0.5">Yaman Copilot & Studio
+                                                </div>
+                                            </div>
+                                            <svg class="w-3.5 h-3.5 text-white/20 group-hover/item:text-brand-orange group-hover/item:translate-x-1 transition-all duration-200 ml-auto"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                stroke-width="2.5">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </a>
+
+                                        <a href="https://mazad.studio/en" id="proj-link-5" target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="proj-link group/item flex items-center gap-3 p-4 rounded-[16px] bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 hover:bg-brand-orange/8 transition-all duration-300">
+                                            <div
+                                                class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 group-hover/item:border-orange-500/60 group-hover/item:scale-110 flex items-center justify-center flex-shrink-0 transition-all duration-300">
+                                                <svg class="w-4.5 h-4.5 text-brand-orange" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <div
+                                                    class="text-white font-semibold text-[13px] group-hover/item:text-brand-orange transition-colors duration-200">
+                                                    Mazad Studio</div>
+                                                <div class="text-white/40 text-[11px] mt-0.5">Creative AI Suite</div>
+                                            </div>
+                                            <svg class="w-3.5 h-3.5 text-white/20 group-hover/item:text-brand-orange group-hover/item:translate-x-1 transition-all duration-200 ml-auto"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                stroke-width="2.5">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </a>
+
+                                        <a href="https://erp.mazad.global/login" id="proj-link-6" target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="proj-link group/item flex items-center gap-3 p-4 rounded-[16px] bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 hover:bg-brand-orange/8 transition-all duration-300">
+                                            <div
+                                                class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/20 group-hover/item:border-orange-500/60 group-hover/item:scale-110 flex items-center justify-center flex-shrink-0 transition-all duration-300">
+                                                <svg class="w-4.5 h-4.5 text-brand-orange" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A1 1 0 013 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88v9z" />
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <div
+                                                    class="text-white font-semibold text-[13px] group-hover/item:text-brand-orange transition-colors duration-200">
+                                                    Mazad ERP</div>
+                                                <div class="text-white/40 text-[11px] mt-0.5">Enterprise Resource
+                                                    Planning</div>
+                                            </div>
+                                            <svg class="w-3.5 h-3.5 text-white/20 group-hover/item:text-brand-orange group-hover/item:translate-x-1 transition-all duration-200 ml-auto"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                stroke-width="2.5">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </a>
+
+                                    </div>
+                                </div>
+
+                                <!-- Bottom accent -->
+                                <div
+                                    class="h-[1px] w-full bg-gradient-to-r from-transparent via-white/5 to-transparent">
+                                </div>
+                            </div>
+                        </div>
+                        <a href="ecosystem.html"
+                            class="nav-item delay-4 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1">
+                            <span data-i18n="nav_ecosystem" class="relative z-10 group-hover:drop-shadow-[0_0_12px_#FF841A]">Eco System</span>
+                            <div
+                                class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100">
+                            </div>
+                            <span
+                                class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full group-hover:left-0 shadow-[0_0_10px_#ffffff]"></span>
+                        </a>
+                        <a href="business-model.html"
+                            class="nav-item delay-5 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1">
+                            <span data-i18n="nav_business" class="relative z-10 group-hover:drop-shadow-[0_0_12px_#FF841A]">Business Model</span>
+                            <div
+                                class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100">
+                            </div>
+                            <span
+                                class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full group-hover:left-0 shadow-[0_0_10px_#ffffff]"></span>
+                        </a>
+                        <a href="fintech.html"
+                            class="nav-item delay-6 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1">
+                            <span data-i18n="nav_fintech" class="relative z-10 group-hover:drop-shadow-[0_0_12px_#FF841A]">Fintech</span>
+                            <div
+                                class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100">
+                            </div>
+                            <span
+                                class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full group-hover:left-0 shadow-[0_0_10px_#ffffff]"></span>
+                        </a>
+                        <a href="countries.html"
+                            class="nav-item delay-7 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1">
+                            <span data-i18n="nav_countries" class="relative z-10 group-hover:drop-shadow-[0_0_12px_#FF841A]">Countries</span>
+                            <div
+                                class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100">
+                            </div>
+                            <span
+                                class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full group-hover:left-0 shadow-[0_0_10px_#ffffff]"></span>
+                        </a>
+                        <a href="contact.html"
+                            class="nav-item delay-8 relative px-3 py-2 text-white/80 hover:text-white transition-all duration-500 text-[13px] xl:text-[15px] font-semibold group uppercase tracking-wider hover:tracking-[0.15em] hover:-translate-y-1">
+                            <span data-i18n="nav_contact" class="relative z-10 group-hover:drop-shadow-[0_0_12px_#FF841A]">Contact</span>
+                            <div
+                                class="absolute inset-0 bg-brand-orange/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-50 group-hover:scale-100">
+                            </div>
+                            <span
+                                class="absolute bottom-0 left-1/2 w-0 h-[2px] bg-white transition-all duration-300 ease-out group-hover:w-full group-hover:left-0 shadow-[0_0_10px_#ffffff]"></span>
+                        </a>
                     </div>
 
-                    <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-button" class="lg:hidden p-2.5 rounded-xl bg-white/5 border border-white/10 text-white/80 hover:text-white">
-                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    <!-- Language Selectors -->
+                    <div class="nav-item delay-9 ml-6 flex items-center gap-1.5">
+                        <button type="button" onclick="setLanguage('tr')" data-lang="tr" class="lang-btn text-white/70 hover:text-white font-medium text-xs xl:text-sm px-2.5 py-1 rounded-md bg-white/5 hover:bg-white/10 border border-white/10 transition">TR</button>
+                        <button type="button" onclick="setLanguage('ar')" data-lang="ar" class="lang-btn text-white/70 hover:text-white font-medium text-xs xl:text-sm px-2.5 py-1 rounded-md bg-white/5 hover:bg-white/10 border border-white/10 transition">AR</button>
+                        <button type="button" onclick="setLanguage('en')" data-lang="en" class="lang-btn text-brand-orange font-bold text-xs xl:text-sm px-2.5 py-1 rounded-md bg-brand-orange/10 border border-brand-orange/50 transition drop-shadow-[0_0_8px_#FF841A]">EN</button>
+                    </div>
+                </div>
+
+                <!-- Mobil Menü Butonu (Mobile Hamburger) -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-button"
+                        class="text-white hover:text-brand-orange focus:outline-none transition-colors">
+                        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
                 </div>
-
             </div>
         </div>
 
-        <!-- Mobile Menu Container -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-[#020617]/98 border-b border-white/10 px-6 py-6 space-y-4 text-sm font-semibold">
-            <a href="index.html" class="block text-white hover:text-brand-orange">Ana Sayfa</a>
-            
-            <div class="space-y-2 pt-2 border-t border-white/5">
-                <div class="text-brand-orange text-xs uppercase tracking-wider font-mono">Ekosistem & Çözümler</div>
-                <a href="ecosystem.html" class="block text-white/80 hover:text-white pl-3">🌐 Eco System</a>
-                <a href="fintech.html" class="block text-white/80 hover:text-white pl-3">💳 Fintech & Cash</a>
-                <a href="countries.html" class="block text-white/80 hover:text-white pl-3">🗺️ Dijital Ticaret Köprüsü</a>
-            </div>
+        <!-- Mobil Menü Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-[#020617] border-t border-brand-orange/20 shadow-2xl">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="index.html"
+                    class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:drop-shadow-[0_0_8px_rgba(255,132,26,0.8)] hover:bg-white/5 transition-all duration-300">Home</a>
+                <a href="about.html"
+                    class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:drop-shadow-[0_0_8px_rgba(255,132,26,0.8)] hover:bg-white/5 transition-all duration-300">About</a>
+                <a href="#"
+                    class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:drop-shadow-[0_0_8px_rgba(255,132,26,0.8)] hover:bg-white/5 transition-all duration-300">Our
+                    Projects</a>
+                <a href="ecosystem.html"
+                    class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:drop-shadow-[0_0_8px_rgba(255,132,26,0.8)] hover:bg-white/5 transition-all duration-300">Eco
+                    System</a>
+                <a href="business-model.html"
+                    class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:drop-shadow-[0_0_8px_rgba(255,132,26,0.8)] hover:bg-white/5 transition-all duration-300">Business
+                    Model</a>
+                <a href="fintech.html"
+                    class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:drop-shadow-[0_0_8px_rgba(255,132,26,0.8)] hover:bg-white/5 transition-all duration-300">Fintech</a>
+                <a href="countries.html"
+                    class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:drop-shadow-[0_0_8px_rgba(255,132,26,0.8)] hover:bg-white/5 transition-all duration-300">Countries</a>
+                <a href="contact.html"
+                    class="block px-3 py-3 rounded-md text-sm font-medium text-white hover:text-brand-orange hover:drop-shadow-[0_0_8px_rgba(255,132,26,0.8)] hover:bg-white/5 transition-all duration-300">Contact</a>
 
-            <div class="space-y-2 pt-2 border-t border-white/5">
-                <div class="text-brand-orange text-xs uppercase tracking-wider font-mono">Kurumsal</div>
-                <a href="about.html" class="block text-white/80 hover:text-white pl-3">🏢 Hakkımızda</a>
-                <a href="business-model.html" class="block text-white/80 hover:text-white pl-3">📊 İş Modeli</a>
-                <a href="careers.html" class="block text-white/80 hover:text-white pl-3">💼 Kariyer</a>
-            </div>
-
-            <div class="pt-2 border-t border-white/5">
-                <a href="contact.html" class="block text-white hover:text-brand-orange">İletişim</a>
+                <div class="mt-4 pt-4 border-t border-white/10 flex justify-center gap-4">
+                    <button onclick="setLanguage('tr')" data-lang="tr" class="lang-btn text-white/70 hover:text-white font-medium text-sm px-3 py-2 bg-white/5 rounded-lg border border-transparent transition">TR</button>
+                    <button onclick="setLanguage('ar')" data-lang="ar" class="lang-btn text-white/70 hover:text-white font-medium text-sm px-3 py-2 bg-white/5 rounded-lg border border-transparent transition">AR</button>
+                    <button onclick="setLanguage('en')" data-lang="en" class="lang-btn text-brand-orange font-bold text-sm px-3 py-2 bg-white/5 rounded-lg border border-brand-orange/30 transition">EN</button>
+                </div>
             </div>
         </div>
     </nav>
@@ -1170,7 +2064,7 @@
                     class="flex flex-col justify-center min-h-[480px] transition-all duration-100 will-change-transform will-change-opacity">
 
                     <!-- Pill Badge -->
-                    <div class="animate-fade-in-up inline-flex items-center gap-2 self-start mb-6 px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-500/10 text-orange-400 text-xs font-semibold tracking-wider uppercase shadow-[0_0_15px_rgba(249,115,22,0.15)]"
+                    <div class="animate-fade-in-up inline-flex items-center gap-2 self-start mb-6 px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-500/10 text-orange-400 text-xs font-semibold tracking-wider uppercase shadow-[0_0_15px_rgba(255,132,26,0.15)]"
                         style="animation-delay: 0.1s;">
                         <span class="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
                         One App, Endless Market
@@ -1218,7 +2112,7 @@
                     <div class="animate-fade-in-up flex flex-wrap items-center gap-6" style="animation-delay: 0.9s;">
                         <!-- Watch Demo button -->
                         <a href="#"
-                            class="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-white/5 border border-white/10 hover:border-brand-orange/50 hover:bg-brand-orange/10 text-white font-bold text-sm tracking-wide transition-all duration-300 hover:shadow-[0_0_20px_rgba(249,115,22,0.3)] hover:-translate-y-0.5 group/btn">
+                            class="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-white/5 border border-white/10 hover:border-brand-orange/50 hover:bg-brand-orange/10 text-white font-bold text-sm tracking-wide transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,132,26,0.3)] hover:-translate-y-0.5 group/btn">
                             <!-- Play Icon -->
                             <span
                                 class="flex items-center justify-center w-6 h-6 rounded-full bg-brand-orange text-white group-hover/btn:scale-110 transition-transform duration-300">
@@ -1294,23 +2188,46 @@
             </div>
         </main>
 
-        <!-- Benefits/Info Ribbon -->
-        <section class="w-full py-16 px-4 border-t border-b border-white/5 bg-[#020617]/50 backdrop-blur-md">
-            <div
-                class="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-center items-center gap-10 md:gap-20 uppercase font-bold text-xs md:text-sm tracking-[0.2em] text-center">
-                <a href="#" class="breathing-glow hover:scale-105 transition-transform duration-300">Unlimited requests
-                    and revisions</a>
-                <a href="#" class="breathing-glow hover:scale-105 transition-transform duration-300"
-                    style="animation-delay: 0.5s;">1-3 day average delivery</a>
-                <a href="#" class="breathing-glow hover:scale-105 transition-transform duration-300"
-                    style="animation-delay: 1.0s;">Dedicated Dashboard</a>
-                <a href="#" class="breathing-glow hover:scale-105 transition-transform duration-300"
-                    style="animation-delay: 1.5s;">7-day 100% money back guarantee</a>
+        <!-- Compact Benefits / Trust Rail -->
+        <section class="benefits-ribbon w-full py-7 px-4 border-t border-b border-white/5 backdrop-blur-md">
+            <div class="relative z-10 max-w-[1440px] mx-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3">
+                <a href="#" class="benefit-card">
+                    <span class="benefit-icon">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3h6m-8.25 9 1.7-3.4A8.25 8.25 0 1 1 20.25 12a8.25 8.25 0 0 1-13.3 6.55l-1.7 1.7Z" />
+                        </svg>
+                    </span>
+                    <span class="text-[11px] md:text-xs font-bold uppercase tracking-[0.16em] leading-relaxed">Unlimited requests and revisions</span>
+                </a>
+                <a href="#" class="benefit-card">
+                    <span class="benefit-icon">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2m5-2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                    </span>
+                    <span class="text-[11px] md:text-xs font-bold uppercase tracking-[0.16em] leading-relaxed">1-3 day average delivery</span>
+                </a>
+                <a href="#" class="benefit-card">
+                    <span class="benefit-icon">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75h16.5v16.5H3.75V3.75Zm4.5 12v-3m3.75 3v-6m3.75 6V7.5" />
+                        </svg>
+                    </span>
+                    <span class="text-[11px] md:text-xs font-bold uppercase tracking-[0.16em] leading-relaxed">Dedicated Dashboard</span>
+                </a>
+                <a href="#" class="benefit-card">
+                    <span class="benefit-icon">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m6 2.25c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.1 0 4.03.72 5.56 1.93M18 3v5h-5" />
+                        </svg>
+                    </span>
+                    <span class="text-[11px] md:text-xs font-bold uppercase tracking-[0.16em] leading-relaxed">7-day 100% money back guarantee</span>
+                </a>
             </div>
         </section>
 
         <!-- Projects Infinite Slider -->
-        <section class="slider-container my-12">
+        <section id="projects-footer-ticker" class="slider-container footer-projects-ticker">
             <div class="animate-scroll">
                 <div
                     class="flex items-center gap-24 text-white text-2xl md:text-3xl font-bold uppercase tracking-widest whitespace-nowrap px-12">
@@ -1454,7 +2371,7 @@
         </section>
 
         <!-- Why Choose Mazad Section -->
-        <section class="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-24 py-24 relative z-20">
+        <section class="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-24 pt-24 pb-8 relative z-20">
             <!-- Section Header -->
             <div class="text-center mb-16">
                 <div
@@ -1473,10 +2390,10 @@
             </div>
 
             <!-- Features Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 overflow-hidden">
                 <!-- Card 1: Mazad One -->
                 <div
-                    class="group relative bg-white/5 hover:bg-white/10 border border-white/10 hover:border-brand-orange/30 p-8 md:p-10 rounded-[32px] transition-all duration-500 hover:-translate-y-2 overflow-hidden shadow-[0_4px_30px_rgba(0,0,0,0.4)]">
+                    class="reveal-left group relative bg-white/5 hover:bg-white/10 border border-white/10 hover:border-brand-orange/30 p-8 md:p-10 rounded-[32px] transition-all duration-500 hover:-translate-y-2 overflow-hidden shadow-[0_4px_30px_rgba(0,0,0,0.4)]">
                     <!-- Glow effect behind card on hover -->
                     <div
                         class="absolute -top-24 -left-24 w-48 h-48 bg-brand-orange/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
@@ -1504,7 +2421,7 @@
 
                 <!-- Card 2: Mazad Market -->
                 <div
-                    class="group relative bg-white/5 hover:bg-white/10 border border-white/10 hover:border-brand-orange/30 p-8 md:p-10 rounded-[32px] transition-all duration-500 hover:-translate-y-2 overflow-hidden shadow-[0_4px_30px_rgba(0,0,0,0.4)]">
+                    class="reveal-right group relative bg-white/5 hover:bg-white/10 border border-white/10 hover:border-brand-orange/30 p-8 md:p-10 rounded-[32px] transition-all duration-500 hover:-translate-y-2 overflow-hidden shadow-[0_4px_30px_rgba(0,0,0,0.4)]">
                     <div
                         class="absolute -top-24 -left-24 w-48 h-48 bg-brand-orange/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                     </div>
@@ -1533,7 +2450,7 @@
 
                 <!-- Card 3: Mazad Cash -->
                 <div
-                    class="group relative bg-white/5 hover:bg-white/10 border border-white/10 hover:border-brand-orange/30 p-8 md:p-10 rounded-[32px] transition-all duration-500 hover:-translate-y-2 overflow-hidden shadow-[0_4px_30px_rgba(0,0,0,0.4)]">
+                    class="reveal-left group relative bg-white/5 hover:bg-white/10 border border-white/10 hover:border-brand-orange/30 p-8 md:p-10 rounded-[32px] transition-all duration-500 hover:-translate-y-2 overflow-hidden shadow-[0_4px_30px_rgba(0,0,0,0.4)]">
                     <div
                         class="absolute -top-24 -left-24 w-48 h-48 bg-brand-orange/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                     </div>
@@ -1562,7 +2479,7 @@
 
                 <!-- Card 4: Mazad AI & Studio -->
                 <div
-                    class="group relative bg-white/5 hover:bg-white/10 border border-white/10 hover:border-brand-orange/30 p-8 md:p-10 rounded-[32px] transition-all duration-500 hover:-translate-y-2 overflow-hidden shadow-[0_4px_30px_rgba(0,0,0,0.4)]">
+                    class="reveal-right group relative bg-white/5 hover:bg-white/10 border border-white/10 hover:border-brand-orange/30 p-8 md:p-10 rounded-[32px] transition-all duration-500 hover:-translate-y-2 overflow-hidden shadow-[0_4px_30px_rgba(0,0,0,0.4)]">
                     <div
                         class="absolute -top-24 -left-24 w-48 h-48 bg-brand-orange/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                     </div>
@@ -1595,13 +2512,15 @@
 
 
         <!-- Mazad AI Interactive Showcase Section -->
-        <section class="pin-container-ai relative z-20 my-32">
+        <section class="pin-container-ai relative z-20 mt-8 mb-32" id="yaman-ai-showcase">
             <div
                 class="sticky-wrapper-ai flex flex-col lg:flex-row items-center justify-between max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-24 h-screen w-full gap-12 overflow-hidden">
 
                 <!-- Synapse laser canvas background (covers the entire screen layout) -->
                 <canvas id="synapse-canvas" class="absolute inset-0 z-0 pointer-events-none w-full h-full"
                     style="mix-blend-mode: screen; opacity: 0.75;"></canvas>
+                <div class="yaman-ambient-grid" aria-hidden="true"></div>
+
 
                 <!-- Left: Scroll-Linked Descriptive Texts -->
                 <div class="w-full lg:w-[45%] flex flex-col justify-center gap-12 z-20 relative min-h-[500px]">
@@ -1675,6 +2594,20 @@
                 <div class="w-full lg:w-[55%] flex flex-col items-center justify-center relative h-full min-h-[500px]"
                     id="hologram-stage-container" style="transform-style: preserve-3d; perspective: 1200px;">
 
+                    <div class="yaman-energy-field" aria-hidden="true">
+                        <span class="yaman-energy-wave"></span>
+                        <span class="yaman-energy-wave"></span>
+                        <span class="yaman-energy-wave"></span>
+                        <span class="yaman-spark" style="--spark-x:-190px; --spark-y:-130px; --spark-delay:0.1s;"></span>
+                        <span class="yaman-spark" style="--spark-x:175px; --spark-y:-150px; --spark-delay:0.45s;"></span>
+                        <span class="yaman-spark" style="--spark-x:-220px; --spark-y:40px; --spark-delay:0.8s;"></span>
+                        <span class="yaman-spark" style="--spark-x:215px; --spark-y:70px; --spark-delay:1.15s;"></span>
+                        <span class="yaman-spark" style="--spark-x:-125px; --spark-y:175px; --spark-delay:1.5s;"></span>
+                        <span class="yaman-spark" style="--spark-x:145px; --spark-y:185px; --spark-delay:1.85s;"></span>
+                        <span class="yaman-spark" style="--spark-x:-45px; --spark-y:-210px; --spark-delay:2.2s;"></span>
+                        <span class="yaman-spark" style="--spark-x:55px; --spark-y:220px; --spark-delay:2.55s;"></span>
+                    </div>
+
                     <!-- Circular Orbits (Preserve-3d rotating circles) -->
                     <div class="orbit-ring ring-1"></div>
                     <div class="orbit-ring ring-2"></div>
@@ -1697,7 +2630,7 @@
                         <!-- Neon pedestal base -->
                         <div class="pedestal"></div>
                         <div
-                            class="w-48 h-[6px] bg-orange-500/30 rounded-full border border-orange-500/50 shadow-[0_0_15px_#f97316]">
+                            class="w-48 h-[6px] bg-orange-500/30 rounded-full border border-orange-500/50 shadow-[0_0_15px_#FF841A]">
                         </div>
                     </div>
 
@@ -1705,7 +2638,7 @@
                     <!-- Sphere 1 (Top Left) -->
                     <div class="organism-sphere absolute z-30 flex items-center justify-center pointer-events-none transition-all duration-300"
                         id="org-sphere-1"
-                        style="width: 70px; height: 70px; border-radius: 50%; background: rgba(255,255,255,0.03); border: 1.5px solid rgba(249,115,22,0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 0 20px rgba(249,115,22,0.2), inset 0 0 10px rgba(255,255,255,0.1); transform: translate3d(-180px, -150px, 40px) scale(0.5); opacity: 0;">
+                        style="width: 70px; height: 70px; border-radius: 50%; background: rgba(255,255,255,0.03); border: 1.5px solid rgba(255,132,26,0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 0 20px rgba(255,132,26,0.2), inset 0 0 10px rgba(255,255,255,0.1); transform: translate3d(-180px, -150px, 40px) scale(0.5); opacity: 0;">
                         <svg class="w-7 h-7 text-brand-orange animate-pulse" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -1715,7 +2648,7 @@
                     <!-- Sphere 2 (Top Right) -->
                     <div class="organism-sphere absolute z-30 flex items-center justify-center pointer-events-none transition-all duration-300"
                         id="org-sphere-2"
-                        style="width: 90px; height: 90px; border-radius: 50%; background: rgba(255,255,255,0.03); border: 1.5px solid rgba(249,115,22,0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 0 25px rgba(249,115,22,0.2), inset 0 0 15px rgba(255,255,255,0.15); transform: translate3d(180px, -100px, 80px) scale(0.5); opacity: 0;">
+                        style="width: 90px; height: 90px; border-radius: 50%; background: rgba(255,255,255,0.03); border: 1.5px solid rgba(255,132,26,0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 0 25px rgba(255,132,26,0.2), inset 0 0 15px rgba(255,255,255,0.15); transform: translate3d(180px, -100px, 80px) scale(0.5); opacity: 0;">
                         <svg class="w-9 h-9 text-brand-orange animate-spin-slow" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -1725,7 +2658,7 @@
                     <!-- Sphere 3 (Bottom Left) -->
                     <div class="organism-sphere absolute z-30 flex items-center justify-center pointer-events-none transition-all duration-300"
                         id="org-sphere-3"
-                        style="width: 80px; height: 80px; border-radius: 50%; background: rgba(255,255,255,0.03); border: 1.5px solid rgba(249,115,22,0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 0 22px rgba(249,115,22,0.2), inset 0 0 12px rgba(255,255,255,0.1); transform: translate3d(-160px, 100px, 60px) scale(0.5); opacity: 0;">
+                        style="width: 80px; height: 80px; border-radius: 50%; background: rgba(255,255,255,0.03); border: 1.5px solid rgba(255,132,26,0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 0 22px rgba(255,132,26,0.2), inset 0 0 12px rgba(255,255,255,0.1); transform: translate3d(-160px, 100px, 60px) scale(0.5); opacity: 0;">
                         <svg class="w-8 h-8 text-brand-orange animate-bounce" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -1735,7 +2668,7 @@
                     <!-- Sphere 4 (Bottom Right - Micro Stats) -->
                     <div class="organism-sphere absolute z-30 flex flex-col items-center justify-center pointer-events-none transition-all duration-300"
                         id="org-sphere-4"
-                        style="width: 100px; height: 100px; border-radius: 50%; background: rgba(255,255,255,0.04); border: 1.5px solid rgba(249,115,22,0.5); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 0 30px rgba(249,115,22,0.35), inset 0 0 20px rgba(255,255,255,0.2); transform: translate3d(170px, 120px, 100px) scale(0.5); opacity: 0;">
+                        style="width: 100px; height: 100px; border-radius: 50%; background: rgba(255,255,255,0.04); border: 1.5px solid rgba(255,132,26,0.5); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 0 30px rgba(255,132,26,0.35), inset 0 0 20px rgba(255,255,255,0.2); transform: translate3d(170px, 120px, 100px) scale(0.5); opacity: 0;">
                         <div class="w-3 h-3 rounded-full bg-brand-orange animate-ping mb-1"></div>
                         <span class="text-[9px] text-white/80 font-mono tracking-widest uppercase">Active</span>
                     </div>
@@ -1774,11 +2707,11 @@
                     <div class="hologram-effect relative z-20 cursor-grab active:cursor-grabbing" id="ai-character-card"
                         style="transform-style: preserve-3d; will-change: transform;">
                         <img src="images/ai_character.png"
-                            class="max-h-[380px] object-contain drop-shadow-[0_0_35px_rgba(249,115,22,0.6)]"
+                            class="yaman-avatar-image max-h-[380px] object-contain drop-shadow-[0_0_35px_rgba(255,132,26,0.6)]"
                             alt="Mazad AI Yaman Assistant">
 
                         <!-- Living LED Face Screen Overlay -->
-                        <div class="absolute flex items-center justify-center bg-[#0d0905]/95 shadow-[inset_0_0_15px_rgba(249,115,22,0.7)]"
+                        <div class="absolute flex items-center justify-center bg-[#0d0905]/95 shadow-[inset_0_0_15px_rgba(255,132,26,0.7)]"
                             style="top: 36.8%; left: 24.5%; width: 51.5%; height: 21%; border-radius: 20px; overflow: hidden; pointer-events: none; mix-blend-mode: screen;"
                             id="ai-face-screen">
                             <div class="w-full h-full flex flex-col items-center justify-center text-brand-orange text-center font-mono select-none"
@@ -1981,299 +2914,7 @@
             </div>
         </section>
 
-        <!-- ===== ABOUT SECTION ===== -->
-        <section id="about"
-            class="max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-24 py-32 relative z-20 border-t border-white/5">
-
-            <!-- Section Header -->
-            <div class="text-center mb-20">
-                <div
-                    class="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-500/10 text-orange-400 text-xs font-semibold tracking-wider uppercase">
-                    <span class="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
-                    Who We Are
-                </div>
-                <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">
-                    Redefining Commerce <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-orange-400 to-amber-500">for
-                        the MENA Region</span>
-                </h2>
-                <p class="text-white/60 max-w-2xl mx-auto text-base md:text-lg">
-                    Born in the heart of the Middle East, Mazad Global is a technology company on a mission to unify
-                    fragmented markets into a single, borderless digital economy.
-                </p>
-            </div>
-
-            <!-- Main Story Grid: Left Text + Right Visual -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-28">
-                <!-- Left: Story Text -->
-                <div class="flex flex-col gap-8">
-                    <!-- Story Block 1 -->
-                    <div
-                        class="about-reveal-item relative pl-8 border-l-2 border-brand-orange/40 hover:border-brand-orange transition-colors duration-500">
-                        <div
-                            class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-orange shadow-[0_0_12px_rgba(249,115,22,0.8)]">
-                        </div>
-                        <span class="text-brand-orange text-xs font-mono uppercase tracking-widest block mb-2">Our
-                            Origin</span>
-                        <h3 class="text-xl font-bold text-white mb-3">From Baghdad to the World</h3>
-                        <p class="text-white/60 leading-relaxed">
-                            Founded in Istanbul with deep roots in Iraq, Mazad Global emerged from a simple realization:
-                            the MENA region's 500M+ population deserved a unified digital marketplace that understood
-                            its culture, languages, and commerce patterns. We built that platform from the ground up.
-                        </p>
-                    </div>
-
-                    <!-- Story Block 2 -->
-                    <div
-                        class="about-reveal-item relative pl-8 border-l-2 border-white/10 hover:border-brand-orange transition-colors duration-500">
-                        <div
-                            class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-white/20 group-hover:bg-brand-orange shadow-[0_0_8px_rgba(255,255,255,0.2)]">
-                        </div>
-                        <span class="text-orange-400 text-xs font-mono uppercase tracking-widest block mb-2">Our
-                            Mission</span>
-                        <h3 class="text-xl font-bold text-white mb-3">One App. Endless Market.</h3>
-                        <p class="text-white/60 leading-relaxed">
-                            We are building the operating system for commerce in the Arab world — combining real-time
-                            auctions, B2B wholesale, C2C trading, AI assistance, digital payments, and creative tools
-                            into a single seamless ecosystem called Mazad.
-                        </p>
-                    </div>
-
-                    <!-- Story Block 3 -->
-                    <div
-                        class="about-reveal-item relative pl-8 border-l-2 border-white/10 hover:border-brand-orange transition-colors duration-500">
-                        <div
-                            class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-white/20 shadow-[0_0_8px_rgba(255,255,255,0.2)]">
-                        </div>
-                        <span class="text-orange-400 text-xs font-mono uppercase tracking-widest block mb-2">Our
-                            Vision</span>
-                        <h3 class="text-xl font-bold text-white mb-3">A Borderless Digital Future</h3>
-                        <p class="text-white/60 leading-relaxed">
-                            By 2028, we aim to operate in 15+ countries, serve 50M+ active users, and process $5B+ in
-                            fintech volume — all while staying true to our roots: technology built by, and for, the
-                            people of the Middle East.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Right: Glowing Stats Panel -->
-                <div class="relative flex flex-col gap-6">
-                    <!-- Top Glow Orb -->
-                    <div
-                        class="absolute -top-12 -right-12 w-48 h-48 bg-brand-orange/15 rounded-full blur-3xl pointer-events-none">
-                    </div>
-
-                    <!-- Stats Card -->
-                    <div
-                        class="group relative bg-white/[0.03] border border-white/10 hover:border-brand-orange/40 rounded-[32px] p-8 overflow-hidden transition-all duration-500 hover:-translate-y-1 shadow-[0_4px_30px_rgba(0,0,0,0.4)]">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-br from-orange-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-[32px]">
-                        </div>
-                        <div class="grid grid-cols-2 gap-8">
-                            <div class="text-center">
-                                <div
-                                    class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-amber-400 mb-1">
-                                    2022</div>
-                                <div class="text-white/40 text-xs uppercase tracking-widest">Founded</div>
-                            </div>
-                            <div class="text-center border-l border-white/10">
-                                <div
-                                    class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-amber-400 mb-1">
-                                    22+</div>
-                                <div class="text-white/40 text-xs uppercase tracking-widest">Countries</div>
-                            </div>
-                            <div class="text-center border-t border-white/10 pt-8">
-                                <div
-                                    class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-amber-400 mb-1">
-                                    500M</div>
-                                <div class="text-white/40 text-xs uppercase tracking-widest">Market Size</div>
-                            </div>
-                            <div class="text-center border-t border-l border-white/10 pt-8">
-                                <div
-                                    class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-amber-400 mb-1">
-                                    6</div>
-                                <div class="text-white/40 text-xs uppercase tracking-widest">Products</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Location Badge -->
-                    <div
-                        class="flex items-center gap-4 p-5 rounded-2xl bg-white/[0.02] border border-white/8 hover:border-brand-orange/30 transition-all duration-300">
-                        <div
-                            class="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center flex-shrink-0">
-                            <svg class="w-5 h-5 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="text-white font-semibold text-sm">Headquartered in Istanbul, Turkey</p>
-                            <p class="text-white/40 text-xs mt-0.5">With operations spanning Iraq, GCC & North Africa
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Tech Badge -->
-                    <div
-                        class="flex items-center gap-4 p-5 rounded-2xl bg-white/[0.02] border border-white/8 hover:border-brand-orange/30 transition-all duration-300">
-                        <div
-                            class="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center flex-shrink-0">
-                            <svg class="w-5 h-5 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2h-2" />
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="text-white font-semibold text-sm">AI-First Technology Stack</p>
-                            <p class="text-white/40 text-xs mt-0.5">Powering Yaman Copilot, Mazad Studio & Smart Bidding
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Core Values Row -->
-            <div class="mb-20">
-                <div class="text-center mb-12">
-                    <h3 class="text-2xl md:text-3xl font-black text-white">Our Core <span
-                            class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-amber-400">Values</span>
-                    </h3>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Value 1 -->
-                    <div
-                        class="group relative bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 p-7 rounded-[24px] text-center transition-all duration-500 hover:-translate-y-2 overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-orange-500/8 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-[24px]">
-                        </div>
-                        <div
-                            class="w-14 h-14 mx-auto mb-5 rounded-2xl bg-orange-500/10 border border-orange-500/20 group-hover:border-orange-500/60 group-hover:scale-110 flex items-center justify-center transition-all duration-500">
-                            <svg class="w-7 h-7 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                            </svg>
-                        </div>
-                        <h4
-                            class="text-white font-bold mb-2 group-hover:text-brand-orange transition-colors duration-300">
-                            Trust & Security</h4>
-                        <p class="text-white/50 text-sm leading-relaxed">Bank-grade encryption and escrow systems
-                            protect every transaction on the platform.</p>
-                    </div>
-
-                    <!-- Value 2 -->
-                    <div
-                        class="group relative bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 p-7 rounded-[24px] text-center transition-all duration-500 hover:-translate-y-2 overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-orange-500/8 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-[24px]">
-                        </div>
-                        <div
-                            class="w-14 h-14 mx-auto mb-5 rounded-2xl bg-orange-500/10 border border-orange-500/20 group-hover:border-orange-500/60 group-hover:scale-110 flex items-center justify-center transition-all duration-500">
-                            <svg class="w-7 h-7 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
-                            </svg>
-                        </div>
-                        <h4
-                            class="text-white font-bold mb-2 group-hover:text-brand-orange transition-colors duration-300">
-                            Local First</h4>
-                        <p class="text-white/50 text-sm leading-relaxed">Deep cultural understanding of the MENA region
-                            drives every product decision we make.</p>
-                    </div>
-
-                    <!-- Value 3 -->
-                    <div
-                        class="group relative bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 p-7 rounded-[24px] text-center transition-all duration-500 hover:-translate-y-2 overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-orange-500/8 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-[24px]">
-                        </div>
-                        <div
-                            class="w-14 h-14 mx-auto mb-5 rounded-2xl bg-orange-500/10 border border-orange-500/20 group-hover:border-orange-500/60 group-hover:scale-110 flex items-center justify-center transition-all duration-500">
-                            <svg class="w-7 h-7 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                            </svg>
-                        </div>
-                        <h4
-                            class="text-white font-bold mb-2 group-hover:text-brand-orange transition-colors duration-300">
-                            Innovation</h4>
-                        <p class="text-white/50 text-sm leading-relaxed">AI-driven features, smart contracts, and
-                            next-gen UX define everything we ship.</p>
-                    </div>
-
-                    <!-- Value 4 -->
-                    <div
-                        class="group relative bg-white/[0.03] border border-white/8 hover:border-brand-orange/40 p-7 rounded-[24px] text-center transition-all duration-500 hover:-translate-y-2 overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-orange-500/8 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-[24px]">
-                        </div>
-                        <div
-                            class="w-14 h-14 mx-auto mb-5 rounded-2xl bg-orange-500/10 border border-orange-500/20 group-hover:border-orange-500/60 group-hover:scale-110 flex items-center justify-center transition-all duration-500">
-                            <svg class="w-7 h-7 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
-                        </div>
-                        <h4
-                            class="text-white font-bold mb-2 group-hover:text-brand-orange transition-colors duration-300">
-                            Community</h4>
-                        <p class="text-white/50 text-sm leading-relaxed">We grow together with our merchants, buyers,
-                            and partners across the entire ecosystem.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Team CTA Banner -->
-            <div
-                class="relative overflow-hidden rounded-[32px] bg-gradient-to-r from-[#0d0905] via-[#1a0c02] to-[#0d0905] border border-brand-orange/20 p-10 md:p-14 text-center shadow-[0_0_60px_rgba(249,115,22,0.15)]">
-                <!-- Animated glow orbs -->
-                <div
-                    class="absolute -top-20 left-1/4 w-64 h-64 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none animate-pulse">
-                </div>
-                <div class="absolute -bottom-20 right-1/4 w-64 h-64 bg-amber-500/8 rounded-full blur-3xl pointer-events-none animate-pulse"
-                    style="animation-delay: 1s;"></div>
-
-                <div class="relative z-10">
-                    <div
-                        class="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-500/10 text-orange-400 text-xs font-semibold tracking-wider uppercase">
-                        <span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-ping"></span>
-                        Join the Movement
-                    </div>
-                    <h3 class="text-2xl md:text-4xl font-black text-white mb-4">
-                        Ready to Build the Future <br class="hidden md:block"> with <span
-                            class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-amber-400">Mazad
-                            Global?</span>
-                    </h3>
-                    <p class="text-white/60 max-w-xl mx-auto mb-8 leading-relaxed">
-                        Whether you are a merchant, investor, or technology partner — the Mazad ecosystem has a place
-                        for you. Let's shape the future of digital commerce together.
-                    </p>
-                    <div class="flex flex-wrap items-center justify-center gap-4">
-                        <a href="#"
-                            class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-brand-orange hover:bg-orange-400 text-white font-bold text-sm tracking-wide transition-all duration-300 hover:shadow-[0_0_30px_rgba(249,115,22,0.5)] hover:-translate-y-0.5">
-                            Get in Touch
-                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                        </a>
-                        <a href="#"
-                            class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white/5 border border-white/15 hover:border-brand-orange/50 text-white font-bold text-sm tracking-wide transition-all duration-300 hover:bg-brand-orange/10 hover:-translate-y-0.5">
-                            View Our Projects
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-        <!-- ===== END ABOUT SECTION ===== -->
+        <!-- Product ticker is moved here at runtime so it sits directly above the footer. -->
 
         <!-- Sleek Footer Section (Demonstrates page unpinning scroll continue) -->
         <footer class="w-full bg-[#030712] border-t border-white/5 py-24 relative z-20">
@@ -2315,6 +2956,12 @@
 
     <!-- Mobile Menu Handler -->
     <script>
+        const projectsFooterTicker = document.getElementById('projects-footer-ticker');
+        const pageFooter = document.querySelector('footer');
+        if (projectsFooterTicker && pageFooter) {
+            pageFooter.parentNode.insertBefore(projectsFooterTicker, pageFooter);
+        }
+
         const menuBtn = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
 
@@ -2511,6 +3158,16 @@
             const wrapper = document.querySelector('.sticky-wrapper-ai');
             if (!pinContainerAi || !characterCard || !speechBubble || !speechText || !stageContainer || !faceContainer || !canvas || !wrapper) return;
 
+            const yamanRevealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    pinContainerAi.classList.toggle('yaman-in-view', entry.isIntersecting);
+                });
+            }, {
+                threshold: 0.12,
+                rootMargin: '0px 0px -8% 0px'
+            });
+            yamanRevealObserver.observe(pinContainerAi);
+
             const ctx = canvas.getContext('2d');
             let canvasWidth = 0;
             let canvasHeight = 0;
@@ -2554,7 +3211,7 @@
             ];
 
             const backingGlows = [
-                "rgba(249, 115, 22, 0.15)", // Orange
+                "rgba(255,132,26, 0.15)", // Orange
                 "rgba(245, 158, 11, 0.18)", // Amber
                 "rgba(16, 185, 129, 0.18)"  // Emerald
             ];
@@ -2587,19 +3244,25 @@
             let currentRotateX = 0;
             let currentRotateY = 0;
 
-            stageContainer.addEventListener('mousemove', (e) => {
-                const rect = stageContainer.getBoundingClientRect();
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const relX = e.clientX - rect.left - centerX;
-                const relY = e.clientY - rect.top - centerY;
-
-                // Tilt character (max 22 degrees tilt)
-                targetRotateX = -(relY / centerY) * 22;
-                targetRotateY = (relX / centerX) * 22;
+            window.addEventListener('mousemove', (e) => {
+                const rect = pinContainerAi.getBoundingClientRect();
+                if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                    const charRect = characterCard.getBoundingClientRect();
+                    const charCenterX = charRect.left + charRect.width / 2;
+                    const charCenterY = charRect.top + charRect.height / 2;
+                    
+                    const relX = e.clientX - charCenterX;
+                    const relY = e.clientY - charCenterY;
+                    
+                    const maxDistX = window.innerWidth / 2;
+                    const maxDistY = window.innerHeight / 2;
+                    
+                    targetRotateX = -Math.max(-1, Math.min(1, relY / maxDistY)) * 22;
+                    targetRotateY = Math.max(-1, Math.min(1, relX / maxDistX)) * 22;
+                }
             });
 
-            stageContainer.addEventListener('mouseleave', () => {
+            document.addEventListener('mouseleave', () => {
                 targetRotateX = 0;
                 targetRotateY = 0;
             });
@@ -2635,13 +3298,18 @@
                 }
 
                 // Update Speech Bubble Text if changed
-                if (speechText.textContent.trim() !== speechSteps[activeIdx].trim()) {
+                const localizedSpeechSteps = window.__mazadHomeSpeechSteps || speechSteps;
+                if (speechText.textContent.trim() !== localizedSpeechSteps[activeIdx].trim()) {
                     speechBubble.style.opacity = 0;
                     speechBubble.style.transform = 'scale(0.85) translateY(10px)';
 
                     setTimeout(() => {
-                        speechText.textContent = speechSteps[activeIdx];
-                        faceContainer.innerHTML = faceExpressions[activeIdx];
+                        speechText.textContent = localizedSpeechSteps[activeIdx];
+                        const localizedFaceLabels = window.__mazadHomeFaceLabels;
+                        faceContainer.innerHTML = localizedFaceLabels
+                            ? `<div class="text-3xl font-black tracking-widest animate-pulse">^ _ ^</div>
+                               <div class="text-[9px] uppercase tracking-wider font-mono opacity-50 mt-1">${localizedFaceLabels[activeIdx]}</div>`
+                            : faceExpressions[activeIdx];
                         speechBubble.style.opacity = 1;
                         speechBubble.style.transform = 'scale(1) translateY(0px)';
                     }, 300);
@@ -2742,7 +3410,7 @@
                 const opacityVal = 0.4 + rightZoneGlow * 0.6;
                 const brightnessVal = 1.0 + rightZoneGlow * 0.35;
                 const saturateVal = 1.0 + rightZoneGlow * 0.4;
-                characterCard.style.filter = `drop-shadow(0 0 ${shadowVal}px rgba(249, 115, 22, ${opacityVal})) brightness(${brightnessVal}) saturate(${saturateVal})`;
+                characterCard.style.filter = `drop-shadow(0 0 ${shadowVal}px rgba(255,132,26, ${opacityVal})) brightness(${brightnessVal}) saturate(${saturateVal})`;
 
                 // Dynamic speed for orbits - speed up orbits up to 4x when right-zone is hovered
                 const ring1 = document.querySelector('.ring-1');
@@ -2862,7 +3530,7 @@
                             size: Math.random() * 3 + 1,
                             life: 1.0,
                             decay: 0.015 + Math.random() * 0.02,
-                            color: Math.random() > 0.6 ? '#f97316' : (Math.random() > 0.3 ? '#fbbf24' : '#ffffff')
+                            color: Math.random() > 0.6 ? '#FF841A' : (Math.random() > 0.3 ? '#fbbf24' : '#ffffff')
                         });
                     }
 
@@ -2877,9 +3545,9 @@
                         const arcAlpha = rightZoneGlow * (0.4 - r * 0.15);
                         ctx.beginPath();
                         ctx.arc(hubX, hubY, baseRadius, 0, Math.PI * 2);
-                        ctx.strokeStyle = `rgba(249, 115, 22, ${arcAlpha})`;
+                        ctx.strokeStyle = `rgba(255,132,26, ${arcAlpha})`;
                         ctx.lineWidth = 1.5 + rightZoneGlow * 2.0;
-                        ctx.shadowColor = '#f97316';
+                        ctx.shadowColor = '#FF841A';
                         ctx.shadowBlur = 15 * rightZoneGlow;
                         ctx.stroke();
                     }
@@ -2906,11 +3574,98 @@
                         ctx.arc(spark.x, spark.y, spark.size * spark.life, 0, Math.PI * 2);
                         ctx.fillStyle = spark.color;
                         ctx.globalAlpha = spark.life * rightZoneGlow;
-                        ctx.shadowColor = '#f97316';
+                        ctx.shadowColor = '#FF841A';
                         ctx.shadowBlur = 10;
                         ctx.fill();
                     }
                     ctx.restore();
+                }
+
+                // D. Transition Orb Physics (Fixed positioning for borderless free-roaming travel)
+                const orb = document.getElementById('transition-orb');
+                const ripple = document.getElementById('transition-ripple');
+                const futureBadge = document.querySelector('#future-goals-section .inline-flex');
+                
+                if (orb && ripple) {
+                    const viewHubX = charRect.left + charRect.width / 2;
+                    const viewHubY = charRect.bottom - 20; // Spawn from the bottom of Yaman
+                    
+                    if (currentProgress > 0.88) {
+                        const t = (currentProgress - 0.88) / 0.12;
+                        const ease = t * t; // Smooth quadratic acceleration
+                        
+                        let targetX = window.innerWidth / 2;
+                        let targetY = window.innerHeight + 100;
+                        
+                        if (futureBadge) {
+                            const badgeRect = futureBadge.getBoundingClientRect();
+                            targetX = badgeRect.left + badgeRect.width / 2;
+                            targetY = badgeRect.top - 45; // Land 45px above the writing to avoid blocking it
+                        }
+                        
+                        // Soft horizontal sinusoidal wander that dampens near landing
+                        const wander = Math.sin(t * Math.PI * 2.5) * 55 * (1 - ease);
+                        
+                        const currentX = viewHubX + (targetX - viewHubX) * ease + wander;
+                        const currentY = viewHubY + (targetY - viewHubY) * ease;
+                        
+                        orb.style.opacity = 1;
+                        orb.style.transform = `translate3d(${currentX - 16}px, ${currentY - 16}px, 0) scale(${1.0 + t * 0.2})`;
+                        
+                        // Show/Hide display optimization when off-screen
+                        if (currentY < -100 || currentY > window.innerHeight + 100) {
+                            orb.style.display = 'none';
+                        } else {
+                            orb.style.display = 'flex';
+                        }
+                        
+                        const arrowSvg = orb.querySelector('svg');
+                        
+                        if (t > 0.90) {
+                            // Spotlight effect centered behind the Future Horizons badge
+                            ripple.style.left = `${targetX}px`;
+                            ripple.style.top = `${targetY + 60}px`;
+                            ripple.style.width = '380px';
+                            ripple.style.height = '160px';
+                            ripple.style.opacity = '0.7';
+                            
+                            if (targetY + 60 < -100 || targetY + 60 > window.innerHeight + 100) {
+                                ripple.style.display = 'none';
+                            } else {
+                                ripple.style.display = 'block';
+                            }
+                            
+                            if (arrowSvg) {
+                                arrowSvg.style.transform = 'scale(1.25)';
+                                arrowSvg.style.filter = 'drop-shadow(0 0 16px #FF841A) brightness(1.6)';
+                            }
+                        } else {
+                            ripple.style.width = '0';
+                            ripple.style.height = '0';
+                            ripple.style.opacity = '0';
+                            ripple.style.display = 'none';
+                            
+                            if (arrowSvg) {
+                                arrowSvg.style.transform = 'scale(1)';
+                                arrowSvg.style.filter = 'drop-shadow(0 0 8px #FF841A) brightness(1.0)';
+                            }
+                        }
+                    } else {
+                        orb.style.opacity = 0;
+                        orb.style.transform = `translate3d(${viewHubX - 16}px, ${viewHubY - 16}px, 0) scale(0)`;
+                        orb.style.display = 'none';
+                        
+                        ripple.style.width = '0';
+                        ripple.style.height = '0';
+                        ripple.style.opacity = '0';
+                        ripple.style.display = 'none';
+                        
+                        const arrowSvg = orb.querySelector('svg');
+                        if (arrowSvg) {
+                            arrowSvg.style.transform = 'scale(1)';
+                            arrowSvg.style.filter = 'drop-shadow(0 0 8px #FF841A) brightness(1.0)';
+                        }
+                    }
                 }
 
                 requestAnimationFrame(updatePhysicsLoop);
@@ -2918,18 +3673,42 @@
             updatePhysicsLoop();
         }
 
+        function initWhyChooseEffects() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-active');
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            document.querySelectorAll('.reveal-left, .reveal-right').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
         window.addEventListener('DOMContentLoaded', () => {
             animateCounters();
             initScrollParallax();
             initFutureGoalsEffects();
             initAIEffects();
+            initWhyChooseEffects();
         });
     </script>
 
     <!-- Parallax Floating Stage Controller with Scroll Pinning Progress -->
     <script>
-        // 5 High quality visual assets with fallbacks + 1 final converged centerpiece
+        // 10 High quality visual assets with duplicates to fill screen space
         const images = [
+            { url: "images/market.png", fallback: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600" },
+            { url: "images/one.png", fallback: "https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=600" },
+            { url: "images/studio.png", fallback: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=600" },
+            { url: "images/cash.png", fallback: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600" },
+            { url: "images/ai.png", fallback: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600" },
+            // Duplicates
             { url: "images/market.png", fallback: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600" },
             { url: "images/one.png", fallback: "https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=600" },
             { url: "images/studio.png", fallback: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=600" },
@@ -2937,22 +3716,42 @@
             { url: "images/ai.png", fallback: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600" }
         ];
 
+        // Pre-defined scattered starting coordinates (closer to center than before, yet nicely distributed)
+        const preDefinedPositions = [
+            { left: -5, top: -5, rot: -25 },    // Top-Left
+            { left: 80, top: -5, rot: 25 },     // Top-Right
+            { left: -5, top: 70, rot: 20 },     // Bottom-Left
+            { left: 80, top: 70, rot: -20 },    // Bottom-Right
+            { left: -15, top: 32.5, rot: -15 }, // Middle Left
+            { left: 90, top: 32.5, rot: 15 },   // Middle Right
+            { left: 37.5, top: -15, rot: -10 },  // Top Middle
+            { left: 37.5, top: 80, rot: 10 },   // Bottom Middle
+            { left: 5, top: 15, rot: -15 },     // Middle Left-Upper
+            { left: 70, top: 15, rot: 15 }      // Middle Right-Upper
+        ];
+
         const stage = document.getElementById('stage');
         const pinContainer = document.querySelector('.pin-container');
         const items = [];
 
         // 1. Generate floating visual cards
-        images.forEach((img) => {
+        images.forEach((img, idx) => {
             const div = document.createElement('div');
             div.className = 'visual-item';
             div.innerHTML = `<img src="${img.url}" onerror="this.onerror=null; this.src='${img.fallback}'" alt="product">`;
             stage.appendChild(div);
 
+            const pos = preDefinedPositions[idx] || {
+                left: Math.random() * 80 - 15,
+                top: Math.random() * 80 - 15,
+                rot: Math.random() * 60 - 30
+            };
+
             items.push({
                 el: div,
-                startLeft: Math.random() * 70 + 5,  // Random start bounds (5% to 75%)
-                startTop: Math.random() * 60 + 10,  // Random start bounds (10% to 70%)
-                startRot: Math.random() * 60 - 30,  // Random starting rotation (-30 to +30 deg)
+                startLeft: pos.left,
+                startTop: pos.top,
+                startRot: pos.rot,
                 targetLeft: 37.5,                   // Converges exactly to center X (relative to 25vw width)
                 targetTop: 32.5,                    // Converges exactly to center Y (relative to 35vh height)
                 targetRot: 0                        // Straightens out perfectly (0 deg)
@@ -3087,8 +3886,8 @@
                     const shadowX = -currentRotateY * 2.0;
                     const shadowY = currentRotateX * 2.0;
                     centerCard.style.boxShadow = `
-                        ${shadowX}px ${shadowY}px 80px rgba(249, 115, 22, ${0.6 + glowIntensity * 0.4}),
-                        ${shadowX * 1.5}px ${shadowY * 1.5}px 150px rgba(249, 115, 22, 0.4),
+                        ${shadowX}px ${shadowY}px 80px rgba(255,132,26, ${0.6 + glowIntensity * 0.4}),
+                        ${shadowX * 1.5}px ${shadowY * 1.5}px 150px rgba(255,132,26, 0.4),
                         0 20px 40px rgba(0,0,0,0.6)
                     `;
                 } else {
@@ -3162,7 +3961,8 @@
 
             // Close when clicking outside
             document.addEventListener('click', (e) => {
-                if (!document.getElementById('projects-dropdown-wrapper').contains(e.target)) {
+                const dropdownWrapper = document.getElementById('projects-dropdown-wrapper');
+                if (dropdownWrapper && !dropdownWrapper.contains(e.target)) {
                     closeDropdown();
                 }
             });
@@ -3193,6 +3993,9 @@
         const splitStage = document.getElementById('portal-split-stage');
         const glowingEmblem = document.getElementById('glowing-device-emblem');
         const introAura = document.getElementById('intro-aura');
+        const introParticles = document.getElementById('intro-particles');
+        const introComets = document.getElementById('intro-comets');
+        const introSkipBtn = document.getElementById('intro-skip-btn');
 
         const leftHalf = document.getElementById('portal-left-half');
         const rightHalf = document.getElementById('portal-right-half');
@@ -3205,81 +4008,188 @@
 
         if (!portal) return;
 
+        // Show once per session; ?intro=1 is a safe preview/replay URL for reviews.
+        const forcePortalReplay = new URLSearchParams(window.location.search).get('intro') === '1';
+        if (!forcePortalReplay && sessionStorage.getItem('mazad_portal_shown') === 'true') {
+            portal.style.display = 'none';
+            document.body.style.overflow = '';
+            const yamanWidget = document.getElementById('yaman-ai-widget-wrapper');
+            if (yamanWidget) {
+                yamanWidget.style.display = 'flex';
+                yamanWidget.style.opacity = '1';
+            }
+            return;
+        }
+
+        // Mark portal as shown for this session
+        sessionStorage.setItem('mazad_portal_shown', 'true');
+
         // Freeze scrolling on main page while portal is active
         document.body.style.overflow = 'hidden';
 
-        /* ── STAGE 1: 0 to 2-Second Fade-In & Glow Animation ── */
+        // Give the background a restrained cinematic parallax without moving the logo.
+        if (introStage && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            const updateIntroParallax = (event) => {
+                const horizontal = event.clientX / window.innerWidth - 0.5;
+                const vertical = event.clientY / window.innerHeight - 0.5;
+
+                introStage.style.setProperty('--stars-x', `${horizontal * -12}px`);
+                introStage.style.setProperty('--stars-y', `${vertical * -8}px`);
+                introStage.style.setProperty('--nebula-amber-x', `${horizontal * 24}px`);
+                introStage.style.setProperty('--nebula-amber-y', `${vertical * 16}px`);
+                introStage.style.setProperty('--nebula-blue-x', `${horizontal * -18}px`);
+                introStage.style.setProperty('--nebula-blue-y', `${vertical * -12}px`);
+            };
+
+            const resetIntroParallax = () => {
+                introStage.style.setProperty('--stars-x', '0px');
+                introStage.style.setProperty('--stars-y', '0px');
+                introStage.style.setProperty('--nebula-amber-x', '0px');
+                introStage.style.setProperty('--nebula-amber-y', '0px');
+                introStage.style.setProperty('--nebula-blue-x', '0px');
+                introStage.style.setProperty('--nebula-blue-y', '0px');
+            };
+
+            introStage.addEventListener('pointermove', updateIntroParallax, { passive: true });
+            introStage.addEventListener('pointerleave', resetIntroParallax, { passive: true });
+        }
+
+        /* ── STAGE 1: Cinematic Ecosystem Reveal ── */
+        if (introParticles) {
+            const particleFragment = document.createDocumentFragment();
+            const particleCount = window.innerWidth < 640 ? 24 : 44;
+
+            for (let i = 0; i < particleCount; i++) {
+                let x;
+                let y;
+
+                // Keep the logo's immediate area calm so the brand remains the focus.
+                do {
+                    x = 5 + Math.random() * 90;
+                    y = 6 + Math.random() * 88;
+                } while (x > 35 && x < 65 && y > 18 && y < 84);
+
+                const isWarmStar = Math.random() < 0.22;
+                const starDrift = -7 + Math.random() * 14;
+                const starDepth = Math.random();
+                const starScale = 0.8 + starDepth * 0.5;
+                const particle = document.createElement('span');
+                particle.className = 'intro-particle';
+                if (starDepth > 0.88 && Math.random() < 0.52) {
+                    particle.classList.add('is-hero-star');
+                }
+                particle.style.setProperty('--x', `${x}%`);
+                particle.style.setProperty('--y', `${y}%`);
+                particle.style.setProperty('--size', `${0.9 + starDepth * 2.2}px`);
+                particle.style.setProperty('--duration', `${4.2 + (1 - starDepth) * 4.8}s`);
+                particle.style.setProperty('--delay', `${-Math.random() * 5}s`);
+                particle.style.setProperty('--drift', `${starDrift * (0.65 + starDepth)}px`);
+                particle.style.setProperty('--drift-wide', `${starDrift * (0.9 + starDepth)}px`);
+                particle.style.setProperty('--star-opacity', `${0.68 + starDepth * 0.3}`);
+                particle.style.setProperty('--star-scale', `${starScale}`);
+                particle.style.setProperty('--star-scale-low', `${starScale * 0.68}`);
+                particle.style.setProperty('--star-scale-mid', `${starScale * 0.84}`);
+                particle.style.setProperty('--star-blur', `${(1 - starDepth) * 0.45}px`);
+                particle.style.setProperty('--star-brightness', `${1.15 + starDepth * 0.85}`);
+                particle.style.setProperty('--star-halo', `${10 + starDepth * 18}px`);
+                particle.style.setProperty('--star-color', isWarmStar ? '#ffd09a' : '#ffffff');
+                particle.style.setProperty('--star-glow', isWarmStar ? 'rgba(255,132,26, 0.72)' : 'rgba(179, 207, 255, 0.62)');
+                particleFragment.appendChild(particle);
+            }
+
+            introParticles.appendChild(particleFragment);
+        }
+
+        if (introComets) {
+            const cometFragment = document.createDocumentFragment();
+            const cometCount = window.innerWidth < 640 ? 2 : 3;
+
+            for (let i = 0; i < cometCount; i++) {
+                const comet = document.createElement('span');
+                comet.className = 'intro-comet';
+                comet.style.setProperty('--comet-x', `${-10 + Math.random() * 72}%`);
+                comet.style.setProperty('--comet-y', `${8 + Math.random() * 76}%`);
+                comet.style.setProperty('--comet-length', `${70 + Math.random() * 90}px`);
+                comet.style.setProperty('--comet-angle', `${-34 + Math.random() * 18}deg`);
+                comet.style.setProperty('--comet-duration', `${3.8 + Math.random() * 2.8}s`);
+                comet.style.setProperty('--comet-delay', `${-Math.random() * 5.5}s`);
+                cometFragment.appendChild(comet);
+            }
+
+            introComets.appendChild(cometFragment);
+        }
+
         requestAnimationFrame(() => {
             setTimeout(() => {
-                if (glowingEmblem) {
-                    glowingEmblem.classList.remove('opacity-0', 'scale-90');
-                    glowingEmblem.classList.add('opacity-100', 'scale-100');
-                }
+                introStage?.classList.add('is-active');
                 if (introAura) {
                     introAura.classList.remove('opacity-0');
                     introAura.classList.add('opacity-100');
                 }
-            }, 50);
+            }, 80);
         });
 
-        // Breathing Glow Pulse Loop after 2s
+        // Subtle breathing light while the logo is forming.
         let glowPhase = 0;
-        setInterval(() => {
+        const glowTimer = setInterval(() => {
             if (!introStage || introStage.style.display === 'none') return;
             glowPhase += 0.05;
-            const intensity = (Math.sin(glowPhase) + 1) / 2; // 0 to 1
+            const intensity = (Math.sin(glowPhase) + 1) / 2;
             if (introAura) {
-                introAura.style.opacity = (0.4 + intensity * 0.5).toFixed(2);
-                introAura.style.transform = `scale(${1 + intensity * 0.2})`;
+                introAura.style.opacity = (0.28 + intensity * 0.34).toFixed(2);
+                introAura.style.transform = `scale(${0.94 + intensity * 0.16})`;
             }
         }, 50);
 
-        /* ── STAGE 1 -> STAGE 2: Laser Sweep & Shockwave Explosion Transition ── */
-        const laserOverlay = document.getElementById('laser-transition-overlay');
-        const laserBeam = document.getElementById('laser-beam');
-        const laserVortex = document.getElementById('laser-vortex');
-        const shockwaveFlash = document.getElementById('shockwave-flash');
+        /* ── STAGE 1 -> Laser Explosion & Direct Auto-Dismiss into Main Page ── */
+        let transitionStarted = false;
 
-        function transitionToSplitStage() {
-            if (!introStage || !splitStage) return;
+        function autoTransitionToMainPage() {
+            if (!introStage || transitionStarted) return;
+            transitionStarted = true;
+            introStage.classList.add('is-launching');
+            clearInterval(glowTimer);
 
-            // 1. Shoot laser beam from 0 to 100% horizontally across screen (0'dan sağa doğru çizgi)
-            if (laserOverlay) laserOverlay.style.opacity = '1';
-            if (laserBeam) {
-                laserBeam.style.width = '100%';
-            }
-
-            // 2. Rotate circular vortex ring (dolansın dolansın)
+            // Morph the central card toward the real navbar logo.
             setTimeout(() => {
-                if (laserVortex) {
-                    laserVortex.style.opacity = '1';
-                    laserVortex.style.transform = 'scale(2.2) rotate(360deg)';
-                }
-            }, 300);
+                const navLogo = document.querySelector('nav .logo-breathing img');
 
-            // 3. Shockwave Flash Explosion (en sonunda patlasın)
-            setTimeout(() => {
-                if (shockwaveFlash) {
-                    shockwaveFlash.style.opacity = '0.9';
-                    shockwaveFlash.style.transform = 'scale(3)';
+                if (glowingEmblem && navLogo) {
+                    const sourceRect = glowingEmblem.getBoundingClientRect();
+                    const targetRect = navLogo.getBoundingClientRect();
+                    const deltaX = targetRect.left + targetRect.width / 2 - (sourceRect.left + sourceRect.width / 2);
+                    const deltaY = targetRect.top + targetRect.height / 2 - (sourceRect.top + sourceRect.height / 2);
+                    const targetScale = Math.max(0.08, targetRect.width / sourceRect.width);
+
+                    glowingEmblem.style.transition = 'transform 760ms cubic-bezier(0.65, 0, 0.2, 1), opacity 620ms ease, filter 620ms ease';
+                    glowingEmblem.style.transform = `translate3d(${deltaX}px, ${deltaY}px, 0) scale(${targetScale})`;
+                    glowingEmblem.style.filter = 'blur(1px) brightness(1.35)';
                 }
-                introStage.style.opacity = '0';
-                introStage.style.transform = 'scale(1.2)';
+            }, 240);
+
+            // Fade the intro while the logo finishes its move into the navbar.
+            setTimeout(() => {
+                introStage.style.opacity = '0.18';
                 introStage.style.pointerEvents = 'none';
-            }, 600);
+            }, 560);
 
-            // 4. Reveal Stage 2 compact choice cards out of the explosion
             setTimeout(() => {
-                introStage.style.display = 'none';
-                if (laserOverlay) {
-                    laserOverlay.style.opacity = '0';
-                }
-                splitStage.classList.remove('opacity-0', 'pointer-events-none', 'scale-95');
-                splitStage.classList.add('opacity-100', 'pointer-events-auto', 'scale-100');
-            }, 950);
+                closePortal();
+            }, 820);
         }
 
-        glowingEmblem?.addEventListener('click', transitionToSplitStage);
+        // Premium but brief: the complete first-impression sequence stays under 3.5 seconds.
+        setTimeout(() => {
+            autoTransitionToMainPage();
+        }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 900 : 2500);
+
+        glowingEmblem?.addEventListener('click', autoTransitionToMainPage);
+        introSkipBtn?.addEventListener('click', autoTransitionToMainPage);
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && portal.style.display !== 'none') {
+                autoTransitionToMainPage();
+            }
+        });
 
         /* ── STAGE 2: Left Side Video Canvas Visualizer ── */
         let isPlaying = false;
@@ -3302,7 +4212,7 @@
                     r: Math.random() * 4 + 1.5,
                     vx: (Math.random() - 0.5) * 2,
                     vy: (Math.random() - 0.5) * 2,
-                    color: Math.random() > 0.4 ? '#f97316' : '#fbbf24'
+                    color: Math.random() > 0.4 ? '#FF841A' : '#fbbf24'
                 });
             }
 
@@ -3322,7 +4232,7 @@
                     ctx.rotate((Math.PI * 2) / count);
                     ctx.beginPath();
                     ctx.arc(140, 0, isPlaying ? 110 : 70, 0, Math.PI * 2);
-                    ctx.fillStyle = i % 2 === 0 ? 'rgba(249, 115, 22, 0.3)' : 'rgba(251, 191, 36, 0.2)';
+                    ctx.fillStyle = i % 2 === 0 ? 'rgba(255,132,26, 0.3)' : 'rgba(251, 191, 36, 0.2)';
                     ctx.fill();
                 }
                 ctx.restore();
@@ -3377,7 +4287,7 @@
             if (leftHalf) {
                 leftHalf.style.transition = 'all 650ms cubic-bezier(0.175, 0.885, 0.32, 1.275)';
                 leftHalf.style.transform = 'scale(1.08)';
-                leftHalf.classList.add('shadow-[0_0_140px_rgba(249,115,22,0.85)]', 'border-amber-400');
+                leftHalf.classList.add('shadow-[0_0_140px_rgba(255,132,26,0.85)]', 'border-amber-400');
             }
 
             // 3. Hide center text/equalizer overlays & bottom buttons so video is completely unobstructed!
@@ -3522,12 +4432,16 @@
     })();
     </script>
 
+    <!-- Global Transition Elements for Yaman AI Ball/Spotlight -->
+    <div id="transition-orb" class="fixed w-10 h-10 rounded-full bg-gradient-to-r from-brand-orange to-amber-500 shadow-[0_0_30px_#FF841A,#ffffff_0_0_10px] pointer-events-none z-[9999] opacity-0" style="left: 0; top: 0; transform: translate3d(0, 0, 0); will-change: transform, opacity;"></div>
+    <div id="transition-ripple" class="fixed left-0 top-0 w-0 h-0 bg-brand-orange/15 rounded-full blur-3xl pointer-events-none z-[9998] transition-all duration-700 ease-out" style="transform: translate(-50%, -50%); transform-origin: center center;"></div>
+
     <!-- ===== YAMAN AI FLOATING COPILOT WIDGET & CHAT DRAWER ===== -->
     <!-- Hidden initially; shown after welcome portal closes -->
     <div id="yaman-ai-widget-wrapper" class="fixed bottom-6 right-6 z-[9999]" style="display:none;">
 
         <!-- Floating Trigger Button with Rotating Hologram Aura -->
-        <button id="yaman-ai-trigger-btn" onclick="toggleYamanAIChat()" class="relative group flex items-center gap-3 px-5 py-3.5 rounded-full bg-[#050a1c]/90 border-2 border-brand-orange/60 shadow-[0_0_35px_rgba(249,115,22,0.55)] hover:scale-105 active:scale-95 transition-all duration-300 backdrop-blur-xl">
+        <button id="yaman-ai-trigger-btn" onclick="toggleYamanAIChat()" class="relative group flex items-center gap-3 px-5 py-3.5 rounded-full bg-[#050a1c]/90 border-2 border-brand-orange/60 shadow-[0_0_35px_rgba(255,132,26,0.55)] hover:scale-105 active:scale-95 transition-all duration-300 backdrop-blur-xl">
             <!-- Ambient Breathing Aura -->
             <span class="absolute inset-[-4px] rounded-full bg-brand-orange/40 blur-md opacity-70 group-hover:opacity-100 transition-opacity animate-pulse"></span>
             
@@ -3550,7 +4464,7 @@
         </button>
 
         <!-- Floating Yaman AI Chat Drawer Window -->
-        <div id="yaman-ai-chat-drawer" class="absolute bottom-16 right-0 w-[92vw] sm:w-[380px] bg-[#050a1c]/95 border-2 border-brand-orange/50 rounded-[32px] p-5 shadow-[0_0_90px_rgba(249,115,22,0.4)] backdrop-blur-2xl opacity-0 pointer-events-none transform translate-y-6 scale-95 transition-all duration-300 overflow-hidden">
+        <div id="yaman-ai-chat-drawer" class="absolute bottom-16 right-0 w-[92vw] sm:w-[380px] bg-[#050a1c]/95 border-2 border-brand-orange/50 rounded-[32px] p-5 shadow-[0_0_90px_rgba(255,132,26,0.4)] backdrop-blur-2xl opacity-0 pointer-events-none transform translate-y-6 scale-95 transition-all duration-300 overflow-hidden">
             
             <!-- Ambient Glow Orb -->
             <div class="absolute -top-20 -right-20 w-48 h-48 bg-brand-orange/20 rounded-full blur-3xl pointer-events-none"></div>
@@ -3558,7 +4472,7 @@
             <!-- Chat Drawer Header -->
             <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
                 <div class="flex items-center gap-3">
-                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-orange to-amber-400 p-0.5 shadow-[0_0_15px_rgba(249,115,22,0.5)]">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-orange to-amber-400 p-0.5 shadow-[0_0_15px_rgba(255,132,26,0.5)]">
                         <div class="w-full h-full bg-[#020617] rounded-[14px] overflow-hidden flex items-center justify-center">
                             <img src="images/ai_character.png" class="w-full h-full object-cover" alt="Yaman AI">
                         </div>
@@ -3606,7 +4520,7 @@
             <!-- Chat Input Form -->
             <form onsubmit="handleYamanSubmit(event)" class="relative flex items-center gap-2">
                 <input type="text" id="yaman-chat-input" placeholder="Yaman AI'a sorun..." class="w-full bg-[#020617] border border-white/15 rounded-2xl px-4 py-2.5 text-xs text-white placeholder-white/40 focus:border-brand-orange outline-none transition-all">
-                <button type="submit" class="w-9 h-9 rounded-2xl bg-brand-orange hover:bg-orange-400 text-white flex items-center justify-center font-bold text-xs flex-shrink-0 transition-transform active:scale-95 shadow-[0_0_15px_rgba(249,115,22,0.5)]">
+                <button type="submit" class="w-9 h-9 rounded-2xl bg-brand-orange hover:bg-orange-400 text-white flex items-center justify-center font-bold text-xs flex-shrink-0 transition-transform active:scale-95 shadow-[0_0_15px_rgba(255,132,26,0.5)]">
                     ➔
                 </button>
             </form>
